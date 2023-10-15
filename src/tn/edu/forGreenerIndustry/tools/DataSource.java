@@ -18,7 +18,7 @@ public class DataSource {
     private Connection cnx;
     private static DataSource instance;
     
-    private String url = "jdbc:mysql://localhost:3306/esprit";
+    private String url = "jdbc:mysql://localhost:3306/for_greener_industry";
     private String user = "root";
     private String password = "";
     
