@@ -34,6 +34,7 @@ public class ServiceCommentaires implements IService<Commentaires> {
                     + "VALUES (?, ?, ?, ?)";
 
             PreparedStatement pst = cnx.prepareStatement(req);
+            pst.setInt(1, t.getId_commentaire());
             pst.setInt(2, t.getId_user());
             pst.setInt(3, t.getId_post());
             pst.setString(4, t.getContenu());
