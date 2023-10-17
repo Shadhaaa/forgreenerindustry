@@ -27,9 +27,9 @@ public class FXMain extends Application {
         Parent root;
         try {
             root = FXMLLoader.load(getClass().
-                    getResource("PostFXML.fxml"));
+                    getResource("DashboardFXML.fxml"));
             Scene scene = new Scene(root);
-            primaryStage.setTitle("Ajouter Post");
+            primaryStage.setTitle("Home");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {

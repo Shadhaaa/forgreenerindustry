@@ -70,10 +70,28 @@ public class AllPostsFXMLController implements Initializable {
         loadPostData();
 }
     
+     @FXML
+    private void btnReturn(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("PostFXML.fxml"));
+            Parent root = loader.load();
+            Scene postScene = new Scene(root);
+
+            Stage stage = (Stage) tableView.getScene().getWindow();
+            stage.setScene(postScene);
+            stage.setTitle("Add Post");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
     public void loadPostData() {
         // Fetch all posts and add them to the TableView
         ObservableList<Post> posts = FXCollections.observableArrayList(service.getAll(null));
         tableView.setItems(posts);
     }
+
+   
  
 }

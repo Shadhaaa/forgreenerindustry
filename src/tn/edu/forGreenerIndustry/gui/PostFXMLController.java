@@ -48,6 +48,8 @@ public class PostFXMLController implements Initializable {
     private TextField tfImage;
     
     private AllPostsFXMLController allPostsController;
+    @FXML
+    private Button home;
     
     public void setAllPostsController(AllPostsFXMLController allPostsController) {
         this.allPostsController = allPostsController;
@@ -111,11 +113,24 @@ public class PostFXMLController implements Initializable {
             System.out.println(ex.getMessage());
         }
     }
+    
+    @FXML
+    private void btnHome(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("DashboardFXML.fxml"));
+            Parent root = loader.load();
+            Scene dashboardScene = new Scene(root);
+            Stage stage = (Stage) home.getScene().getWindow();
+            stage.setScene(dashboardScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     private void showAlert(String message) {
         // You can implement the logic to show an alert or message here
     }
 
-   
+    
 }
 
