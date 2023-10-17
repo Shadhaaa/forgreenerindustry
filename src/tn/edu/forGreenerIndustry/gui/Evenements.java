@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tn.edu.forGreenerIndustry.entities;
+package tn.edu.forgreenerindustry.gui;
 
 /**
  *
- * @author shadha
+ * @author milou
  */
-public class Produit {
+class Evenements {
     
 }

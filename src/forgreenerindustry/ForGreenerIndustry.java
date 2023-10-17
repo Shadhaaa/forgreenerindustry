@@ -5,85 +5,120 @@
  */
 package forgreenerindustry;
 
+import java.sql.Date;
 import java.text.ParseException;
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 import java.util.List;
-import tn.edu.forGreenerIndustry.entities.Commande;
-import tn.edu.forGreenerIndustry.entities.Reclamation;
-import tn.edu.forGreenerIndustry.tools.DataSource;
-import tn.edu.forGreenerIndustry.entities.User;
-import tn.edu.forGreenerIndustry.services.IService;
-import tn.edu.forGreenerIndustry.services.ServiceUser;
-/**
- *
- * @author shadha
- */
-public class ForGreenerIndustry { 
-   public enum Role {
-    CLIENT,
-    INVESTISSEUR,
-    AGENT_ENTREPRISE,
-    LIVREUR;
-}
-    public enum Genre {
-    HOMME ,FEMME
-}
-    public enum Comp{
-        AliExpress ,
-        Glovo ,
-        Jumia ,
-        Aucune ,
-        Autre ;
-    }
-    /**
-     * @param args the command line arguments
-     */
+import tn.edu.forgreenerindustry.entities.Evenement;
+import tn.edu.forgreenerindustry.entities.Investissement;
+import tn.edu.forgreenerindustry.services.ServiceEvenement;
+import tn.edu.forgreenerindustry.services.ServiceInvestissement;
+import tn.edu.forgreenerindustry.tools.DataSource;
+
+public class ForGreenerIndustry {
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Initialize the data source
         DataSource.getInstance();
-         ServiceUser service = new ServiceUser();
-         
-// User instance
-User c1 = new User(7,
-    "shahd2",
-    "nanana89898na",
-    "profile5.jpg",
-    12348888,
-    "jahahahahe@example.com",
-    "psw",
-    Role.CLIENT,
-    "123 Main St",
-    Genre.FEMME,
-    "voiture",
-    Comp.Glovo,
-   0
-);
-//service.ajouter(c1);
-         //service.modifier(c1);
-         //getone 
-         
-        /*  User user = service.getOne(c1);
-if (user != null) {
-    System.out.println(user); // Assuming User class has a proper toString() implementation
-} else {
-    System.out.println("User not found.");
-}
-*/
-//get all 
 
-    User user1 = new User();
-
-    List<User> userList = service.getAll(user1);
-
-    for (User u : userList) {
-        System.out.println(u); 
-    }
-}
-            
+        // Create an instance of the Post service
+        ServiceEvenement service = new ServiceEvenement();
+        ServiceInvestissement serviceInv = new ServiceInvestissement();
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        //*********************** Ajouter Evenement ************************
+        /*java.util.Date utilDate = df.parse("12/11/2012 15:30");
+        Date sqlDate = new Date(utilDate.getTime());
+        Evenement e1 = new Evenement(1, 2, "Welcome", sqlDate, "Event", "We have a new event","url_photo.jpg","url_photo.jpg","url_photo.jpg");
+        service.ajouter(e1);
+        */
+        //*********************** Modifier Evenement ***********************
+        /*
+        java.util.Date utilDate = df.parse("17/07/2021 10:30");
+        Date sqlDate = new Date(utilDate.getTime());
+        int idEvenementAModifier =13;
+        Evenement evenementAModifier = service.getOne(idEvenementAModifier);
+        if (evenementAModifier != null) {
+        evenementAModifier.setDate_evenement(sqlDate); // Remplacez "nouvelleDate" par la nouvelle date souhaitée.
+        service.modifier(evenementAModifier);
         }
-
-
-
         
-    
-    
+        
+        /*
+        //*********************** Supprimer Evenement ***********************
+        int idEvenementASupprimer = 7;
+        // Appelez la méthode supprimer pour supprimer l'événement.
+        service.supprimer(idEvenementASupprimer);
+        
+        
+        //*********************** getOne Evenement *************************
+        // Obtenez un événement en utilisant son ID (remplacez 1 par l'ID de l'événement que vous souhaitez récupérer).
+        int idEvenementARecuperer = 1;
+        Evenement evenementRecupere = service.getOne(idEvenementARecuperer);
+        if (evenementRecupere != null) {
+        System.out.println("Événement récupéré : " + evenementRecupere);
+        }
+        
+        //*********************** getAll Evenement *************************
+        List<Evenement> listeEvenements = service.getAll(null);
+        if (listeEvenements.isEmpty()) {
+        System.out.println("Aucun événement trouvé.");
+        } else {
+        System.out.println("Liste des événements :");
+        for (Evenement evenement : listeEvenements) {
+        System.out.println(evenement); // Assurez-vous que la classe Evenement a une méthode toString appropriée pour l'affichage.
+        }
+        }
+        
+        
+        //*********************** Ajouter Investissement ************************
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        java.util.Date utilDate = df.parse("15/09/2023 10:30");
+        Date sqlDate = new Date(utilDate.getTime());
+        // Créez un objet Investissement avec les informations nécessaires.
+        Investissement investissement = new Investissement(4,44,4000.d,sqlDate,"30mois","details inv4",0);
+        // Appelez la méthode ajouter pour insérer l'investissement dans la base de données.
+        serviceInv.ajouter(investissement);
+        
+        */
+        //*********************** Modifier Investissement ***********************
+        /*java.util.Date utilDate = df.parse("11/05/2020 09:30");
+        Date sqlDate = new Date(utilDate.getTime());
+        int idInvestissementAModifier =10;
+        Investissement investissementAModifier = serviceInv.getOne(idInvestissementAModifier);
+        if (investissementAModifier != null) {
+        investissementAModifier.setDate_debut_investissement(sqlDate); // Remplacez "nouvelleDate" par la nouvelle date souhaitée.
+        serviceInv.modifier(investissementAModifier);
+        }
+        
+        */
+        //*********************** Supprimer Investissement ***********************
+        /*int idInvestissementASupprimer = 10;
+        serviceInv.supprimer(idInvestissementASupprimer);
+        
+        
+        */
+        
+        
+        //*********************** getOne Evenement *************************
+       /* // Obtenez un événement en utilisant son ID (remplacez 1 par l'ID de l'événement que vous souhaitez récupérer).
+        int idInvestissementARecuperer = 10;
+        Investissement investissementRecupere = serviceInv.getOne(idInvestissementARecuperer);
+        if (investissementRecupere != null) {
+        System.out.println("Investissement récupéré : " + investissementRecupere);
+        }
+        
+        */
+        //*********************** getAll Evenement *************************
+       /* List<Investissement> listeInvestissements = serviceInv.getAll(null);
+        if (listeInvestissements.isEmpty()) {
+        System.out.println("Aucun investissement trouvé.");
+        } else {
+        System.out.println("Liste des investissement :");
+        for (Investissement investissement : listeInvestissements) {
+        System.out.println(investissement); // Assurez-vous que la classe Evenement a une méthode toString appropriée pour l'affichage.
+        }
+        }
+        
+     */
+    }
+
+}

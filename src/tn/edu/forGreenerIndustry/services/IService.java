@@ -3,17 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tn.edu.forGreenerIndustry.services;
+package tn.edu.forgreenerindustry.services;
 
 import java.util.List;
+
 /**
  *
- * @author shadha
+ * @author milou
+ * @param <T>
  */
-public interface IService <T> {
-    public void ajouter(T t);
-    public void modifier(T t);
-    public void supprimer(int id);
-    public T getOne(T t);
+public interface IService < T > {
+    public void ajouter (T t);     //throws SQLExecption
+    public void modifier (T t);
+    public void supprimer (int id );
+    public T getOne(int id);
     public List<T> getAll(T t);
+    
 }

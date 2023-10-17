@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tn.edu.forGreenerIndustry.tools;
+package tn.edu.forgreenerindustry.tools;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,28 +12,36 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
  *
- * @author shadha
+ * @author milou
  */
 public class DataSource {
     private Connection cnx;
     private static DataSource instance;
     
+    
     private String url = "jdbc:mysql://localhost:3306/for_greener_industry";
     private String user = "root";
     private String password = "";
     
-    private DataSource(){
+    private DataSource() throws ClassNotFoundException{
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             cnx = DriverManager.getConnection(url, user, password);
-            System.out.println("Connected to DB !");
+            System.out.println("Connected to DB!");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
     
+    
+    
     public static DataSource getInstance(){
         if(instance == null){
-            instance = new DataSource();
+            try {
+                instance = new DataSource();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(DataSource.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return instance;
     }
@@ -41,5 +49,5 @@ public class DataSource {
     public Connection getConnection(){
         return this.cnx;
     }
-    
+
 }
