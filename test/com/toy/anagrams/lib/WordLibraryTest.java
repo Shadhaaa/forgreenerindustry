@@ -31,6 +31,7 @@
 
 package com.toy.anagrams.lib;
 
+import tn.edu.forGreenerIndustry.services.WordLibrary;
 import java.util.Arrays;
 import junit.framework.TestCase;
 

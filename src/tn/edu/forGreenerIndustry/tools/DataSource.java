@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package tn.edu.forGreenerIndustry.tools;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -15,6 +14,7 @@ import java.util.logging.Logger;
  * @author shadha
  */
 public class DataSource {
+    
     private Connection cnx;
     private static DataSource instance;
     
@@ -41,5 +41,5 @@ public class DataSource {
     public Connection getConnection(){
         return this.cnx;
     }
-    
 }
+

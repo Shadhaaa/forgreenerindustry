@@ -6,14 +6,17 @@
 package tn.edu.forGreenerIndustry.services;
 
 import java.util.List;
+
 /**
  *
- * @author shadha
+ * @author mila
+ * @param <T>
  */
 public interface IService <T> {
     public void ajouter(T t);
     public void modifier(T t);
     public void supprimer(int id);
-    public T getOne(T t);
+    public T getOne(int id_post);
     public List<T> getAll(T t);
 }
+
