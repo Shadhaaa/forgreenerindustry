@@ -22,8 +22,9 @@
       <TextField fx:id="tfContenu" layoutX="196.0" layoutY="318.0" />
       <ComboBox fx:id="comboBoxType" layoutX="196.0" layoutY="260.0" prefHeight="31.0" prefWidth="187.0" />
       <DatePicker fx:id="datePicker" layoutX="198.0" layoutY="447.0" />
-      <Button layoutX="482.0" layoutY="478.0" mnemonicParsing="false" onAction="#btnAjouter" text="Ajouter" />
+      <Button layoutX="488.0" layoutY="432.0" mnemonicParsing="false" onAction="#btnAjouter" text="Ajouter" />
       <Label layoutX="54.0" layoutY="385.0" text="image" />
       <TextField fx:id="tfImage" layoutX="196.0" layoutY="380.0" prefHeight="31.0" prefWidth="187.0" />
+      <Button layoutX="490.0" layoutY="486.0" mnemonicParsing="false" onAction="#btnShow" text="Afficher" />
    </children>
 </AnchorPane>

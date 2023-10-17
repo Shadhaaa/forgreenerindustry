@@ -30,26 +30,26 @@ public class ServicePost implements IService<Post> {
 }
 
     @Override
-public void ajouter(Post t) {
-    try {
-        String req = "INSERT INTO `posts` (`id_post`, `id_entreprise`, `titre`, `type_de_contenu`, `contenu`, `date`, `url_image`, `nb_vue`) "
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    public void ajouter(Post t) {
+        try {
+            String req = "INSERT INTO `post` (`id_post`, `id_entreprise`, `titre`, `typeDeContenu`, `contenu`, `date`, `image`) "
+                  + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-        PreparedStatement pst = cnx.prepareStatement(req);
-        pst.setInt(1, t.getId_post());
-        pst.setInt(2, t.getId_entreprise());
-        pst.setString(3, t.getTitre());
-        pst.setString(4, t.getTypeDeContenu());
-        pst.setString(5, t.getContenu());
-        pst.setDate(6, t.getDate());
-        pst.setString(7, t.getImage());
-        pst.setFloat(8, t.getNbr_de_vue());
+            PreparedStatement pst = cnx.prepareStatement(req);
+            pst.setInt(1, t.getId_post());
+            pst.setInt(2, t.getId_entreprise());
+            pst.setString(3, t.getTitre());
+            pst.setString(4, t.getTypeDeContenu());
+            pst.setString(5, t.getContenu());
+            pst.setDate(6, t.getDate());
+            pst.setString(7, t.getImage());
+            
 
-        pst.executeUpdate();
-        System.out.println("Post added successfully");
-    } catch (SQLException ex) {
-        // Log the exception
-        System.err.println("Error while adding a post: " + ex.getMessage());
+            pst.executeUpdate();
+            System.out.println("Post added successfully");
+        } catch (SQLException ex) {
+        
+            System.err.println("Error while adding a post: " + ex.getMessage());
     }
 }
 
@@ -62,7 +62,7 @@ public void ajouter(Post t) {
         }
         try {
             String req = "UPDATE `post` SET `id_post` = ?, `id_entreprise` = ?, `titre` = ?, `typeDeContenu` = ?, `contenu` = ?, "
-                    + "`date` = ?, `image` = ?, `nbr_de_vue` = ? WHERE `id_post` = ?" ; 
+                    + "`date` = ?, `image` = ?  WHERE `id_post` = ?" ; 
             
             PreparedStatement pst = cnx.prepareStatement(req);
             pst.setInt (2, t.getId_entreprise());
@@ -71,7 +71,6 @@ public void ajouter(Post t) {
             pst.setString(5, t.getContenu());
             pst.setDate(6, t.getDate());
             pst.setString(7, t.getImage());
-            pst.setFloat(8, t.getNbr_de_vue());
             pst.setInt(1, t.getId_post());
 
             pst.executeUpdate();
@@ -120,7 +119,7 @@ public void ajouter(Post t) {
                 post.setContenu(rs.getString("contenu"));
                 post.setDate(rs.getDate("date"));
                 post.setImage(rs.getString("image"));
-                post.setNbr_de_vue(rs.getFloat("nbr_de_vue"));
+                
                 return post;
             } else {
                 System.out.println("No post found with id_post = " + id_post);
@@ -152,7 +151,7 @@ public void ajouter(Post t) {
             post.setContenu(rs.getString("contenu"));
             post.setDate(rs.getDate("date"));
             post.setImage(rs.getString("image"));
-            post.setNbr_de_vue(rs.getFloat("nbr_de_vue"));
+            
             postList.add(post);
         }
     }       catch (SQLException ex) {

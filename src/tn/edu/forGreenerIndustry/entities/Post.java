@@ -19,7 +19,7 @@ public class Post {
     private String contenu;
     private Date date;
     private String image;
-    private float nbr_de_vue; 
+    
     
     
     public Post() {
@@ -33,10 +33,10 @@ public class Post {
     this.contenu = contenu;
     this.date = date;
     this.image = image;
-    this.nbr_de_vue = nbr_de_vue;
+    
 }
     
-    public Post(int id_post, int id_entreprise, String titre, String typeDeContenu, String contenu, Date date, String image, float nbr_de_vue) {
+    public Post(int id_post, int id_entreprise, String titre, String typeDeContenu, String contenu, Date date, String image) {
     this.id_post = id_post;
     this.id_entreprise = id_entreprise;
     this.titre = titre;
@@ -44,7 +44,7 @@ public class Post {
     this.contenu = contenu;
     this.date = date;
     this.image = image;
-    this.nbr_de_vue = nbr_de_vue;
+    
 }
 
   
@@ -104,25 +104,17 @@ public class Post {
     public void setImage(String image) {
         this.image = image;
     }
-
-    public float getNbr_de_vue() {
-        return nbr_de_vue;
-    }
-
-    public void setNbr_de_vue(float nbr_de_vue) {
-        this.nbr_de_vue = nbr_de_vue;
-    }
-
+    
     @Override
     public String toString() {
         return "Posts{" +
+            "id_post=" + id_post +
             ", id_entreprise=" + id_entreprise +
             ", titre='" + titre + '\'' +
             ", typeDeContenu='" + typeDeContenu + '\'' +
             ", contenu='" + contenu + '\'' +
             ", date=" + date +
-            ", image='" + image + '\'' +
-            ", nbr_de_vue=" + nbr_de_vue +
+            ", image='" + image + '\'' +           
             '}';
 }
 
@@ -136,7 +128,7 @@ public class Post {
         hash = 71 * hash + (this.contenu != null ? this.contenu.hashCode() : 0);
         hash = 71 * hash + (this.date != null ? this.date.hashCode() : 0);
         hash = 71 * hash + (this.image != null ? this.image.hashCode() : 0);
-        hash = 71 * hash + Float.floatToIntBits(this.nbr_de_vue);
+        
         return hash;
     }
 
@@ -158,9 +150,7 @@ public class Post {
         if (this.id_entreprise != other.id_entreprise) {
             return false;
         }
-        if (Float.floatToIntBits(this.nbr_de_vue) != Float.floatToIntBits(other.nbr_de_vue)) {
-            return false;
-        }
+        
         if ((this.titre == null) ? (other.titre != null) : !this.titre.equals(other.titre)) {
             return false;
         }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="568.0" prefWidth="749.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tn.edu.forGreenerIndustry.gui.AllPostsFXMLController">
+   <children>
+      <TableView fx:id="tableView" layoutX="99.0" layoutY="200.0" prefHeight="200.0" prefWidth="527.0">
+        <columns>
+          <TableColumn fx:id="tfPost" prefWidth="75.0" text="id_post" />
+          <TableColumn fx:id="tfEntreprise" prefWidth="75.0" text="id_entreprise" />
+            <TableColumn fx:id="tfTitre" prefWidth="75.0" text="titre" />
+            <TableColumn fx:id="tfType" prefWidth="75.0" text="type" />
+            <TableColumn fx:id="tfContenu" prefWidth="75.0" text="contenu" />
+            <TableColumn fx:id="tfImage" prefWidth="75.0" text="image" />
+            <TableColumn fx:id="tfDate" prefWidth="75.0" text="date" />
+        </columns>
+      </TableView>
+      <Label layoutX="344.0" layoutY="52.0" text="Posts" />
+   </children>
+</AnchorPane>

@@ -3,18 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Mega/Desktop/ForGreenerIndustry/src/tn/edu/forGreenerIndustry/tools/DataSource.java</file>
-            <file>file:/C:/Users/Mega/Desktop/ForGreenerIndustry/src/tn/edu/forGreenerIndustry/entities/Commentaires.java</file>
-            <file>file:/C:/Users/Mega/Desktop/ForGreenerIndustry/src/tn/edu/forGreenerIndustry/gui/PostFXML.fxml</file>
-            <file>file:/C:/Users/Mega/Desktop/ForGreenerIndustry/test/tn/edu/forGreenerIndustry/services/WordLibrary.java</file>
-            <file>file:/C:/Users/Mega/Desktop/ForGreenerIndustry/src/tn/edu/forGreenerIndustry/services/ServiceCommentaires.java</file>
-            <file>file:/C:/Users/Mega/Desktop/ForGreenerIndustry/src/forgreenerindustry/ForGreenerIndustry.java</file>
-            <file>file:/C:/Users/Mega/Desktop/ForGreenerIndustry/src/tn/edu/forGreenerIndustry/entities/Post.java</file>
-            <file>file:/C:/Users/Mega/Desktop/ForGreenerIndustry/src/tn/edu/forGreenerIndustry/services/IService.java</file>
-            <file>file:/C:/Users/Mega/Desktop/ForGreenerIndustry/src/tn/edu/forGreenerIndustry/gui/FXMain.java</file>
-            <file>file:/C:/Users/Mega/Desktop/ForGreenerIndustry/src/tn/edu/forGreenerIndustry/services/ServicePost.java</file>
-            <file>file:/C:/Users/Mega/Desktop/ForGreenerIndustry/src/tn/edu/forGreenerIndustry/gui/PostFXMLController.java</file>
-            <file>file:/C:/Users/Mega/Desktop/ForGreenerIndustry/test/com/toy/anagrams/lib/WordLibraryTest.java</file>
+            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/forgreenerindustry/ForGreenerIndustry.java</file>
+            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/PostFXMLController.java</file>
+            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/PostFXML.fxml</file>
+            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/AllPostsFXML.fxml</file>
+            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/AllPostsFXMLController.java</file>
+            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/services/ServicePost.java</file>
+            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/entities/Post.java</file>
+            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/FXMain.java</file>
+            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/services/ServiceCommentaires.java</file>
         </group>
     </open-files>
 </project-private>
