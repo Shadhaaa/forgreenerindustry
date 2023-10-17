@@ -8,12 +8,12 @@ package forgreenerindustry;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
-import tn.edu.forGreenerIndustry.entities.Commande;
-import tn.edu.forGreenerIndustry.entities.Reclamation;
-import tn.edu.forGreenerIndustry.tools.DataSource;
-import tn.edu.forGreenerIndustry.entities.User;
-import tn.edu.forGreenerIndustry.services.IService;
-import tn.edu.forGreenerIndustry.services.ServiceUser;
+import tn.edu.forgreenerindustry.entities.Commande;
+import tn.edu.forgreenerindustry.entities.Reclamation;
+import tn.edu.forgreenerindustry.tools.DataSource;
+import tn.edu.forgreenerindustry.entities.User;
+import tn.edu.forgreenerindustry.services.IService;
+import tn.edu.forgreenerindustry.services.ServiceUser;
 /**
  *
  * @author shadha

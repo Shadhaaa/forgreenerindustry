@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tn.edu.forGreenerIndustry.entities;
+package tn.edu.forgreenerindustry.entities;
 
 import forgreenerindustry.ForGreenerIndustry;
 import forgreenerindustry.ForGreenerIndustry.Role;
@@ -32,11 +32,11 @@ public class Entreprise extends User {
     }
 
     public Entreprise(int id_user,String nom, String prenom, String pdp, int num, String mail,
-            String mdp1, String mdp2 , 
+            String mdp1,  
             Role role ,String adresse ,String logo, String nom_entreprise,
             String secteur, String description, List<User> liste_inv, List<Produit> produits,
             List<Evenement> evenements, List<Post> posts) {
-        super(id_user, nom, prenom, pdp, num, mail, mdp1, mdp2, role, adresse);
+        super(id_user, nom, prenom, pdp, num, mail, mdp1,  role, adresse);
         this.logo = logo;
         this.nom_entreprise = nom_entreprise;
         this.secteur = secteur;
@@ -48,7 +48,7 @@ public class Entreprise extends User {
     }
 //constructeur sans id
     public Entreprise( String nom, String prenom, String pdp, int num, String mail, String mdp1, String mdp2, Role role, String adresse,  String logo,  String nom_entreprise, String secteur, String description, List<User> liste_inv, List<Produit> produits, List<Evenement> evenements, List<Post> posts) {
-        super(nom, prenom, pdp, num, mail, mdp1, mdp2, role, adresse);
+        super(nom, prenom, pdp, num, mail, mdp1,  role, adresse);
         this.logo = logo;
         this.nom_entreprise = nom_entreprise;
         this.secteur = secteur;
@@ -57,6 +57,16 @@ public class Entreprise extends User {
         this.produits = produits;
         this.evenements = evenements;
         this.posts = posts;
+    }
+    //constructeur sans liste sans id 
+    //constructeur sans id
+    public Entreprise( String nom, String prenom, String pdp, int num, String mail, String mdp1, Role role, String adresse,  String logo,  String nom_entreprise, String secteur, String description) {
+        super(nom, prenom, pdp, num, mail, mdp1, role, adresse);
+        this.logo = logo;
+        this.nom_entreprise = nom_entreprise;
+        this.secteur = secteur;
+        this.description = description;
+        
     }
     
 }
