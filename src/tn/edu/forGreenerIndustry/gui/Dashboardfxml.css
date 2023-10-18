@@ -1,0 +1,58 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    
+
+}
+#btnAdd {
+    -fx-background-color: #00CED1 ; 
+    -fx-text-fill: white; 
+    -fx-font-size: 30px; 
+    -fx-padding: 10px; 
+}
+#btnAdd:hover {
+    -fx-background-color: #00A3A6; 
+}
+
+#btnShow {
+    -fx-background-color: #32CD32; 
+    -fx-text-fill: white; 
+    -fx-font-size: 30px;  
+    -fx-padding: 10px; 
+}
+
+#btnShow:hover {
+    -fx-background-color: #2E8B57; 
+}
+
+#Search {
+    -fx-background-color: #FFA500; 
+    -fx-text-fill: white; 
+    -fx-font-size: 30px; 
+    -fx-padding: 10px; 
+}
+#Search:hover {
+    -fx-background-color: #FF8C00; 
+}
+
+#Update {
+    -fx-background-color: #FF6347; 
+    -fx-text-fill: white; 
+    -fx-font-size: 30px; 
+    -fx-padding: 10px; 
+}
+#Update:hover {
+    -fx-background-color: #FF4500; 
+}
+
+#Delete {
+    -fx-background-color: #8A2BE2; 
+    -fx-text-fill: white; 
+    -fx-font-size: 30px; 
+    -fx-padding: 10px; 
+}
+#Delete:hover {
+    -fx-background-color: #6A5ACD; 
+}

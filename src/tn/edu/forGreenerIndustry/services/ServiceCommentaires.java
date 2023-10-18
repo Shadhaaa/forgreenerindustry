@@ -28,29 +28,31 @@ public class ServiceCommentaires implements IService<Commentaires> {
 }
 
     @Override
-    public void ajouter(Commentaires t) {
-        try {
-            String req = "INSERT INTO `commentaires`(`id_user`, `id_post`, `contenu`, `statut`) "
-                    + "VALUES (?, ?, ?, ?)";
+public void ajouter(Commentaires t) {
+    try {
+        String req = "INSERT INTO `commentaires`(`id_commentaire`,`id_user`, `id_post`, `contenu`, `statut`) "
+                + "VALUES (?, ?, ?, ?, ?)";
 
-            PreparedStatement pst = cnx.prepareStatement(req);
-            pst.setInt(1, t.getId_commentaire());
-            pst.setInt(2, t.getId_user());
-            pst.setInt(3, t.getId_post());
-            pst.setString(4, t.getContenu());
-            pst.setString(5, t.getStatut());
+        PreparedStatement pst = cnx.prepareStatement(req);
+        pst.setInt(1, t.getId_commentaire());
+        pst.setInt(2, t.getId_user());
+        pst.setInt(3, t.getId_post());
+        pst.setString(4, t.getContenu());
+        pst.setString(5, t.getStatut()); 
 
-            pst.executeUpdate();
-        } catch (SQLException ex) {
-             System.out.println(ex.getMessage());
-         }
-        
+        pst.executeUpdate();
+        System.out.println("Commentaire ajouté avec succès.");
+    } catch (SQLException ex) {
+        System.out.println("Erreur lors de l'ajout du commentaire : " + ex.getMessage());
     }
+    
+}
+
 
     @Override
     public void modifier(Commentaires t) {
         try {
-            String req = "UPDATE `commentaires` SET `id_user` = ?, `id_post` = ?, `contenu` = ?, `date` = ?, `statut` = ? "
+            String req = "UPDATE `commentaires` SET `id_commentaire` = ?, `id_user` = ?, `id_post` = ?, `contenu` = ?, `date` = ?, `statut` = ? "
                     + "WHERE `id_commentaire` = ?";
 
             PreparedStatement pst = cnx.prepareStatement(req);

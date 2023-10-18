@@ -50,6 +50,10 @@ public class PostFXMLController implements Initializable {
     private AllPostsFXMLController allPostsController;
     @FXML
     private Button home;
+    @FXML
+    private Button btnAjouter;
+    @FXML
+    private Label testID;
     
     public void setAllPostsController(AllPostsFXMLController allPostsController) {
         this.allPostsController = allPostsController;
@@ -70,7 +74,7 @@ public class PostFXMLController implements Initializable {
 
     @FXML
     private void btnAjouter(ActionEvent event) {
-        try {
+        try {          
             int idPost = Integer.parseInt(tfPost.getText());
             int idEntreprise = Integer.parseInt(tfEntreprise.getText());
             String titre = tfTitre.getText();
@@ -80,25 +84,31 @@ public class PostFXMLController implements Initializable {
             Date date = Date.valueOf(localDate); // Convert LocalDate to SQL Date
             String imageUrl = tfImage.getText();
 
-            // lezem tasna3 Post object 
-            Post newPost = new Post(idPost, idEntreprise, titre, selectedValue, contenu, date, imageUrl);
-            
-
-            // nedi l service bech tzid Post l database
             ServicePost service = new ServicePost();
-            service.ajouter(newPost);
 
-            showAlert("Post added successfully");
-            if (allPostsController != null) {
-                allPostsController.loadPostData(); // Add a method to refresh the table
-        }
+        // Check 
+            Post existingPost = service.getOne(idPost);
+            if (existingPost != null) {
+                testID.setText("A post with the same ID already exists.");
+            } else {
+            // new Post object
+                Post newPost = new Post(idPost, idEntreprise, titre, selectedValue, contenu, date, imageUrl);
 
-        showAlert("Post added successfully");
+                service.ajouter(newPost);
+            
+                testID.setText("Post added successfully");
+
+                if (allPostsController != null) {
+                    allPostsController.loadPostData();
+                }
+            }
+            System.out.println("Successfully added post");
         } catch (NumberFormatException e) {
-            showAlert("Invalid input. Please enter valid numbers.");
+            testID.setText("Invalid input. Please enter valid numbers.");
         }
-
+        
     }
+
     
     @FXML
     private void btnShow(ActionEvent event) {
@@ -127,10 +137,6 @@ public class PostFXMLController implements Initializable {
         }
     }
 
-    private void showAlert(String message) {
-        // You can implement the logic to show an alert or message here
-    }
-
-    
+   
 }
 

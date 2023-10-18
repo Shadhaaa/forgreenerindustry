@@ -35,13 +35,19 @@ public class ForGreenerIndustry {
             Post p2 = new Post(2, 5, "Radiant Youth Serum", "product", "premium skincare product developed by our trusted beauty brand", sqlDate, "url_photo.jpg");
             Post p3 = new Post(3, 3, "Special Event", "Event", "Exciting event happening next week!", sqlDate, "event_image.jpg");
 
-            Commentaires c1 = new Commentaires(1, 3, "This is a great post!", "Approved");
+            Commentaires c1 = new Commentaires(1, 1, 3, "This is a great post!", "Approved");
+            Commentaires c2 = new Commentaires(2, 2, 4, "Nice work on this project!", "Approved");
+            Commentaires c3 = new Commentaires(3, 6, 1, "I have a question about this post.", "Pending");
+
+
 
             //service.ajouter(p1);
             //service.ajouter(p2);
-            service.ajouter(p3);
+            // service.ajouter(p3);
             
             //commentairesService.ajouter(c1);
+            //commentairesService.ajouter(c2);
+            //commentairesService.ajouter(c3);
             
             //////////////////////modif///////////////////////
             
@@ -90,7 +96,11 @@ public class ForGreenerIndustry {
                 System.out.println("No posts found.");
             }
             
-            
+            //////////////////////////////////////////
+            List<Commentaires> commentsList = commentairesService.getAll(c1);
+            for (Commentaires comment : commentsList) {
+                System.out.println(comment);
+            }
             
 
         } catch (ParseException ex) {
