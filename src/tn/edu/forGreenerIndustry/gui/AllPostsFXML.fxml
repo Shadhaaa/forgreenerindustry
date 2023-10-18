@@ -20,6 +20,6 @@
         </columns>
       </TableView>
       <Label layoutX="344.0" layoutY="52.0" text="Posts" />
-      <Button layoutX="585.0" layoutY="490.0" mnemonicParsing="false" onAction="#btnReturn" text="retour" />
+      <Button fx:id="home" layoutX="585.0" layoutY="490.0" mnemonicParsing="false" onAction="#btnReturn" text="retour" />
    </children>
 </AnchorPane>

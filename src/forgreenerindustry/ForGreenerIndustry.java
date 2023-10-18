@@ -39,7 +39,7 @@ public class ForGreenerIndustry {
 
             //service.ajouter(p1);
             //service.ajouter(p2);
-            //service.ajouter(p3);
+            service.ajouter(p3);
             
             //commentairesService.ajouter(c1);
             

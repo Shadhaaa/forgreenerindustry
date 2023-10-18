@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="445.0" prefWidth="638.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tn.edu.forGreenerIndustry.gui.DeletePostFXMLController">
+   <children>
+      <TableView fx:id="postTable" layoutX="34.0" layoutY="85.0" prefHeight="200.0" prefWidth="528.0">
+        <columns>
+          <TableColumn fx:id="tfPost" prefWidth="75.0" text="id_post" />
+          <TableColumn fx:id="tfEntreprise" prefWidth="75.0" text="id_entreprise" />
+            <TableColumn fx:id="tfTitre" prefWidth="75.0" text="Titre" />
+            <TableColumn fx:id="tfType" prefWidth="75.0" text="Type" />
+            <TableColumn fx:id="tfContenu" prefWidth="75.0" text="Contenu" />
+            <TableColumn fx:id="tfImage" prefWidth="75.0" text="Image" />
+            <TableColumn fx:id="tfDate" prefWidth="75.0" text="date" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnDelete" layoutX="473.0" layoutY="368.0" mnemonicParsing="false" onAction="#btnDelete" text="supprimer" />
+      <Button fx:id="home" layoutX="44.0" layoutY="368.0" mnemonicParsing="false" onAction="#btnHome" text="Home" />
+   </children>
+</AnchorPane>

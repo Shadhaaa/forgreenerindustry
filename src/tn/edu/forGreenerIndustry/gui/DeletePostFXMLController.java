@@ -8,9 +8,9 @@ package tn.edu.forGreenerIndustry.gui;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,8 +30,16 @@ import tn.edu.forGreenerIndustry.services.ServicePost;
  *
  * @author mila
  */
-public class AllPostsFXMLController implements Initializable {
+public class DeletePostFXMLController implements Initializable {
 
+    @FXML
+    private TableView<Post> postTable;
+    @FXML
+    private Button btnDelete;
+    @FXML
+    private Button home;
+    
+    private ServicePost service;
     @FXML
     private TableColumn<Post, Integer> tfPost;
     @FXML
@@ -46,34 +54,42 @@ public class AllPostsFXMLController implements Initializable {
     private TableColumn<Post, String> tfImage;
     @FXML
     private TableColumn<Post, Date> tfDate;
-    @FXML
-    private TableView<Post> tableView;
-    
-    private ServicePost service;
-    @FXML
-    private Button home;
+
 
     /**
      * Initializes the controller class.
-     * @param url
-     * @param rb
      */
-    @Override 
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
-    tfPost.setCellValueFactory(new PropertyValueFactory<Post, Integer>("idPost"));
-    tfEntreprise.setCellValueFactory(new PropertyValueFactory<Post, Integer>("idEntreprise"));
-    tfTitre.setCellValueFactory(new PropertyValueFactory<Post, String>("titre"));
-    tfType.setCellValueFactory(new PropertyValueFactory<Post, String>("type"));
-    tfContenu.setCellValueFactory(new PropertyValueFactory<Post, String>("contenu"));
-    tfImage.setCellValueFactory(new PropertyValueFactory<Post, String>("image"));
-    tfDate.setCellValueFactory(new PropertyValueFactory<Post, Date>("date"));
+        tfPost.setCellValueFactory(new PropertyValueFactory<Post, Integer>("idPost"));
+        tfEntreprise.setCellValueFactory(new PropertyValueFactory<Post, Integer>("idEntreprise"));
+        tfTitre.setCellValueFactory(new PropertyValueFactory<Post, String>("titre"));
+        tfType.setCellValueFactory(new PropertyValueFactory<Post, String>("type"));
+        tfContenu.setCellValueFactory(new PropertyValueFactory<Post, String>("contenu"));
+        tfImage.setCellValueFactory(new PropertyValueFactory<Post, String>("image"));
+        tfDate.setCellValueFactory(new PropertyValueFactory<Post, Date>("date"));
     
-    service = new ServicePost();
-        loadPostData();
-}
     
-     @FXML
-    private void btnReturn(ActionEvent event) {
+        service = new ServicePost();
+        populatePostTable();
+    }    
+    
+    private void populatePostTable() {
+        List<Post> posts = service.getAll(new Post());
+        postTable.setItems(FXCollections.observableArrayList(posts));
+    }
+
+    @FXML
+    private void btnDelete(ActionEvent event) {
+        Post selectedPost = postTable.getSelectionModel().getSelectedItem();
+        if (selectedPost != null) {
+            service.supprimer(selectedPost.getId_post());
+            populatePostTable(); // Refresh the post list
+        }
+    }
+
+    @FXML
+    private void btnHome(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("DashboardFXML.fxml"));
             Parent root = loader.load();
@@ -85,10 +101,4 @@ public class AllPostsFXMLController implements Initializable {
         }
     }
     
-    public void loadPostData() {
-        // Fetch all posts and add them to the TableView
-        ObservableList<Post> posts = FXCollections.observableArrayList(service.getAll(null));
-        tableView.setItems(posts);
-    }
-
 }

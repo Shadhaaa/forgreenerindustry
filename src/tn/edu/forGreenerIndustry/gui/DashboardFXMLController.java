@@ -30,6 +30,10 @@ public class DashboardFXMLController implements Initializable {
     private Button btnShow;
     @FXML
     private Button Search;
+    @FXML
+    private Button Update;
+    @FXML
+    private Button Delete;
 
     /**
      * Initializes the controller class.
@@ -76,10 +80,34 @@ public class DashboardFXMLController implements Initializable {
 
     @FXML
     private void btnUpdate(ActionEvent event) {
+        try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("EnterIDFXML.fxml"));
+        Parent root = loader.load();
+        Scene enterIDScene = new Scene(root);
+
+        Stage stage = (Stage) Update.getScene().getWindow();
+        stage.setScene(enterIDScene);
+        stage.setTitle("Enter Post ID");
+        stage.show();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
     }
 
     @FXML
     private void btnDelete(ActionEvent event) {
+        try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("DeletePostFXML.fxml"));
+        Parent root = loader.load();
+        Scene deletePostScene = new Scene(root);
+
+        Stage stage = (Stage) Delete.getScene().getWindow();
+        stage.setScene(deletePostScene);
+        stage.setTitle("Delete Post");
+        stage.show();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
     }
 
     @FXML
