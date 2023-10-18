@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="566.0" prefWidth="1122.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forgreenerindustry.gui.CommandeController">
+    <stylesheets>
+        <URL value="@commande.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="515.0" layoutY="25.0" prefHeight="21.0" prefWidth="92.0" text="Commandes" />
+      <Label layoutX="9.0" layoutY="157.0" text="Date commande " />
+      <Label layoutX="13.0" layoutY="190.0" text="Statu commande " />
+      <Label layoutX="16.0" layoutY="250.0" prefHeight="21.0" prefWidth="154.0" text="adresse_livraison" />
+      <Label layoutX="16.0" layoutY="219.0" text="Montatnt_total" />
+      <Label layoutX="19.0" layoutY="278.0" text="Date_livraison" />
+      <Label layoutX="16.0" layoutY="311.0" text="Mode paiement " />
+      <DatePicker fx:id="Ddate_commande" layoutX="130.0" layoutY="152.0" prefHeight="31.0" prefWidth="130.0" />
+      <ComboBox fx:id="ComboStatu_commande" editable="true" layoutX="130.0" layoutY="185.0" prefHeight="31.0" prefWidth="130.0" promptText="En attente" />
+      <TextField fx:id="txtMontatnt" layoutX="130.0" layoutY="214.0" prefHeight="31.0" prefWidth="130.0" />
+      <TextField fx:id="txtLivraison" layoutX="130.0" layoutY="245.0" prefHeight="31.0" prefWidth="130.0" />
+      <DatePicker fx:id="Ddate_livraison" layoutX="130.0" layoutY="273.0" prefHeight="31.0" prefWidth="130.0" />
+      <ComboBox fx:id="Combo_modepaiement" layoutX="130.0" layoutY="306.0" prefHeight="31.0" prefWidth="130.0" />
+      <Button layoutX="72.0" layoutY="367.0" mnemonicParsing="false" onAction="#AjouterCommande" prefHeight="31.0" prefWidth="154.0" text="Ajouter" />
+      <TableView fx:id="tabcommande" editable="true" layoutX="363.0" layoutY="100.0" prefHeight="378.0" prefWidth="722.0">
+        <columns>
+          <TableColumn fx:id="Cdatec" prefWidth="125.0" text="Date commande" />
+          <TableColumn fx:id="Cstatu" prefWidth="135.0" text="Statu commande " />
+            <TableColumn fx:id="Cmontant" minWidth="0.0" prefWidth="109.0" text="Montant total" />
+            <TableColumn fx:id="Cadressel" prefWidth="123.0" text="adresse livraison" />
+            <TableColumn fx:id="Cdateliv" prefWidth="104.0" text="Date livraison" />
+            <TableColumn fx:id="Cmodep" minWidth="0.0" prefWidth="125.0" text="Mode paiement" />
+        </columns>
+      </TableView>
+      <Button layoutX="430.0" layoutY="493.0" mnemonicParsing="false" onAction="#AfficherCommande" prefHeight="31.0" prefWidth="99.0" text="Afficher" />
+      <Button layoutX="947.0" layoutY="493.0" mnemonicParsing="false" onAction="#SupprimerCommande" text="Supprimer" />
+      <Button layoutX="681.0" layoutY="493.0" mnemonicParsing="false" onAction="#ModifierCommande" prefHeight="31.0" prefWidth="99.0" text="Modifier" />
+   </children>
+</AnchorPane>
