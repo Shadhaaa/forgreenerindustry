@@ -34,6 +34,8 @@ public class SearchFXMLController implements Initializable {
     private TextField tfSearch;
     @FXML
     private Button home;
+    @FXML
+    private Button btnSearch;
 
     /**
      * Initializes the controller class.

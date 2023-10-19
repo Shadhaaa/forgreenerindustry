@@ -1,0 +1,67 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+#testID {
+    -fx-font-size: 16px;
+    -fx-text-fill: #666; 
+}
+#btnAjouter {
+    -fx-background-color: #00CED1; 
+    -fx-text-fill: white; 
+    -fx-font-size: 22px; 
+    -fx-background-radius: 20; 
+}
+
+#btnAjouter:hover {
+    -fx-background-color: #FF8C00; 
+}
+
+/* Style for the btnShow button */
+#btnShow {
+    -fx-background-color: #00CED1;
+    -fx-text-fill: white; 
+    -fx-font-size: 22px; 
+    -fx-background-radius: 20; 
+}
+
+#btnShow:hover {
+    -fx-background-color: #2E8B57; 
+}
+
+/* Style for the btnHome button */
+#home {
+    -fx-background-color: #00CED1; 
+    -fx-text-fill: white; 
+    -fx-font-size: 22px; 
+    -fx-background-radius: 20; 
+}
+
+#home:hover {
+    -fx-background-color: #00A3A6; 
+}
+
+#btnDelete {
+    -fx-background-color: #00CED1; 
+    -fx-text-fill: white; 
+    -fx-font-size: 22px; 
+    -fx-background-radius: 20; 
+}
+
+#btnDelete:hover {
+    -fx-background-color: #00A3A6; 
+}
+
+#btnSearch {
+    -fx-background-color: #00CED1;
+    -fx-text-fill: white; 
+    -fx-font-size: 22px; 
+    -fx-background-radius: 20; 
+}
+
+#btnSearch:hover {
+    -fx-background-color: #2E8B57; 
+}

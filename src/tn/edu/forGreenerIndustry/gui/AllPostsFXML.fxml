@@ -4,11 +4,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="568.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forGreenerIndustry.gui.AllPostsFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="568.0" prefWidth="749.0" style="-fx-background-color: #ADD8E6;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forGreenerIndustry.gui.AllPostsFXMLController">
    <children>
-      <TableView fx:id="tableView" layoutX="99.0" layoutY="200.0" prefHeight="200.0" prefWidth="527.0">
+      <TableView fx:id="tableView" layoutX="99.0" layoutY="200.0" prefHeight="200.0" prefWidth="527.0" style="-fx-background-color: #F0F8FF;">
         <columns>
           <TableColumn fx:id="tfPost" prefWidth="75.0" text="id_post" />
           <TableColumn fx:id="tfEntreprise" prefWidth="75.0" text="id_entreprise" />
@@ -19,7 +22,15 @@
             <TableColumn fx:id="tfDate" prefWidth="75.0" text="date" />
         </columns>
       </TableView>
-      <Label layoutX="344.0" layoutY="52.0" text="Posts" />
-      <Button fx:id="home" layoutX="585.0" layoutY="490.0" mnemonicParsing="false" onAction="#btnReturn" text="retour" />
+      <Label layoutX="139.0" layoutY="66.0" prefHeight="57.0" prefWidth="91.0" text="Posts" textFill="#193a83">
+         <font>
+            <Font name="Bernard MT Condensed" size="36.0" />
+         </font></Label>
+      <Button fx:id="home" layoutX="585.0" layoutY="490.0" mnemonicParsing="false" onAction="#btnReturn" stylesheets="@Postfxml.css" text="retour" />
+      <ImageView fitHeight="87.0" fitWidth="71.0" layoutX="574.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../resources/show.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

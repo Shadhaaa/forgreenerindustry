@@ -51,12 +51,12 @@
                   </Label>
                   <ImageView fitHeight="152.0" fitWidth="437.0" layoutX="403.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../build/classes/tn/edu/forGreenerIndustry/gui/media.png" />
+                        <Image url="@../../../../resources/media.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="396.0" fitWidth="708.0" layoutX="9.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="158.0">
+                  <ImageView fitHeight="360.0" fitWidth="666.0" layoutX="27.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="26.14288330078125" AnchorPane.topAnchor="159.0">
                      <image>
-                        <Image url="@../../../../../build/classes/tn/edu/forGreenerIndustry/gui/green.jpeg" />
+                        <Image url="@../../../../resources/green.jpeg" />
                      </image>
                      <effect>
                         <Blend />

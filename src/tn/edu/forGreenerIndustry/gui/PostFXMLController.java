@@ -54,6 +54,8 @@ public class PostFXMLController implements Initializable {
     private Button btnAjouter;
     @FXML
     private Label testID;
+    @FXML
+    private Button btnShow;
     
     public void setAllPostsController(AllPostsFXMLController allPostsController) {
         this.allPostsController = allPostsController;

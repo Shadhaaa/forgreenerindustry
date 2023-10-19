@@ -13,8 +13,10 @@
     -fx-padding: 10px; 
 }
 #btnAdd:hover {
-    -fx-background-color: #00A3A6; 
+    -fx-background-color: #00A3A6;
+    
 }
+
 
 #btnShow {
     -fx-background-color: #32CD32; 
