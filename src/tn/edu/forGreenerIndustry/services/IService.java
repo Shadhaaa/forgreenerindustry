@@ -18,5 +18,6 @@ public interface IService <T> {
     public void supprimer(int id);
     public T getOne(int id_post);
     public List<T> getAll(T t);
+    
 }
 
