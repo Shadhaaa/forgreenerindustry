@@ -26,8 +26,8 @@ public class Post {
     // default
 }
     
-    public Post(int id_entreprise, String titre, String typeDeContenu, String contenu) {
-    this.id_entreprise = id_entreprise;
+    public Post( String titre, String typeDeContenu, String contenu, Date date, String image) {
+    
     this.titre = titre;
     this.typeDeContenu = typeDeContenu;
     this.contenu = contenu;
@@ -46,6 +46,7 @@ public class Post {
     this.image = image;
     
 }
+
 
   
 
