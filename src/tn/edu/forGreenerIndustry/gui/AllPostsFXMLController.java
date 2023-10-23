@@ -32,10 +32,7 @@ import tn.edu.forGreenerIndustry.services.ServicePost;
  */
 public class AllPostsFXMLController implements Initializable {
 
-    @FXML
-    private TableColumn<Post, Integer> tfPost;
-    @FXML
-    private TableColumn<Post, Integer> tfEntreprise;
+    
     @FXML
     private TableColumn<Post, String> tfTitre;
     @FXML
@@ -52,6 +49,8 @@ public class AllPostsFXMLController implements Initializable {
     private ServicePost service;
     @FXML
     private Button home;
+    @FXML
+    private Button btnCmment;
 
     /**
      * Initializes the controller class.
@@ -60,8 +59,7 @@ public class AllPostsFXMLController implements Initializable {
      */
     @Override 
     public void initialize(URL url, ResourceBundle rb) {
-    tfPost.setCellValueFactory(new PropertyValueFactory<Post, Integer>("idPost"));
-    tfEntreprise.setCellValueFactory(new PropertyValueFactory<Post, Integer>("idEntreprise"));
+    
     tfTitre.setCellValueFactory(new PropertyValueFactory<Post, String>("titre"));
     tfType.setCellValueFactory(new PropertyValueFactory<Post, String>("type"));
     tfContenu.setCellValueFactory(new PropertyValueFactory<Post, String>("contenu"));
@@ -86,9 +84,22 @@ public class AllPostsFXMLController implements Initializable {
     }
     
     public void loadPostData() {
-        // Fetch all posts and add them to the TableView
+        // Fetch posts 
         ObservableList<Post> posts = FXCollections.observableArrayList(service.getAll(null));
         tableView.setItems(posts);
+    }
+
+    @FXML
+    private void btnComment(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("CommentsFXML.fxml"));
+            Parent root = loader.load();
+            Scene dashboardScene = new Scene(root);
+            Stage stage = (Stage) btnCmment.getScene().getWindow();
+            stage.setScene(dashboardScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

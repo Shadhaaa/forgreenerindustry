@@ -1,0 +1,207 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tn.edu.forGreenerIndustry.gui;
+
+import java.io.IOException;
+import java.net.URL;
+import java.sql.Date;
+import java.util.List;
+import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import tn.edu.forGreenerIndustry.entities.Commentaires;
+import tn.edu.forGreenerIndustry.entities.Post;
+import tn.edu.forGreenerIndustry.services.ServiceCommentaires;
+import tn.edu.forGreenerIndustry.services.ServicePost;
+
+/**
+ * FXML Controller class
+ *
+ * @author mila
+ */
+public class CommentsFXMLController implements Initializable {
+
+    
+    @FXML
+    private TableView<Post> TableView;
+    
+    
+    @FXML
+    private Button home;
+    @FXML
+    private TableColumn<Post, String> tfTitre;
+    @FXML
+    private TableColumn<Post, String> tfContenu;
+    @FXML
+    private TableColumn<Post, String> tfImage;
+    @FXML
+    private TableColumn<Post, Date> tfDate;
+    @FXML
+    private Button btnAddCmnt;
+    
+    @FXML
+    private Label msg;
+    
+    
+    
+    private ServicePost postService;
+    private ServiceCommentaires commentairesService;
+    
+
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        tfTitre.setCellValueFactory(new PropertyValueFactory<Post, String>("titre"));    
+        tfContenu.setCellValueFactory(new PropertyValueFactory<Post, String>("contenu"));
+        tfImage.setCellValueFactory(new PropertyValueFactory<Post, String>("image"));
+        tfDate.setCellValueFactory(new PropertyValueFactory<Post, Date>("date"));
+    
+        postService = new ServicePost();
+        commentairesService = new ServiceCommentaires();
+        loadPostData();
+    } 
+    
+    private void loadPostData() {
+        ObservableList<Post> posts = FXCollections.observableArrayList(postService.getAll(null));
+        TableView.setItems(posts);
+    }
+
+    @FXML
+    private void btnAdd(ActionEvent event) {
+        
+        /*Node source = (Node) event.getSource();
+    
+        Scene sc = source.getScene();
+    
+        Stage stage = (Stage) sc.getWindow();
+        Post selectedPost = TableView.getSelectionModel().getSelectedItem();
+    
+        if (selectedPost != null) {
+            
+            int postId = selectedPost.getId_post();
+
+        
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddCommentFXML.fxml"));
+            Parent root = loader.load();
+            
+           
+            AddCommentFXMLController addCommentController = loader.getController();
+            addCommentController.setPostId(postId);
+
+            Scene scene = new Scene(root);
+            
+            
+            Stage commande1Stage = new Stage();
+            commande1Stage.setScene(scene);
+            
+            
+            stage.close();
+
+            
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }else {
+       
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Aucune sélection");
+        alert.setHeaderText("Aucune ligne n'est sélectionnée");
+        alert.setContentText("Veuillez sélectionner une ligne dans le tableau avant de passer une commande.");
+        alert.showAndWait();
+    } */
+    
+        /////////////////////////////////
+        Post selectedPost = TableView.getSelectionModel().getSelectedItem();
+
+        if (selectedPost != null) {
+            int postId = selectedPost.getId_post();
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("AddCommentFXML.fxml"));
+                Parent root = loader.load();
+                AddCommentFXMLController addCommentController = loader.getController();
+                addCommentController.setPostId(postId);
+
+                Stage stage = new Stage();
+                stage.setTitle("Add Comment");
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            msg.setText("Please select a post to add a comment to.");
+        }  
+    }
+
+
+    @FXML
+    private void btnShowCmnt(ActionEvent event) {
+        Post selectedPost = TableView.getSelectionModel().getSelectedItem();
+
+        if (selectedPost != null) {
+            int postId = selectedPost.getId_post();
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowCmntFXML.fxml"));
+                Parent root = loader.load();
+                ShowCmntFXMLController showCmntController = loader.getController();
+                showCmntController.setPostId(postId);
+
+                Scene showCmntScene = new Scene(root);
+                Stage stage = new Stage();
+                stage.setTitle("Comments for Post: " + selectedPost.getTitre());
+                stage.setScene(showCmntScene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            msg.setText("Please select a post to view comments.");
+        }
+    
+    }
+
+
+
+    @FXML
+    private void btnHome(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("DashboardFXML.fxml"));
+            Parent root = loader.load();
+            Scene dashboardScene = new Scene(root);
+            Stage stage = (Stage) home.getScene().getWindow();
+            stage.setScene(dashboardScene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    
+
+    
+    
+}

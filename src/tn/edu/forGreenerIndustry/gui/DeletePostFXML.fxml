@@ -7,24 +7,27 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="411.0" prefWidth="842.0" style="-fx-background-color: #ADD8E6;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forGreenerIndustry.gui.DeletePostFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="432.0" prefWidth="894.0" style="-fx-background-color: #D5F8BC;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forGreenerIndustry.gui.DeletePostFXMLController">
    <children>
-      <TableView fx:id="postTable" layoutX="48.0" layoutY="65.0" prefHeight="304.0" prefWidth="535.0">
+      <TableView fx:id="postTable" layoutX="167.0" layoutY="86.0" prefHeight="304.0" prefWidth="535.0">
         <columns>
-          <TableColumn fx:id="tfPost" prefWidth="75.0" text="id_post" />
-          <TableColumn fx:id="tfEntreprise" prefWidth="75.0" text="id_entreprise" />
-            <TableColumn fx:id="tfTitre" prefWidth="75.0" text="Titre" />
-            <TableColumn fx:id="tfType" prefWidth="75.0" text="Type" />
-            <TableColumn fx:id="tfContenu" prefWidth="75.0" text="Contenu" />
-            <TableColumn fx:id="tfImage" prefWidth="75.0" text="Image" />
-            <TableColumn fx:id="tfDate" prefWidth="75.0" text="date" />
+          <TableColumn fx:id="tfEntreprise" minWidth="6.0" prefWidth="6.0" text="id_entreprise" />
+            <TableColumn fx:id="tfTitre" prefWidth="139.0" text="Titre" />
+            <TableColumn fx:id="tfContenu" prefWidth="196.0" text="Contenu" />
+            <TableColumn fx:id="tfImage" prefWidth="111.0" text="Image" />
+            <TableColumn fx:id="tfDate" prefWidth="82.0" text="date" />
         </columns>
       </TableView>
-      <Button fx:id="btnDelete" layoutX="646.0" layoutY="217.0" mnemonicParsing="false" onAction="#btnDelete" stylesheets="@Postfxml.css" text="supprimer" />
-      <Button fx:id="home" layoutX="666.0" layoutY="291.0" mnemonicParsing="false" onAction="#btnHome" stylesheets="@Postfxml.css" text="Home" />
-      <ImageView fitHeight="84.0" fitWidth="78.0" layoutX="666.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="btnDelete" layoutX="724.0" layoutY="228.0" mnemonicParsing="false" onAction="#btnDelete" stylesheets="@Postfxml.css" text="supprimer" />
+      <Button fx:id="home" layoutX="744.0" layoutY="326.0" mnemonicParsing="false" onAction="#btnHome" stylesheets="@Postfxml.css" text="Home" />
+      <ImageView fitHeight="84.0" fitWidth="78.0" layoutX="750.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../resources/delete.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="89.0" fitWidth="100.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../resources/logo.jpg" />
          </image>
       </ImageView>
    </children>

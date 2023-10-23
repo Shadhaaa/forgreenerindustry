@@ -9,40 +9,45 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="551.0" prefWidth="1003.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forGreenerIndustry.gui.DashboardFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="614.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forGreenerIndustry.gui.DashboardFXMLController">
    <children>
       <SplitPane dividerPositions="0.3009478672985782" layoutX="-14.0" layoutY="-6.0" prefHeight="602.0" prefWidth="770.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="-6.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="265.0" style="-fx-background-color: #ADD8E6;" stylesheets="@Dashboardfxml.css">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="265.0" style="-fx-background-color: #D5F8BC;" stylesheets="@Dashboardfxml.css">
                <children>
-                  <Button fx:id="btnShow" layoutX="77.0" layoutY="93.0" mnemonicParsing="false" onAction="#btnShowAll" prefHeight="65.0" prefWidth="174.0" stylesheets="@Dashboardfxml.css" text="posts" textFill="#3f7915">
+                  <Button fx:id="btnShow" layoutX="77.0" layoutY="122.0" mnemonicParsing="false" onAction="#btnShowAll" prefHeight="65.0" prefWidth="174.0" stylesheets="@Dashboardfxml.css" text="posts" textFill="#3f7915">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="Search" layoutX="77.0" layoutY="190.0" mnemonicParsing="false" onAction="#btnSearch" prefHeight="65.0" prefWidth="174.0" text="rechercher" textFill="#438d17">
+                  <Button fx:id="Search" layoutX="77.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnSearch" prefHeight="65.0" prefWidth="174.0" text="rechercher" textFill="#438d17">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="Delete" layoutX="77.0" layoutY="375.0" mnemonicParsing="false" onAction="#btnDelete" prefHeight="65.0" prefWidth="174.0" text="supprimer" textFill="#2b8014">
+                  <Button fx:id="Delete" layoutX="77.0" layoutY="416.0" mnemonicParsing="false" onAction="#btnDelete" prefHeight="65.0" prefWidth="174.0" text="supprimer" textFill="#2b8014">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="Update" layoutX="77.0" layoutY="462.0" mnemonicParsing="false" onAction="#btnUpdate" prefHeight="65.0" prefWidth="174.0" text="modifier" textFill="#108316">
+                  <Button fx:id="Update" layoutX="77.0" layoutY="508.0" mnemonicParsing="false" onAction="#btnUpdate" prefHeight="65.0" prefWidth="174.0" text="modifier" textFill="#108316">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnAdd" layoutX="77.0" layoutY="289.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="65.0" prefWidth="174.0" text="ajouter" textFill="#1e7508">
+                  <Button fx:id="btnAdd" layoutX="77.0" layoutY="319.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="65.0" prefWidth="174.0" text="ajouter" textFill="#1e7508">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Button>
+                  <ImageView fitHeight="99.0" fitWidth="88.0" layoutX="113.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/logo.jpg" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="590.0" style="-fx-background-color: #F0F8FF;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="590.0" style="-fx-background-color: #E0EFE0;">
                <children>
                   <Label layoutX="72.0" layoutY="63.0" text="Home" textFill="#ab1855">
                      <font>
@@ -54,7 +59,7 @@
                         <Image url="@../../../../resources/media.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="360.0" fitWidth="666.0" layoutX="27.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="26.14288330078125" AnchorPane.topAnchor="159.0">
+                  <ImageView fitHeight="360.0" fitWidth="666.0" layoutX="61.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="32.14288330078125" AnchorPane.topAnchor="202.0">
                      <image>
                         <Image url="@../../../../resources/green.jpeg" />
                      </image>

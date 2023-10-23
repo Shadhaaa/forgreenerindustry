@@ -5,6 +5,7 @@
  */
 package tn.edu.forGreenerIndustry.gui;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -21,6 +22,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import tn.edu.forGreenerIndustry.entities.Post;
 import tn.edu.forGreenerIndustry.services.ServicePost;
@@ -56,6 +60,10 @@ public class PostFXMLController implements Initializable {
     private Label testID;
     @FXML
     private Button btnShow;
+    @FXML
+    private ImageView imageView;
+    
+    
     
     public void setAllPostsController(AllPostsFXMLController allPostsController) {
         this.allPostsController = allPostsController;
@@ -67,7 +75,7 @@ public class PostFXMLController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // Initialize the ComboBox with default choices
+        
         comboBoxType.getItems().addAll("Event", "Product", "News");
 
         
@@ -76,38 +84,41 @@ public class PostFXMLController implements Initializable {
 
     @FXML
     private void btnAjouter(ActionEvent event) {
-        try {          
-            int idPost = Integer.parseInt(tfPost.getText());
-            int idEntreprise = Integer.parseInt(tfEntreprise.getText());
-            String titre = tfTitre.getText();
-            String selectedValue = comboBoxType.getValue();
-            String contenu = tfContenu.getText();
-            LocalDate localDate = datePicker.getValue();
-            Date date = Date.valueOf(localDate); // Convert LocalDate to SQL Date
-            String imageUrl = tfImage.getText();
+            try {
+        int idEntreprise = Integer.parseInt(tfEntreprise.getText());
+        String titre = tfTitre.getText();
+        String selectedValue = comboBoxType.getValue();
+        String contenu = tfContenu.getText();
+        LocalDate localDate = datePicker.getValue();
+        String imageUrl = tfImage.getText();
+
+        // Check if required fields are empty
+        if (titre.isEmpty() || contenu.isEmpty()) {
+            testID.setText("Please fill in all the required fields.");
+        } else {
+            Date date = null;
+            if (localDate != null) {
+                date = Date.valueOf(localDate);
+            } else {
+                testID.setText("Please fill in all the required fields.");
+            }
 
             ServicePost service = new ServicePost();
 
-        // Check 
-            Post existingPost = service.getOne(idPost);
-            if (existingPost != null) {
-                testID.setText("A post with the same ID already exists.");
-            } else {
-            // new Post object
-                Post newPost = new Post(idPost, idEntreprise, titre, selectedValue, contenu, date, imageUrl);
+            Post newPost = new Post(titre, selectedValue, contenu, date, imageUrl);
 
-                service.ajouter(newPost);
-            
-                testID.setText("Post added successfully");
+            service.ajouter(newPost);
 
-                if (allPostsController != null) {
-                    allPostsController.loadPostData();
-                }
+            testID.setText("Post added successfully");
+
+            if (allPostsController != null) {
+                allPostsController.loadPostData();
             }
             System.out.println("Successfully added post");
-        } catch (NumberFormatException e) {
-            testID.setText("Invalid input. Please enter valid numbers.");
         }
+    } catch (NumberFormatException e) {
+        testID.setText("Invalid input. Please enter valid numbers.");
+    }
         
     }
 
@@ -115,7 +126,7 @@ public class PostFXMLController implements Initializable {
     @FXML
     private void btnShow(ActionEvent event) {
         try {
-            // Load the AllPosts interface
+            // AllPosts 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AllPostsFXML.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
@@ -139,6 +150,54 @@ public class PostFXMLController implements Initializable {
         }
     }
 
+    @FXML
+    private void btnAddImage(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(
+            new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png", "*.jpeg")
+        );
+
+        File selectedFile = fileChooser.showOpenDialog(null);
+        if (selectedFile != null) {
+            Image image = new Image(selectedFile.toURI().toString());
+            imageView.setImage(image);
+        
+        
+            tfImage.setText(selectedFile.toURI().toString());
+    }
+    }
+
    
 }
 
+/* @FXML
+    private void file(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Pick a banner file!");
+        fileChooser.setInitialDirectory(new File("\\"));
+        Stage stage = new Stage();
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                new FileChooser.ExtensionFilter("JPEG", "*.jpeg"),
+                new FileChooser.ExtensionFilter("PNG", "*.png")
+        );
+        File file = fileChooser.showOpenDialog(stage);
+
+        if (file != null) {
+            try {
+                BufferedImage bufferedImage = ImageIO.read(file);
+                Image img = SwingFXUtils.toFXImage(bufferedImage, null);
+                System.out.println(file.getAbsolutePath());
+                imageeget = file.toURI().toURL().toString();
+                System.out.println(imageeget);
+
+                imageV.setImage(img);
+                imageText.setText(file.getAbsolutePath().toString());
+            } catch (IOException ex) {
+                System.out.println("Could not get the image.");
+            }
+        } else {
+            // L'utilisateur a annulé la sélection de fichier, vous pouvez gérer ce cas ici.
+            System.out.println("Sélection de fichier annulée.");
+        }
+    }*/

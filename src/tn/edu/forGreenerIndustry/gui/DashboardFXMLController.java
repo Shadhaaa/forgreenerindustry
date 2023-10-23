@@ -81,13 +81,13 @@ public class DashboardFXMLController implements Initializable {
     @FXML
     private void btnUpdate(ActionEvent event) {
         try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("EnterIDFXML.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchFXML.fxml"));
         Parent root = loader.load();
         Scene enterIDScene = new Scene(root);
 
         Stage stage = (Stage) Update.getScene().getWindow();
         stage.setScene(enterIDScene);
-        stage.setTitle("Enter Post ID");
+        stage.setTitle("update post");
         stage.show();
     } catch (IOException e) {
         e.printStackTrace();
@@ -117,7 +117,7 @@ public class DashboardFXMLController implements Initializable {
         Parent root = loader.load();
         Scene searchScene = new Scene(root);
 
-        // Get the current stage (DashboardFXML) and switch to the Search scene
+        
         Stage stage = (Stage) Search.getScene().getWindow();
         stage.setScene(searchScene);
         stage.setTitle("Search Posts");

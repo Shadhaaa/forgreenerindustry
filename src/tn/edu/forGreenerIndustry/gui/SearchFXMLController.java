@@ -5,10 +5,16 @@
  */
 package tn.edu.forGreenerIndustry.gui;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,7 +22,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import tn.edu.forGreenerIndustry.entities.Post;
 import tn.edu.forGreenerIndustry.services.ServicePost;
@@ -36,51 +47,124 @@ public class SearchFXMLController implements Initializable {
     private Button home;
     @FXML
     private Button btnSearch;
+   
+   
+    @FXML
+    private TableView<Post> TableView2;
+    @FXML
+    private TableColumn<Post, String> tfTitle;
+    @FXML
+    private TableColumn<Post, String> tfContenu;
+    @FXML
+    private TableColumn<Post, String> tfImage;
+    @FXML
+    private TableColumn<Post, Date> date;
+    
+    private ObservableList<Post> searchResults;
+    @FXML
+    private Button btnShowDetails;
+    
+    
+    
 
     /**
      * Initializes the controller class.
      */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+    
+    
+
+    
+        @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        
+        tfTitle.setCellValueFactory(new PropertyValueFactory("titre"));
+        tfContenu.setCellValueFactory(new PropertyValueFactory("contenu"));
+        tfImage.setCellValueFactory(new PropertyValueFactory("image"));
+        date.setCellValueFactory(new PropertyValueFactory("date"));
+
+        searchResults = FXCollections.observableArrayList();
+        TableView2.setItems(searchResults);
+        
+        
+
+    } 
 
     @FXML
     private void btnSearchPost(ActionEvent event) {
-        try {
-            int postId = Integer.parseInt(tfSearch.getText());
+        String titre = tfSearch.getText();
 
-            // Call a method to search for the post by ID
-            Post post = searchPostById(postId);
+    
+        ServicePost service = new ServicePost();
+        List<Post> foundPosts = service.getPostByTitre(titre); // Implement this method in your ServicePost class
 
-            if (post != null) {
-                
-                String resultText = "ID: " + post.getId_post() + "\n"
-                    + "Entreprise: " + post.getId_entreprise() + "\n"
-                    + "Titre: " + post.getTitre() + "\n"                    
-                    + "Type: " + post.getTypeDeContenu() + "\n"
-                    + "Contenu: " + post.getContenu() + "\n"
-                    + "Date: " + post.getDate() + "\n"
-                    + "Image: " + post.getImage();
+        searchResults.clear();
+        searchResults.addAll(foundPosts);
 
-                lblResult.setText(resultText);
-            } else {
-                
-                lblResult.setText("Post not found.");
-            }
-        } catch (NumberFormatException e) {
-            
-            lblResult.setText("Please enter a valid post ID.");
+        if (foundPosts.isEmpty()) {
+            lblResult.setText("No posts found with the title: " + titre);
+        } else {
+            lblResult.setText("Found " + foundPosts.size() + " post(s) with the title: " + titre);
         }
     }
     
-    private Post searchPostById(int postId) {
-        
-        ServicePost service = new ServicePost();
-        return service.getOne(postId);
-    }
 
     @FXML
+    private void btnModify(ActionEvent event) {
+        Post selectedPost = TableView2.getSelectionModel().getSelectedItem();
+        if (selectedPost != null) {
+            openModifyInterface(selectedPost);
+        } else {
+            lblResult.setText("Please select a post to modify.");
+        }
+    
+}
+    
+    private void openModifyInterface(Post selectedPost) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifyPostFXML.fxml"));
+            Parent root = loader.load();
+            ModifyPostFXMLController modifyController = loader.getController();
+            modifyController.setPostData(selectedPost);
+
+            Stage stage = new Stage();
+            stage.setTitle("Modify Post");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    
+   // lezem Tools | Templates.
+   
+
+    @FXML
+    private void btnShowDetails(ActionEvent event) {
+        Post selectedPost = TableView2.getSelectionModel().getSelectedItem();
+        if (selectedPost != null) {
+            openDetailsInterface(selectedPost);
+        } else {
+            lblResult.setText("Please select a post ");
+        }
+    }
+    
+    private void openDetailsInterface(Post selectedPost) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailsFXML.fxml"));
+            Parent root = loader.load();
+            DetailsFXMLController detailsController = loader.getController();
+            detailsController.setPostData(selectedPost);
+
+            Stage stage = new Stage();
+            stage.setTitle("Post Details");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+      @FXML
     private void btnHome(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("DashboardFXML.fxml"));
@@ -92,5 +176,4 @@ public class SearchFXMLController implements Initializable {
             e.printStackTrace();
         }
     }
-    
 }

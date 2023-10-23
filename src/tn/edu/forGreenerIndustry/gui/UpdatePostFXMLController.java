@@ -32,10 +32,7 @@ import tn.edu.forGreenerIndustry.services.ServicePost;
  */
 public class UpdatePostFXMLController implements Initializable {
 
-    @FXML
-    private TextField tfPost;
-    @FXML
-    private TextField tfEntreprise;
+    
     @FXML
     private TextField tfTitre;
     @FXML
@@ -64,8 +61,7 @@ public class UpdatePostFXMLController implements Initializable {
         Post post = service.getOne(postID);
 
         if (post != null) {
-            tfPost.setText(String.valueOf(post.getId_post()));
-            tfEntreprise.setText(String.valueOf(post.getId_entreprise()));
+            
             tfTitre.setText(post.getTitre()); 
             comboBoxType.setValue(post.getTypeDeContenu());
             tfContenu.setText(post.getContenu());
@@ -90,15 +86,14 @@ public class UpdatePostFXMLController implements Initializable {
         originalPost = service.getOne(postID);
 
         if (originalPost != null) {
-            // Populate the text fields with data from the retrieved Post object
-            tfPost.setText(String.valueOf(originalPost.getId_post()));
-            tfEntreprise.setText(String.valueOf(originalPost.getId_entreprise()));
+            
+            
             tfTitre.setText(originalPost.getTitre());
             tfContenu.setText(originalPost.getContenu());
             tfImage.setText(originalPost.getImage());
             comboBoxType.setValue(originalPost.getTypeDeContenu());
 
-            // Convert the Date to a LocalDate and set it in the DatePicker
+            
             if (originalPost.getDate() != null) {
                 LocalDate localDate = originalPost.getDate().toLocalDate();
                 DatePicker.setValue(localDate);
@@ -114,7 +109,7 @@ public class UpdatePostFXMLController implements Initializable {
     
         int idPost = postID;
         
-        int idEntreprise = Integer.parseInt(tfEntreprise.getText());
+        
         String titre = tfTitre.getText();
         String selectedType = comboBoxType.getValue();
         String contenu = tfContenu.getText();
@@ -123,9 +118,9 @@ public class UpdatePostFXMLController implements Initializable {
         String imageUrl = tfImage.getText();
 
    
-        Post updatedPost = new Post(idPost, idEntreprise, titre, selectedType, contenu, date, imageUrl);
+        Post updatedPost = new Post( titre, selectedType, contenu, date, imageUrl);
 
-    //  ServicePost to update post
+    //  update post
         ServicePost service = new ServicePost();
         service.modifier(updatedPost);
 

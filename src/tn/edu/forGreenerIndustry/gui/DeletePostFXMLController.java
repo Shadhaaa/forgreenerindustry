@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -17,7 +18,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -40,14 +43,12 @@ public class DeletePostFXMLController implements Initializable {
     private Button home;
     
     private ServicePost service;
-    @FXML
-    private TableColumn<Post, Integer> tfPost;
+   
     @FXML
     private TableColumn<Post, Integer> tfEntreprise;
     @FXML
     private TableColumn<Post, String> tfTitre;
-    @FXML
-    private TableColumn<Post, String> tfType;
+   
     @FXML
     private TableColumn<Post, String> tfContenu;
     @FXML
@@ -61,10 +62,10 @@ public class DeletePostFXMLController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        tfPost.setCellValueFactory(new PropertyValueFactory<Post, Integer>("idPost"));
+        
         tfEntreprise.setCellValueFactory(new PropertyValueFactory<Post, Integer>("idEntreprise"));
         tfTitre.setCellValueFactory(new PropertyValueFactory<Post, String>("titre"));
-        tfType.setCellValueFactory(new PropertyValueFactory<Post, String>("type"));
+        
         tfContenu.setCellValueFactory(new PropertyValueFactory<Post, String>("contenu"));
         tfImage.setCellValueFactory(new PropertyValueFactory<Post, String>("image"));
         tfDate.setCellValueFactory(new PropertyValueFactory<Post, Date>("date"));
@@ -83,8 +84,16 @@ public class DeletePostFXMLController implements Initializable {
     private void btnDelete(ActionEvent event) {
         Post selectedPost = postTable.getSelectionModel().getSelectedItem();
         if (selectedPost != null) {
-            service.supprimer(selectedPost.getId_post());
-            populatePostTable(); // Refresh the post list
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirm Deletion");
+            alert.setHeaderText("Are you sure you want to delete this post?");
+            alert.setContentText("This action cannot be undone.");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                service.supprimer(selectedPost.getId_post());
+                populatePostTable(); // Refresh list
+            }
         }
     }
 
