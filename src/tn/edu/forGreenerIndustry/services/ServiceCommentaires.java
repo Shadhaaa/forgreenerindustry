@@ -55,10 +55,11 @@ public void ajouter(Commentaires t) {
                     + "WHERE `id_commentaire` = ?";
 
             PreparedStatement pst = cnx.prepareStatement(req);
-            pst.setInt(2, t.getId_user());
-            pst.setInt(3, t.getId_post());
-            pst.setString(4, t.getContenu());       
-            pst.setString(5, t.getStatut());
+            pst.setInt(1, t.getId_user());   
+            pst.setInt(2, t.getId_post());   
+            pst.setString(3, t.getContenu());
+            pst.setString(4, t.getStatut());
+            pst.setInt(5, t.getId_commentaire());
             
 
             pst.executeUpdate();
@@ -136,6 +137,32 @@ public void ajouter(Commentaires t) {
         }
         return commentairesList;
     }
+
+    public List<Commentaires> getCommentsByPostId(int postId) {
+    List<Commentaires> comments = new ArrayList();
+
+    try {
+        String query = "SELECT * FROM commentaires WHERE id_post = ?";
+        PreparedStatement pst = cnx.prepareStatement(query);
+        pst.setInt(1, postId);
+
+        ResultSet rs = pst.executeQuery();
+        
+        while (rs.next()) {
+            int id_commentaire = rs.getInt("id_commentaire");
+            int id_user = rs.getInt("id_user");
+            String contenu = rs.getString("contenu");
+            String statut = rs.getString("statut");
+
+            Commentaires comment = new Commentaires(id_commentaire, id_user, postId, contenu, statut);
+            comments.add(comment);
+        }
+    } catch (SQLException ex) {
+        System.err.println(ex.getMessage());
+    }
+
+    return comments;
+}
 
    
 }

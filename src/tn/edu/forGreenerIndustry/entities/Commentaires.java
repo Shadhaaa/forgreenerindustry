@@ -16,13 +16,23 @@ public class Commentaires {
     private int id_post;
     private String contenu;
     private String statut;
+    
+    
 
-    public Commentaires(int id_user, int id_post, String contenu, String statut) {
+    public Commentaires(int id_user,  String contenu, String statut) {
         this.id_user = id_user;
         this.id_post = id_post;
         this.contenu = contenu;
         this.statut = statut;
     }
+    
+    public Commentaires( int id_user, int id_post, String contenu, String statut) {
+    this.id_commentaire = id_commentaire;
+    this.id_user = id_user;
+    this.id_post = id_post;
+    this.contenu = contenu;
+    this.statut = statut;
+}
     
     public Commentaires(int id_commentaire, int id_user, int id_post, String contenu, String statut) {
     this.id_commentaire = id_commentaire;
