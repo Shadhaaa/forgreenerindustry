@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="679.0" prefWidth="952.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forGreenerIndustry.gui.PanierController">
+    <stylesheets>
+        <URL value="@panier.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="400.0" layoutY="14.0" prefHeight="44.0" prefWidth="110.0" text="Panier">
+         <font>
+            <Font name="Cambria" size="36.0" />
+         </font></Label>
+      <TableView fx:id="tabPanier" editable="true" layoutX="418.0" layoutY="102.0" prefHeight="356.0" prefWidth="358.0" style="-fx-border-color: black;">
+        <columns>
+            <TableColumn fx:id="columnProduit" prefWidth="75.0" text="Produit" />
+          <TableColumn fx:id="Columnquantite" prefWidth="75.0" text="Quantité" />
+          <TableColumn fx:id="columnprixu" prefWidth="109.0" text="Prix unitaire" />
+            <TableColumn fx:id="columnprixtot" prefWidth="87.0" text="Prix totale" />
+        </columns>
+      </TableView>
+      <Button layoutX="435.0" layoutY="479.0" mnemonicParsing="false" onAction="#AfficherPanier" prefHeight="31.0" prefWidth="82.0" text="Afficher" />
+      <Button layoutX="549.0" layoutY="479.0" mnemonicParsing="false" onAction="#ModifierPanier" prefHeight="31.0" prefWidth="82.0" text="Modifier" />
+      <Button layoutX="657.0" layoutY="479.0" mnemonicParsing="false" onAction="#SupprimerPanier" prefHeight="31.0" prefWidth="90.0" text="Supprimer" />
+      <Button layoutX="809.0" layoutY="177.0" mnemonicParsing="false" onAction="#Commander" text="Commander" />
+      <AnchorPane layoutX="-9.0" prefHeight="679.0" prefWidth="283.0" style="-fx-background-color: #B0E57C;">
+         <children>
+            <Label layoutX="33.0" layoutY="244.0" text="Produit " />
+            <Label layoutX="29.0" layoutY="314.0" prefHeight="21.0" prefWidth="61.0" text="Quantité" />
+            <Spinner fx:id="Quantitespin" layoutX="108.0" layoutY="309.0" prefHeight="31.0" prefWidth="126.0" />
+            <Button layoutX="49.0" layoutY="370.0" mnemonicParsing="false" onAction="#AjouterPanier" prefHeight="31.0" prefWidth="119.0" text="Ajouter" />
+            <ImageView fitHeight="147.0" fitWidth="54.0" layoutX="94.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo.jpg" />
+               </image>
+            </ImageView>
+            <TextField fx:id="txtProduit" layoutX="105.0" layoutY="235.0" prefHeight="31.0" prefWidth="126.0" style="-fx-background-color: white;" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

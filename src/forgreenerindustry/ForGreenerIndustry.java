@@ -9,11 +9,9 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import tn.edu.forGreenerIndustry.entities.Commande;
-import tn.edu.forGreenerIndustry.entities.Reclamation;
+
 import tn.edu.forGreenerIndustry.tools.DataSource;
-import tn.edu.forGreenerIndustry.entities.User;
-import tn.edu.forGreenerIndustry.services.IService;
-import tn.edu.forGreenerIndustry.services.ServiceUser;
+
 /**
  *
  * @author shadha
@@ -71,16 +69,11 @@ if (user != null) {
 */
 //get all 
 
-    User user1 = new User();
-
-    List<User> userList = service.getAll(user1);
-
-    for (User u : userList) {
-        System.out.println(u); 
+  
     }
 }
             
-        }
+        
 
 
 
