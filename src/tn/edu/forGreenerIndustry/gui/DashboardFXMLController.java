@@ -17,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -39,20 +40,28 @@ public class DashboardFXMLController implements Initializable {
     @FXML
     private ToggleButton themeToggle;
     private Scene scene;
+    
+    @FXML
+    private AnchorPane AnchorPane;
+    
     public void setScene(Scene scene) {
         this.scene = scene;
     }
     
     private void toggleTheme() {
-        if (themeToggle.isSelected()) {
+        System.out.println("Toggling theme..."); // Debugging line
+    if (themeToggle.isSelected()) {
         // Switch to dark theme
-            scene.getStylesheets().clear(); // Clear existing styles
-            scene.getStylesheets().add(getClass().getResource("/tn/edu/forGreenerIndustry/gui/dark.css").toExternalForm());
-        } else {
+        AnchorPane.getStyleClass().addAll("mainFxmlClass");
+        scene.getStylesheets().clear(); // Clear existing styles
+        scene.getStylesheets().add(getClass().getResource("/tn/edu/forGreenerIndustry/gui/dark.css").toExternalForm());
+    } else {
         // Switch to light theme
-            scene.getStylesheets().clear(); // Clear existing styles
-            scene.getStylesheets().add(getClass().getResource("/tn/edu/forGreenerIndustry/gui/light.css").toExternalForm());
-        }
+        System.out.println("Switching to light theme..."); // Debugging line
+        AnchorPane.getStyleClass().removeAll("mainFxmlClass");
+        scene.getStylesheets().clear(); // Clear existing styles
+        scene.getStylesheets().add(getClass().getResource("/tn/edu/forGreenerIndustry/gui/light.css").toExternalForm());
+    }
     }
 
     /**

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="614.0" prefWidth="1060.0" style="-fx-background-color: #E0EFE0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forGreenerIndustry.gui.DashboardFXMLController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane" prefHeight="614.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forGreenerIndustry.gui.DashboardFXMLController">
    <children>
       <SplitPane dividerPositions="0.9866220735785953" layoutX="-14.0" layoutY="-6.0">
         <items>
@@ -70,7 +70,7 @@
             <Image url="@../../../../resources/media.png" />
          </image>
       </ImageView>
-      <ToggleButton fx:id="themeToggle" layoutX="549.0" layoutY="19.0" mnemonicParsing="false" text="Ligh/Dark mode">
+      <ToggleButton fx:id="themeToggle" layoutX="632.0" layoutY="14.0" mnemonicParsing="false" text="Ligh/Dark mode">
          <stylesheets>
             <URL value="@light.css" />
             <URL value="@dark.css" />
@@ -82,4 +82,8 @@
          </font>
       </Label>
    </children>
+   <stylesheets>
+      <URL value="@light.css" />
+      <URL value="@dark.css" />
+   </stylesheets>
 </AnchorPane>

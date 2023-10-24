@@ -13,8 +13,9 @@
     -fx-text-fill: white;
 }
 
-
-.root  {
-    -fx-background-color: darkgray;
+/* Apply dark green background color when the dark theme is selected */
+.mainFxmlClass {
+    -fx-background-color: #002800 /* Dark Green Background Color */
 }
+
 

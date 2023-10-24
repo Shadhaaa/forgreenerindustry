@@ -20,6 +20,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -31,6 +32,7 @@ import tn.edu.forGreenerIndustry.entities.Commentaires;
 import tn.edu.forGreenerIndustry.entities.Post;
 import tn.edu.forGreenerIndustry.services.ServiceCommentaires;
 import tn.edu.forGreenerIndustry.services.ServicePost;
+import tn.edu.forGreenerIndustry.tools.QrCode;
 
 /**
  * FXML Controller class
@@ -66,6 +68,9 @@ public class CommentsFXMLController implements Initializable {
     
     private ServicePost postService;
     private ServiceCommentaires commentairesService;
+    
+    @FXML
+    private Button generateQRButton;
     
     
 
@@ -170,8 +175,24 @@ public class CommentsFXMLController implements Initializable {
         }
     }
 
-    
+    @FXML
+    private void generateQRButton(ActionEvent event) {
+        Post selectedPost = TableView.getSelectionModel().getSelectedItem(); // Get the selected post
 
-    
+    if (selectedPost != null) {
+        int postId = selectedPost.getId_post(); // Get the id_post of the selected post
+
+        // Create a new instance of the QR code generator form and pass the postId
+        QrCode qrCodeForm = new QrCode(postId);
+        qrCodeForm.setVisible(true);
+    } else {
+        // No post is selected, show an alert
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.setTitle("No Post Selected");
+        alert.setHeaderText(null);
+        alert.setContentText("Please select a post before generating a QR code.");
+        alert.showAndWait();
+    }
+    }
     
 }

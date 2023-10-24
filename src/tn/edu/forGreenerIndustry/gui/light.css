@@ -13,6 +13,10 @@
     -fx-background-color: darkgray;
 }
 
-.root {
+/*.root {
     -fx-background-color: #E0EFE0;
+}*/
+
+.mainFxmlClass {
+    -fx-background-color: #E0EFE0; /* Dark Green Background Color */
 }
