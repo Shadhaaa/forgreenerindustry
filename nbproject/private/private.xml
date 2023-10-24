@@ -3,29 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/ModifyPostFXMLController.java</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/CommentsFXMLController.java</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/PostDetailsFXMLController.java</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/PostDetailsFXML.fxml</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/UpdatePostFXMLController.java</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/ModifyPostFXML.fxml</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/FXMain.java</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/DeletePostFXMLController.java</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/services/ServiceCommentaires.java</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/postdetailsfxml.css</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Dashboardfxml.css</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/forgreenerindustry/ForGreenerIndustry.java</file>
             <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/AddCommentFXMLController.java</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/services/IService.java</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/PostFXMLController.java</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/tools/DataSource.java</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/SearchFXMLController.java</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/entities/Commentaires.java</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/AllPostsFXMLController.java</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/services/ServicePost.java</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/EnterIDFXMLController.java</file>
-            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/entities/Post.java</file>
+            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/light.css</file>
+            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/commentsfxml.css</file>
+            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/CommentsFXMLController.java</file>
+            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/dark.css</file>
+            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/FXMain.java</file>
+            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/ShowCmntFXMLController.java</file>
             <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/DashboardFXMLController.java</file>
+            <file>file:/C:/Users/Mega/Desktop/pi/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/DeletePostFXMLController.java</file>
         </group>
     </open-files>
 </project-private>

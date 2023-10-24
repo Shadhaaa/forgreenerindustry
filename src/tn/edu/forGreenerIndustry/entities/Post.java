@@ -36,6 +36,17 @@ public class Post {
     
 }
     
+     public Post(int id_entreprise, String titre, String typeDeContenu, String contenu, Date date, String image) {
+    
+    this.id_entreprise = id_entreprise;
+    this.titre = titre;
+    this.typeDeContenu = typeDeContenu;
+    this.contenu = contenu;
+    this.date = date;
+    this.image = image;
+    
+}
+    
     public Post(int id_post, int id_entreprise, String titre, String typeDeContenu, String contenu, Date date, String image) {
     this.id_post = id_post;
     this.id_entreprise = id_entreprise;

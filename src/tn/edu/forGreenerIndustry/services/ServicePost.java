@@ -37,6 +37,7 @@ public class ServicePost implements IService<Post> {
 
             PreparedStatement pst = cnx.prepareStatement(req);
 
+        // Ensure that the parameters are in the correct order
             pst.setInt(1, t.getId_entreprise());
             pst.setString(2, t.getTitre());
             pst.setString(3, t.getTypeDeContenu());
@@ -50,6 +51,7 @@ public class ServicePost implements IService<Post> {
             System.err.println("Error while adding a post: " + ex.getMessage());
         }
     }
+
 
 
     @Override

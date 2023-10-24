@@ -51,7 +51,7 @@ public void ajouter(Commentaires t) {
     @Override
     public void modifier(Commentaires t) {
         try {
-            String req = "UPDATE `commentaires` SET  `id_user` = ?, `id_post` = ?, `contenu` = ?, `date` = ?, `statut` = ? "
+            String req = "UPDATE `commentaires` SET  `id_user` = ?, `id_post` = ?, `contenu` = ?, `statut` = ? "
                     + "WHERE `id_commentaire` = ?";
 
             PreparedStatement pst = cnx.prepareStatement(req);
