@@ -14,8 +14,8 @@
       <TableView fx:id="tableView" layoutX="80.0" layoutY="188.0" prefHeight="234.0" prefWidth="570.0" style="-fx-background-color: #F0F8FF;">
         <columns>
             <TableColumn fx:id="tfTitre" prefWidth="100.0" text="titre" />
-            <TableColumn fx:id="tfType" prefWidth="74.0" text="type" />
-            <TableColumn fx:id="tfContenu" prefWidth="223.0" text="contenu" />
+            <TableColumn fx:id="tfType" minWidth="0.0" prefWidth="0.0" text="type" />
+            <TableColumn fx:id="tfContenu" prefWidth="297.0" text="contenu" />
             <TableColumn fx:id="tfImage" prefWidth="96.0" text="image" />
             <TableColumn fx:id="tfDate" prefWidth="76.0" text="date" />
         </columns>

@@ -60,16 +60,19 @@ public class CommentsFXMLController implements Initializable {
     @FXML
     private Label msg;
     
+    @FXML
+    private Button btnShowCmnt;
     
     
     private ServicePost postService;
     private ServiceCommentaires commentairesService;
     
-
+    
 
     /**
      * Initializes the controller class.
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         tfTitre.setCellValueFactory(new PropertyValueFactory<Post, String>("titre"));    
@@ -89,51 +92,6 @@ public class CommentsFXMLController implements Initializable {
 
     @FXML
     private void btnAdd(ActionEvent event) {
-        
-        /*Node source = (Node) event.getSource();
-    
-        Scene sc = source.getScene();
-    
-        Stage stage = (Stage) sc.getWindow();
-        Post selectedPost = TableView.getSelectionModel().getSelectedItem();
-    
-        if (selectedPost != null) {
-            
-            int postId = selectedPost.getId_post();
-
-        
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddCommentFXML.fxml"));
-            Parent root = loader.load();
-            
-           
-            AddCommentFXMLController addCommentController = loader.getController();
-            addCommentController.setPostId(postId);
-
-            Scene scene = new Scene(root);
-            
-            
-            Stage commande1Stage = new Stage();
-            commande1Stage.setScene(scene);
-            
-            
-            stage.close();
-
-            
-            stage.show();
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }else {
-       
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Aucune sélection");
-        alert.setHeaderText("Aucune ligne n'est sélectionnée");
-        alert.setContentText("Veuillez sélectionner une ligne dans le tableau avant de passer une commande.");
-        alert.showAndWait();
-    } */
-    
-        /////////////////////////////////
         Post selectedPost = TableView.getSelectionModel().getSelectedItem();
 
         if (selectedPost != null) {
@@ -153,7 +111,11 @@ public class CommentsFXMLController implements Initializable {
                 e.printStackTrace();
             }
         } else {
-            msg.setText("Please select a post to add a comment to.");
+        // Show an alert if no row is selected
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No Post Selected");
+            alert.setHeaderText("Please select a post to add a comment to.");
+            alert.showAndWait();
         }  
     }
 
@@ -165,23 +127,31 @@ public class CommentsFXMLController implements Initializable {
         if (selectedPost != null) {
             int postId = selectedPost.getId_post();
 
+        
+            List<Commentaires> comments = commentairesService.getCommentsByPostId(postId);
+
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowCmntFXML.fxml"));
                 Parent root = loader.load();
                 ShowCmntFXMLController showCmntController = loader.getController();
-                showCmntController.setPostId(postId);
+                showCmntController.setComments(comments); // Pass the comments to the controller
 
-                Scene showCmntScene = new Scene(root);
-                Stage stage = new Stage();
-                stage.setTitle("Comments for Post: " + selectedPost.getTitre());
-                stage.setScene(showCmntScene);
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            msg.setText("Please select a post to view comments.");
+            Scene showCmntScene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setTitle("Comments for Post: " + selectedPost.getTitre());
+            stage.setScene(showCmntScene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    } else {
+        // Show an alert when no post is selected
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("No Post Selected");
+        alert.setHeaderText(null);
+        alert.setContentText("Please select a post to view comments.");
+        alert.showAndWait();
+    }
     
     }
 

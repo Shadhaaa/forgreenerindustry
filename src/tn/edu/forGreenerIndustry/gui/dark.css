@@ -1,0 +1,20 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+.theme-toggle .label {
+    -fx-text-fill: black;
+}
+
+.theme-toggle:selected .label {
+    -fx-text-fill: white;
+}
+
+
+.root  {
+    -fx-background-color: darkgray;
+}
+

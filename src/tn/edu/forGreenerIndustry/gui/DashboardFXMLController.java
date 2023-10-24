@@ -9,12 +9,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
 
 /**
@@ -34,13 +36,39 @@ public class DashboardFXMLController implements Initializable {
     private Button Update;
     @FXML
     private Button Delete;
+    @FXML
+    private ToggleButton themeToggle;
+    private Scene scene;
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+    
+    private void toggleTheme() {
+        if (themeToggle.isSelected()) {
+        // Switch to dark theme
+            scene.getStylesheets().clear(); // Clear existing styles
+            scene.getStylesheets().add(getClass().getResource("/tn/edu/forGreenerIndustry/gui/dark.css").toExternalForm());
+        } else {
+        // Switch to light theme
+            scene.getStylesheets().clear(); // Clear existing styles
+            scene.getStylesheets().add(getClass().getResource("/tn/edu/forGreenerIndustry/gui/light.css").toExternalForm());
+        }
+    }
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        themeToggle.setOnAction(new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+        toggleTheme();
+    }
+});
+
+        // Initialize the theme based on the initial state of the ToggleButton
+       
     }  
     
     @FXML
@@ -63,7 +91,7 @@ public class DashboardFXMLController implements Initializable {
     @FXML
     private void btnShowAll(ActionEvent event) {
         try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("AllPostsFXML.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CommentsFXML.fxml"));
         Parent root = loader.load();
         Scene allPostsScene = new Scene(root);
 

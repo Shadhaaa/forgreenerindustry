@@ -24,18 +24,21 @@ public class FXMain extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        Parent root;
         try {
-            root = FXMLLoader.load(getClass().
-                    getResource("DashboardFXML.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("DashboardFXML.fxml"));
+            Parent root = loader.load();
             Scene scene = new Scene(root);
+
+            // Pass the scene to the controller
+            DashboardFXMLController controller = loader.getController();
+            controller.setScene(scene);
+
             primaryStage.setTitle("Home");
             primaryStage.setScene(scene);
             primaryStage.show();
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-
     }
 
     /**

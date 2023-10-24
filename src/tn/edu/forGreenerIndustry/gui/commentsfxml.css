@@ -5,3 +5,61 @@
 .mainFxmlClass {
 
 }
+#btnAddCmnt {
+    -fx-background-color: #00CED1; 
+    -fx-text-fill: white; 
+    -fx-font-size: 22px; 
+    -fx-background-radius: 20; 
+}
+
+#btnAddCmnt:hover {
+    -fx-background-color: #FF8C00; 
+}
+
+/* Style for the btnShow button */
+#btnShowCmnt {
+    -fx-background-color: #00CED1;
+    -fx-text-fill: white; 
+    -fx-font-size: 22px; 
+    -fx-background-radius: 20; 
+}
+
+#btnShowCmnt:hover {
+    -fx-background-color: #2E8B57; 
+}
+
+/* Style for the btnHome button */
+#home {
+    -fx-background-color: #00CED1; 
+    -fx-text-fill: white; 
+    -fx-font-size: 22px; 
+    -fx-background-radius: 20; 
+}
+
+#home:hover {
+    -fx-background-color: #00A3A6; 
+}
+
+#deleteButton {
+    -fx-background-color: #00CED1;
+    -fx-text-fill: white; 
+    -fx-font-size: 22px; 
+    -fx-background-radius: 20; 
+}
+
+#deleteButton:hover {
+    -fx-background-color: #2E8B57; 
+}
+
+
+#editButton {
+    -fx-background-color: #00CED1; 
+    -fx-text-fill: white; 
+    -fx-font-size: 22px; 
+    -fx-background-radius: 20; 
+}
+
+#editButton:hover {
+    -fx-background-color: #00A3A6; 
+}
+

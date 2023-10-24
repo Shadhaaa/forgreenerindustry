@@ -85,7 +85,7 @@ public class PostFXMLController implements Initializable {
     @FXML
     private void btnAjouter(ActionEvent event) {
             try {
-        int idEntreprise = Integer.parseInt(tfEntreprise.getText());
+        int id_entreprise = Integer.parseInt(tfEntreprise.getText());
         String titre = tfTitre.getText();
         String selectedValue = comboBoxType.getValue();
         String contenu = tfContenu.getText();
@@ -105,7 +105,7 @@ public class PostFXMLController implements Initializable {
 
             ServicePost service = new ServicePost();
 
-            Post newPost = new Post(titre, selectedValue, contenu, date, imageUrl);
+            Post newPost = new Post(id_entreprise,titre, selectedValue, contenu, date, imageUrl);
 
             service.ajouter(newPost);
 

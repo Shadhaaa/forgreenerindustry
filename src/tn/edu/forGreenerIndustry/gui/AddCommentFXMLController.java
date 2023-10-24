@@ -28,7 +28,7 @@ import tn.edu.forGreenerIndustry.services.ServiceCommentaires;
  */
 public class AddCommentFXMLController implements Initializable {
 
-    private Button btnADD;
+    
     @FXML
     private Button home;
     
@@ -37,12 +37,12 @@ public class AddCommentFXMLController implements Initializable {
     @FXML
     private TextField tfComment;
     @FXML
-    private ComboBox<String> ComboBoxStat;
+    private Button btnAddCmnt;
     
     private ServiceCommentaires commentairesService;
     private int postId;
-    @FXML
-    private Button btnAdding;
+    
+    
     
     public void setPostId(int postId) {
         this.postId = postId;
@@ -54,26 +54,27 @@ public class AddCommentFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         commentairesService = new ServiceCommentaires();
-        ComboBoxStat.getItems().addAll("Approved", "Pending", "Rejected");
-        ComboBoxStat.setValue("Pending");
+        
     }   
     
     @FXML
     private void btnAdding(ActionEvent event) {
         int userId = Integer.parseInt(tfUserID.getText());
         String contenu = tfComment.getText();
-        String selectedValue = ComboBoxStat.getValue();
         
-        int postId = getPostId();
 
-        Commentaires newComment = new Commentaires(userId, contenu, selectedValue);
-        
-        // Add the comment to the database using the commentairesService
+    // Fetch postId from the controller
+        int postId = getPostId();
+        String statut = "Penging";
+
+        Commentaires newComment = new Commentaires(userId, postId, contenu, statut );
+
+    // Add the comment to the database using the commentairesService
         commentairesService.ajouter(newComment);
-        
-        // Close the "Add Comment" interface
-        Stage stage = (Stage) btnADD.getScene().getWindow();
-        stage.close(); 
+
+    // Close the "Add Comment" interface
+        Stage stage = (Stage) btnAddCmnt.getScene().getWindow();
+        stage.close();
     }
 
 
