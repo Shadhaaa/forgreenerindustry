@@ -5,17 +5,13 @@
         <group>
             <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/services/Commandecrud.java</file>
             <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/CommandeAdminController.java</file>
-            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/PanierController.java</file>
-            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/entities/Panier.java</file>
-            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/services/Paniercrud.java</file>
-            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Commandewindow1.java</file>
-            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/PaiementController.java</file>
-            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/entities/Commande.java</file>
-            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Paiement.fxml</file>
-            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Paiementwindow.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/StatCommande.fxml</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/StatCommandeController.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Statcommandewindow.java</file>
             <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Panierwindow.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/statcommande.css</file>
             <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Commande1Controller.java</file>
-            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/paiement.css</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/PaiementController.java</file>
         </group>
     </open-files>
 </project-private>

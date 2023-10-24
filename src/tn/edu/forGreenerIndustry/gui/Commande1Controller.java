@@ -241,34 +241,43 @@ public class Commande1Controller implements Initializable {
 
     @FXML
     private void Passerpaiement(ActionEvent event) {
-         Commande selectedCommande = tabcommande.getSelectionModel().getSelectedItem();
+        Commande selectedCommande = tabcommande.getSelectionModel().getSelectedItem();
 
     if (selectedCommande != null) {
-        double total = selectedCommande.getMontantTotal();
+        String modePaiement = selectedCommande.getModePaiement();
         
+        if ("Carte de crédit".equals(modePaiement)) {
+            double total = selectedCommande.getMontantTotal();
+            
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Paiement.fxml"));
+                Parent root = loader.load();
 
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Paiement.fxml"));
-            Parent root = loader.load();
+                // Obtenez le contrôleur de la fenêtre de paiement
+                PaiementController paiementController = loader.getController();
 
-            // Obtenez le contrôleur de la fenêtre de paiement
-            PaiementController paiementController = loader.getController();
+                // Passez le montant total au contrôleur de paiement
+                paiementController.setMontant(total);
 
-            // Passez le montant total  au contrôleur de paiement
-            paiementController.setMontant(total);
+                Scene scene = new Scene(root);
 
-            Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                stage.setScene(scene);
 
-            Stage stage = new Stage();
-            stage.setScene(scene);
+                // Fermez la fenêtre actuelle
+                Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                currentStage.close();
 
-            // Fermez la fenêtre actuelle
-            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            currentStage.close();
-
-            stage.show();
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+                stage.show();
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("Le paiement par carte de crédit est requis pour passer au paiement.");
+            alert.showAndWait();
         }
     } else {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -278,5 +287,5 @@ public class Commande1Controller implements Initializable {
         alert.showAndWait();
     }
     }
-    }
+}
     

@@ -14,7 +14,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.chart.StackedBarChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -24,6 +27,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import tn.edu.forGreenerIndustry.entities.Commande;
 import tn.edu.forgreenerindustry.entities.Panier;
 import tn.edu.forgreenerindustry.services.Commandecrud;
@@ -150,35 +154,53 @@ public class CommandeAdminController implements Initializable {
     @FXML
     private void ModifierCommande(ActionEvent event) {
          Commande selectedCommande = tabcommande.getSelectionModel().getSelectedItem();
-    
+         
+         if (selectedCommande == null) {
+        // Aucune ligne sélectionnée, afficher une alerte
+        afficherAlerte("Aucune ligne sélectionnée", "Veuillez sélectionner une ligne à modifier.");
+        return;
+    }
+
     if (selectedCommande != null) {
         // Récupérer les nouvelles valeurs depuis les champs de saisie
         int newPanierId = Panier_id.getValue();
         int newClientId = Client_id.getValue();
         LocalDate newDateCommande = Ddate_commande.getValue();
-        double newMontantTotal = Double.parseDouble(txtMontatnt.getText());
+        String montantText = txtMontatnt.getText();
         String newAdresseLivraison = txtLivraison.getText();
         LocalDate newDateLivraison = Ddate_livraison.getValue();
         String newModePaiement = Combo_modepaiement.getValue();
-        
-        // Check if any required field is empty
-        if (newDateCommande == null || newMontantTotal <= 0 || newAdresseLivraison.isEmpty() || newDateLivraison == null || newModePaiement == null) {
-            afficherAlerte("Champs vides", "Veuillez remplir tous les champs.");
+
+        // Vérification des champs obligatoires
+        if (newDateCommande == null || newDateLivraison == null || newModePaiement == null || newAdresseLivraison.isEmpty()) {
+            afficherAlerte("Champs obligatoires non remplis", "Veuillez remplir tous les champs obligatoires.");
+            return;
+        }
+
+        double newMontantTotal;
+        // Validation du montant
+        try {
+            newMontantTotal = Double.parseDouble(montantText);
+            if (newMontantTotal <= 0) {
+                afficherAlerte("Montant invalide", "Le montant doit être un nombre positif.");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            afficherAlerte("Montant invalide", "Le montant doit être un nombre valide.");
             return;
         }
 
         // Check if PanierId and ClientId exist in the database (You need to implement this logic)
         if (!panierIdExistsInDatabase(newPanierId)) {
-    afficherAlerte("Erreur", "PanierId n'existe pas dans la base de données.");
-    return;
-}
+            afficherAlerte("Erreur", "PanierId n'existe pas dans la base de données.");
+            return;
+        }
 
-if (!clientIdExistsInDatabase(newClientId)) {
-    afficherAlerte("Erreur", "ClientId n'existe pas dans la base de données.");
-    return;
-}
+        if (!clientIdExistsInDatabase(newClientId)) {
+            afficherAlerte("Erreur", "ClientId n'existe pas dans la base de données.");
+            return;
+        }
 
-        
         // Mettre à jour les propriétés de la commande sélectionnée
         selectedCommande.setPanierId(newPanierId);
         selectedCommande.setClientId(newClientId);
@@ -187,7 +209,7 @@ if (!clientIdExistsInDatabase(newClientId)) {
         selectedCommande.setAdresseLivraison(newAdresseLivraison);
         selectedCommande.setDateLivraison(Date.valueOf(newDateLivraison));
         selectedCommande.setModePaiement(newModePaiement);
-        
+
         // Appeler votre fonction de mise à jour (par exemple, updateCommande) pour enregistrer la modification dans la base de données
         Commandecrud cm = new Commandecrud();
         cm.modifierCommande(selectedCommande);
@@ -218,6 +240,12 @@ private void afficherAlerte(String titre, String contenu) {
     @FXML
     private void Remplirleschamps(ActionEvent event) {
          Commande selectedCommande = tabcommande.getSelectionModel().getSelectedItem();
+         
+         if (selectedCommande == null) {
+        // Aucune ligne sélectionnée, afficher une alerte
+        afficherAlerte("Aucune ligne sélectionnée", "Veuillez sélectionner une ligne à modifier.");
+        return;
+    }
     
     if (selectedCommande != null) {
         // Remplir les champs de saisie avec les valeurs de la commande sélectionnée
@@ -232,6 +260,17 @@ private void afficherAlerte(String titre, String contenu) {
         // Aucune commande sélectionnée, afficher une alerte
         afficherAlerte("Aucune commande sélectionnée", "Veuillez sélectionner une commande à modifier.");
     }
+    }
+
+    @FXML
+    private void Stat(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    stage.close();
+
+    
+    Statcommandewindow panierWindow = new Statcommandewindow ();
+    Stage newStage = new Stage();
+    panierWindow.start(newStage);
     }
     
 }

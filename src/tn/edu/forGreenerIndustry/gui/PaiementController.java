@@ -26,8 +26,18 @@ import com.stripe.param.ChargeCreateParams;
 import com.stripe.param.PaymentIntentCreateParams;
 import com.stripe.param.PaymentMethodCreateParams;
 import com.stripe.param.TokenCreateParams;
+import java.net.Authenticator;
+import java.net.PasswordAuthentication;
+import java.util.Properties;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 
 
@@ -44,11 +54,11 @@ import javafx.stage.Stage;
 public class PaiementController implements Initializable {
 
     @FXML
-    private TextField txtMontatnt;
+    private Label txtMontatnt;
     @FXML
     private TextField txtcodepromo;
     @FXML
-    private TextField txtmontantaPayer;
+    private Label txtmontantaPayer;
     @FXML
     private TextField txtNumCarte;
     @FXML
@@ -70,6 +80,8 @@ public class PaiementController implements Initializable {
         Stripe.apiKey = "sk_test_51O4X5XCZicFmO9OlQe9jkt0X8JF0xPTV2zzNSCWDbl4uUMOPeQIjPbw2HGR9vO19nszhq47MUrxRexNtQNQTiu4900NQpdYyUm";
        
     }
+    
+   
  public void setMontant(double total) {
         montant = total;
          txtMontatnt.setText(Double.toString(montant));
@@ -179,6 +191,11 @@ private void Payer(ActionEvent event) throws StripeException {
             Charge charge = Charge.create(params, requestOptions);
 
             if (charge.getPaid()) {
+                 // Envoyez un e-mail de confirmation
+            //String recipientEmail = txtEmail.getText(); // Récupérez l'adresse e-mail du destinataire depuis le champ de texte
+
+            // Appelez la méthode sendEmail pour envoyer l'e-mail
+            sendEmail("Amal.as6060@gmail.com");
                 // Le paiement a réussi
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Paiement réussi");
@@ -205,7 +222,42 @@ private void Payer(ActionEvent event) throws StripeException {
             alert.showAndWait();
         }
     }
+        private void sendEmail(String recipientEmail) {
+        final String username = "achref.ghribi@esprit.tn";
+        final String password = "223JMT4655";
 
-  
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com"); // Remplacez par le serveur SMTP approprié
+        props.put("mail.smtp.port", "587"); // Port SMTP (587 est couramment utilisé)
+
+        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+        protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
+        return new javax.mail.PasswordAuthentication(username, password);
+        }
+        });
+
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
+           message.setSubject("Confirmation de paiement - ForGreener Industry");
+        message.setText("Cher client,\n\n"
+                + "Nous sommes ravis de vous informer que votre paiement a été traité avec succès. "
+                + "Le montant de votre paiement a été confirmé et votre commande sera traitée dans les plus brefs délais.\n\n"
+                + "Merci de faire confiance à ForGreener Industry.\n\n"
+                + "Cordialement,\n"
+                + "L'équipe ForGreener Industry");
+
+            Transport.send(message);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            // Lancer une exception pour signaler l'erreur
+            throw new RuntimeException("Erreur lors de l'envoi de l'e-mail", e);
+        }
+    }
 }
+  
+
 
