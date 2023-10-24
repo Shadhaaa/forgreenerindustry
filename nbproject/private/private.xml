@@ -3,16 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ACHREF/forgreenerindustry/src/tn/edu/forGreenerIndustry/utilities/Myconnection.java</file>
-            <file>file:/C:/Users/ACHREF/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Commandewindow1Controller.java</file>
-            <file>file:/C:/Users/ACHREF/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Commandewindow1.java</file>
-            <file>file:/C:/Users/ACHREF/forgreenerindustry/src/tn/edu/forGreenerIndustry/tools/DataSource.java</file>
-            <file>file:/C:/Users/ACHREF/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/PanierController.java</file>
-            <file>file:/C:/Users/ACHREF/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Panierwindow.java</file>
-            <file>file:/C:/Users/ACHREF/forgreenerindustry/src/tn/edu/forGreenerIndustry/testes/Main.java</file>
-            <file>file:/C:/Users/ACHREF/forgreenerindustry/src/tn/edu/forGreenerIndustry/services/Commandecrud.java</file>
-            <file>file:/C:/Users/ACHREF/forgreenerindustry/src/tn/edu/forGreenerIndustry/services/Paniercrud.java</file>
-            <file>file:/C:/Users/ACHREF/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Commande1Controller.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/services/Commandecrud.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/CommandeAdminController.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/PanierController.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/entities/Panier.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/services/Paniercrud.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Commandewindow1.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/PaiementController.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/entities/Commande.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Paiement.fxml</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Paiementwindow.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Panierwindow.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Commande1Controller.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/paiement.css</file>
         </group>
     </open-files>
 </project-private>

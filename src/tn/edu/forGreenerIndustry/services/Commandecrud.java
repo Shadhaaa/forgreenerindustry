@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import tn.edu.forGreenerIndustry.entities.Commande;
+import tn.edu.forgreenerindustry.entities.Panier;
 import tn.edu.forgreenerindustry.utilities.Myconnection;
 
 /**
@@ -176,6 +177,8 @@ public void modifierCommande(Commande C) {
         
         return list;
     }
+   
+
     
 
 }

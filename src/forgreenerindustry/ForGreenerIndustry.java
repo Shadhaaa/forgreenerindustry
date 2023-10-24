@@ -32,11 +32,11 @@ public class ForGreenerIndustry {
         Jumia ,
         Aucune ,
         Autre ;
-    }
+    }}
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         // TODO code application logic here
         DataSource.getInstance();
          ServiceUser service = new ServiceUser();
@@ -55,7 +55,7 @@ User c1 = new User(7,
     "voiture",
     Comp.Glovo,
    0
-);
+); */
 //service.ajouter(c1);
          //service.modifier(c1);
          //getone 
@@ -70,8 +70,8 @@ if (user != null) {
 //get all 
 
   
-    }
-}
+    
+
             
         
 

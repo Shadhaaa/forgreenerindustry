@@ -37,8 +37,7 @@ import tn.edu.forgreenerindustry.services.Paniercrud;
  */
 public class PanierController implements Initializable {
 
-    @FXML
-    private Spinner<Integer> Quantitespin;
+    //private Spinner<Integer> Quantitespin;
     @FXML
     private TableView<Panier> tabPanier;
     @FXML
@@ -49,8 +48,7 @@ public class PanierController implements Initializable {
     private TableColumn<Panier, Double> columnprixu;
     @FXML
     private TableColumn<Panier, Double> columnprixtot;
-    @FXML
-    private TextField txtProduit;
+    //private TextField txtProduit;
 
     /**
      * Initializes the controller class.
@@ -68,8 +66,8 @@ public class PanierController implements Initializable {
 
 
         
-    SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 1);
-    Quantitespin.setValueFactory(valueFactory);
+    //SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 1);
+    //Quantitespin.setValueFactory(valueFactory);
     }    
 
    @FXML
@@ -85,58 +83,42 @@ private void AfficherPanier(ActionEvent event) {
 }
 
 
-   @FXML
+  @FXML
 private void ModifierPanier(ActionEvent event) {
     Panier selectedPanier = tabPanier.getSelectionModel().getSelectedItem();
+
     if (selectedPanier != null) {
-
-       
-        int quantite = Quantitespin.getValue();
-        String nomProduit = txtProduit.getText();
-
-        if (quantite <= 0 || nomProduit.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erreur");
-            alert.setHeaderText(null);
-            alert.setContentText("Veuillez remplir tous les champs du formulaire.");
-            alert.showAndWait();
-        } else {
-           
-            selectedPanier.setQuantite(quantite);
-            selectedPanier.setNomproduit(nomProduit);
-            
-            
-            double prixUnitaire = columnprixu.getCellData(selectedPanier);
-            
-           
-           
-            double nouveauTotal = quantite * prixUnitaire;
-            selectedPanier.setTotal(nouveauTotal);
-
-            Paniercrud paniercrud = new Paniercrud();
-            paniercrud.modifierPanier(selectedPanier);
-
-           
-            tabPanier.refresh();
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Confirmation");
-            alert.setHeaderText(null);
-            alert.setContentText("Panier modifié avec succès !");
-            alert.showAndWait();
-        }
+        openModifyInterface(selectedPanier);
     } else {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Erreur");
-        alert.setHeaderText(null);
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Aucune sélection");
+        alert.setHeaderText("");
         alert.setContentText("Veuillez sélectionner un panier à modifier.");
         alert.showAndWait();
     }
 }
 
+// Méthode pour ouvrir l'interface de modification
+private void openModifyInterface(Panier selectedPanier) {
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Modifierpanier.fxml"));
+        Parent root = loader.load();
+        ModifierPanierController modifyController = loader.getController();
+        modifyController.initData(selectedPanier, tabPanier);
+
+        Stage stage = new Stage();
+        stage.setTitle("Modifier le Panier");
+        stage.setScene(new Scene(root));
+        stage.show();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+
+
 
 @FXML
-private void AjouterPanier(ActionEvent event) {
+private void AjouterPanier(ActionEvent event) { /*
     int quantite = Quantitespin.getValue();
     String nomProduit = txtProduit.getText();
     
@@ -196,7 +178,14 @@ private void AjouterPanier(ActionEvent event) {
     successAlert.setHeaderText(null);
     successAlert.setContentText("Panier mis à jour avec succès !");
     successAlert.showAndWait();
-    System.out.println("Panier ajouté ou mis à jour");
+    System.out.println("Panier ajouté ou mis à jour");  */
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    stage.close();
+
+    
+    Ajouterpanierwindow panierWindow = new Ajouterpanierwindow();
+    Stage newStage = new Stage();
+    panierWindow.start(newStage);
 }
 
 
