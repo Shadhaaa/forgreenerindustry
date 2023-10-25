@@ -258,6 +258,17 @@ private void Commander(ActionEvent event) {
     }
 }
 
+    @FXML
+    private void ENRECHER(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    stage.close();
+
+    
+    Mezedwindow panierWindow = new Mezedwindow();
+    Stage newStage = new Stage();
+    panierWindow.start(newStage);
+    }
+
 
     
 }

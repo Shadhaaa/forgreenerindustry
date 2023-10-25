@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forGreenerIndustry.gui.MezedController">
+    <stylesheets>
+        <URL value="@mezed.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="2.0" layoutY="7.0" prefHeight="653.0" prefWidth="934.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" stylesheets="@commande1.css">
+         <children>
+            <Label layoutX="495.0" layoutY="41.0" prefHeight="46.0" prefWidth="268.0" text="Enchére">
+               <font>
+                  <Font name="Ink Free" size="44.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="-11.0" layoutY="-20.0" prefHeight="673.0" prefWidth="291.0" style="-fx-background-color: #B0E57C;">
+               <children>
+                  <ImageView fitHeight="88.0" fitWidth="69.0" layoutX="94.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logo.jpg" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="15.0" layoutY="599.0" mnemonicParsing="false" onAction="#RetournerPanier" prefHeight="31.0" prefWidth="261.0" style="-fx-background-color: #E0E0E0;" text="Retour" />
+                  <Label fx:id="txtMontatnt" layoutX="168.0" layoutY="182.0" />
+                  <Label fx:id="txtmontantaPayer" layoutX="159.0" layoutY="334.0" />
+                  <Label layoutX="26.0" layoutY="193.0" prefHeight="273.0" prefWidth="247.0">
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                  </Label>
+                  <Text layoutX="103.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                  <Label layoutX="30.0" layoutY="181.0" prefHeight="21.0" prefWidth="261.0" text="Le montant finale est un  petit ">
+                     <font>
+                        <Font name="Impact" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="60.0" layoutY="214.0" prefHeight="21.0" prefWidth="216.0" text="encouragement a cette startup">
+                     <font>
+                        <Font name="Impact" size="16.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="15.0" layoutY="554.0" mnemonicParsing="false" onAction="#Resultat" prefHeight="31.0" prefWidth="261.0" text="Resultat" />
+                  <TextField fx:id="cinRES" layoutX="86.0" layoutY="502.0" />
+                  <Label layoutX="26.0" layoutY="507.0" text="CIN" />
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="151.0" fitWidth="156.0" layoutX="508.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@MEZZO-ECO-olive_APTAR.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="386.0" layoutY="360.0" prefHeight="21.0" prefWidth="111.0" text="Prix de d'part " />
+            <Label fx:id="txtPrixdepart" layoutX="524.0" layoutY="360.0" text="Label" />
+            <Label layoutX="386.0" layoutY="412.0" text="Temps restants" />
+            <Label fx:id="txtCompteur" layoutX="524.0" layoutY="412.0" text="Label" />
+            <Button layoutX="450.0" layoutY="525.0" mnemonicParsing="false" onAction="#Encherir" text="Enchere" />
+            <TextField fx:id="Montantenchere" layoutX="547.0" layoutY="525.0" prefHeight="31.0" prefWidth="130.0" />
+            <TextField fx:id="CINEN" layoutX="547.0" layoutY="468.0" prefHeight="31.0" prefWidth="130.0" />
+            <Label layoutX="420.0" layoutY="473.0" text="Entrer ton CIN" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

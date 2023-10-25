@@ -6,7 +6,6 @@
 package tn.edu.forGreenerIndustry.gui;
 
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,16 +17,8 @@ import javafx.scene.control.TextField;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Charge;
-import com.stripe.model.PaymentIntent;
-import com.stripe.model.PaymentMethod;
-import com.stripe.model.Token;
 import com.stripe.net.RequestOptions;
 import com.stripe.param.ChargeCreateParams;
-import com.stripe.param.PaymentIntentCreateParams;
-import com.stripe.param.PaymentMethodCreateParams;
-import com.stripe.param.TokenCreateParams;
-import java.net.Authenticator;
-import java.net.PasswordAuthentication;
 import java.util.Properties;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -116,16 +107,18 @@ public class PaiementController implements Initializable {
 
 private boolean estCodePromoValide(String codePromo) {
    
-    return codePromo.equals("forgreener"); 
+    return codePromo.equals("forgreener") || codePromo.equals("FGTH");
 }
 
 
 private double appliquerCodePromo(double montantTotal, String codePromo) {
    
     if (codePromo.equals("forgreener")) {
-        return montantTotal * 0.9; 
+        return montantTotal * 0.9;
+    } else if (codePromo.equals("FGTH")) {
+        return montantTotal= 1; 
     } else {
-        return montantTotal; 
+        return montantTotal;
     }
 }
 
@@ -149,7 +142,20 @@ private void afficherMessage(String message) {
     }
 
  @FXML
-private void Payer(ActionEvent event) throws StripeException {  
+private void Payer(ActionEvent event) throws StripeException { 
+    
+        String email = txtEmail.getText();
+        String montantAPayer = txtmontantaPayer.getText();
+
+        if (email.isEmpty() || !isValidEmail(email)) {
+            afficherAlerte("Erreur de saisie", "Veuillez saisir une adresse e-mail valide.");
+            return;
+        }
+
+        if (montantAPayer.isEmpty()) {
+            afficherAlerte("Erreur de saisie", "Veuillez saisir le montant à payer.");
+            return;
+        }
     try {
             // Récupérer les informations du formulaire
             long montant = (long) (Double.parseDouble(txtmontantaPayer.getText()) * 100); // Convertir en centimes
@@ -158,7 +164,7 @@ private void Payer(ActionEvent event) throws StripeException {
            // String moisExpiration = String.valueOf(DateEX.getValue().getMonthValue()); // Convertir le mois en chaîne
            // String anneeExpiration = String.valueOf(DateEX.getValue().getYear()); // Convertir l'année en chaîne
            // String cvc = txtCVC.getText();
-            String email = txtEmail.getText();
+            //String email = txtEmail.getText();
             /*Créez un token de carte
             TokenCreateParams cardParams = TokenCreateParams.builder()
             .setCard(TokenCreateParams.Card.builder()
@@ -195,7 +201,7 @@ private void Payer(ActionEvent event) throws StripeException {
             //String recipientEmail = txtEmail.getText(); // Récupérez l'adresse e-mail du destinataire depuis le champ de texte
 
             // Appelez la méthode sendEmail pour envoyer l'e-mail
-            sendEmail("Amal.as6060@gmail.com");
+            sendEmail(email);
                 // Le paiement a réussi
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Paiement réussi");
@@ -256,6 +262,18 @@ private void Payer(ActionEvent event) throws StripeException {
             // Lancer une exception pour signaler l'erreur
             throw new RuntimeException("Erreur lors de l'envoi de l'e-mail", e);
         }
+        
+    }
+        private void afficherAlerte(String titre, String message) {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle(titre);
+        alert.setHeaderText(message);
+        alert.showAndWait();
+    }
+
+    private boolean isValidEmail(String email) {
+        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        return email.matches(regex);
     }
 }
   
