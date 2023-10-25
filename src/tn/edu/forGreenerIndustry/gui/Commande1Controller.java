@@ -88,24 +88,21 @@ public class Commande1Controller implements Initializable {
 
     @FXML
     private void AjouterCommande(ActionEvent event) {
-         int clientId = 1;
-    String adresseLivraison = txtLivraison.getText();
-    Date dateCommande = Date.valueOf(Ddate_commande.getValue());
-    
-    String montantText = txtMontatnt.getText();
-    Date dateLivraison = Date.valueOf(Ddate_livraison.getValue());
-    String modePaiement = Combo_modepaiement.getValue();
-    
-    
-    if (adresseLivraison.isEmpty() || dateCommande == null ||  montantText.isEmpty() ||
-        dateLivraison == null || modePaiement == null) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Erreur");
-        alert.setHeaderText(null);
-        alert.setContentText("Veuillez remplir tous les champs du formulaire.");
-        alert.showAndWait();
-        return; 
-    }
+        int clientId = 1;
+String adresseLivraison = txtLivraison.getText();
+Date dateCommande = Ddate_commande.getValue() != null ? Date.valueOf(Ddate_commande.getValue()) : null;
+String DC = dateCommande != null ? dateCommande.toString() : null;
+String montantText = txtMontatnt.getText();
+Date dateLivraison = Ddate_livraison.getValue() != null ? Date.valueOf(Ddate_livraison.getValue()) : null;
+String DL = dateLivraison != null ? dateLivraison.toString() : null;
+String modePaiement = Combo_modepaiement.getValue();
+
+if (adresseLivraison.isEmpty() || (DC != null && DC.isEmpty()) || montantText.isEmpty() ||
+    (DL != null && DL.isEmpty()) || modePaiement.isEmpty()) {
+    afficherAlerte("Champs obligatoires non remplis", "Veuillez remplir tous les champs obligatoires.");
+    return;
+}
+
 
    
     Commandecrud ccd = new Commandecrud();
@@ -143,6 +140,14 @@ public class Commande1Controller implements Initializable {
 
         
     }
+    private void afficherAlerte(String titre, String contenu) {
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle(titre);
+    alert.setHeaderText(null);
+    alert.setContentText(contenu);
+    alert.showAndWait();
+        
+    }
 
    
 
@@ -152,12 +157,12 @@ public class Commande1Controller implements Initializable {
     if (selectedCommande != null) {
         
        
-        Date dateCommande = Ddate_commande.getValue() != null ? Date.valueOf(Ddate_commande.getValue()) : null;
-        
-       
+        Date dateCommande = Ddate_commande.getValue()  != null ? Date.valueOf(Ddate_commande.getValue()) : null;
         String adresseLivraison = txtLivraison.getText();
         Date dateLivraison = Ddate_livraison.getValue() != null ? Date.valueOf(Ddate_livraison.getValue()) : null;
         String modePaiement = Combo_modepaiement.getValue();
+        
+         
 
         if (dateCommande == null ||  adresseLivraison.isEmpty() || dateLivraison == null || modePaiement.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);

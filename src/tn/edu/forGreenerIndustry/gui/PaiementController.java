@@ -107,7 +107,7 @@ public class PaiementController implements Initializable {
 
 private boolean estCodePromoValide(String codePromo) {
    
-    return codePromo.equals("forgreener") || codePromo.equals("FGTH");
+    return codePromo.equals("forgreener") || codePromo.equals("FGTY");
 }
 
 
@@ -115,7 +115,7 @@ private double appliquerCodePromo(double montantTotal, String codePromo) {
    
     if (codePromo.equals("forgreener")) {
         return montantTotal * 0.9;
-    } else if (codePromo.equals("FGTH")) {
+    } else if (codePromo.equals("FGTY")) {
         return montantTotal= 1; 
     } else {
         return montantTotal;

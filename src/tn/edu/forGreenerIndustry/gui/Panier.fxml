@@ -19,12 +19,12 @@
          <font>
             <Font name="Cambria" size="36.0" />
          </font></Label>
-      <TableView fx:id="tabPanier" editable="true" layoutX="400.0" layoutY="107.0" prefHeight="356.0" prefWidth="358.0" style="-fx-border-color: black;">
+      <TableView fx:id="tabPanier" editable="true" layoutX="347.0" layoutY="107.0" prefHeight="356.0" prefWidth="411.0" style="-fx-border-color: black;">
         <columns>
-            <TableColumn fx:id="columnProduit" prefWidth="75.0" text="Produit" />
-          <TableColumn fx:id="Columnquantite" prefWidth="75.0" text="Quantité" />
-          <TableColumn fx:id="columnprixu" prefWidth="109.0" text="Prix unitaire" />
-            <TableColumn fx:id="columnprixtot" prefWidth="87.0" text="Prix totale" />
+            <TableColumn fx:id="columnProduit" prefWidth="120.0" text="Produit" />
+          <TableColumn fx:id="Columnquantite" prefWidth="70.0" text="Quantité" />
+          <TableColumn fx:id="columnprixu" prefWidth="102.0" text="Prix unitaire" />
+            <TableColumn fx:id="columnprixtot" prefWidth="115.0" text="Prix totale" />
         </columns>
       </TableView>
       <Button layoutX="811.0" layoutY="166.0" mnemonicParsing="false" onAction="#Commander" prefHeight="44.0" prefWidth="102.0" text="Commander" />
