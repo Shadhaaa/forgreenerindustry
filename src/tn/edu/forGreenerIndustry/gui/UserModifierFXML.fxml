@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="643.0" prefWidth="613.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forgreenerindustry.gui.UserModifierFXMLController">
+    <stylesheets>
+    
+    </stylesheets>
+    <children>
+      <Label layoutX="32.0" layoutY="42.0" text="Nom et Prenom">
+         <font>
+            <Font name="Bell MT Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="76.0" text="Telephone">
+         <font>
+            <Font name="Bell MT Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="321.0" layoutY="293.0" text="Confirmer ">
+         <font>
+            <Font name="Bell MT Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="294.0" text="Mot de passe">
+         <font>
+            <Font name="Bell MT Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="256.0" text="Role">
+         <font>
+            <Font name="Bell MT Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="224.0" text="Genre">
+         <font>
+            <Font name="Bell MT Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="28.0" layoutY="190.0" text="Adresse">
+         <font>
+            <Font name="Bell MT Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="151.0" text="E-mail">
+         <font>
+            <Font name="Bell MT Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="113.0" text="Photo de profil">
+         <font>
+            <Font name="Bell MT Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TFMdp1_aj" layoutX="175.0" layoutY="289.0" prefHeight="31.0" prefWidth="120.0" promptText="*******" />
+      <TextField fx:id="TFPrenom_aj" layoutX="410.0" layoutY="37.0" promptText="votre Prenom" />
+      <TextField fx:id="TFNum_aj" layoutX="175.0" layoutY="71.0" promptText="216 ** *** **" />
+      <TextField fx:id="TFPdp_aj" layoutX="175.0" layoutY="108.0" promptText="url de photo" />
+      <TextField fx:id="TFMail_aj" layoutX="175.0" layoutY="146.0" promptText="exmple@org.tn" />
+      <TextField fx:id="TFAdresse_aj" layoutX="175.0" layoutY="185.0" promptText="Rue Andree , Ariana, Tunis" />
+      <RadioButton fx:id="RBFemme" layoutX="175.0" layoutY="223.0" mnemonicParsing="false" selected="true" text="Femme">
+         <toggleGroup>
+            <ToggleGroup fx:id="RBGenre_aj" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="RBHomme" layoutX="314.0" layoutY="223.0" mnemonicParsing="false" text="Homme" toggleGroup="$RBGenre_aj" />
+      <ChoiceBox fx:id="CBRole_aj" layoutX="175.0" layoutY="250.0" prefWidth="150.0" />
+      <TextField fx:id="TFNom_aj" layoutX="175.0" layoutY="37.0" promptText="votre nom " />
+      <TextField fx:id="TFMdp2_aj" layoutX="410.0" layoutY="289.0" promptText="******" />
+      <Button fx:id="BTNajouter_user" layoutX="411.0" layoutY="572.0" mnemonicParsing="false" onAction="#BTNajouter_user" prefHeight="39.0" prefWidth="164.0" text="Confirmer" />
+      <Button fx:id="btnrtr_home" layoutX="32.0" layoutY="576.0" mnemonicParsing="false" onAction="#retour_home" prefHeight="39.0" prefWidth="150.0" text="retourner" />
+      <ImageView fx:id="pdp" fitHeight="80.0" fitWidth="94.0" layoutX="441.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="logo" fitHeight="109.0" fitWidth="120.0" layoutX="444.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btnpdp_aj" layoutX="334.0" layoutY="108.0" mnemonicParsing="false" onAction="#Uploadpdp" text="..." />
+      <TextField fx:id="TFid_user" layoutX="175.0" layoutY="-8.0" promptText="id" />
+      <TextField fx:id="rolemdf" layoutX="411.0" layoutY="250.0" promptText="role" />
+      <Pane fx:id="Paneentreprise" layoutX="57.0" layoutY="345.0" prefHeight="227.0" prefWidth="542.0">
+         <children>
+            <Label layoutX="-23.0" layoutY="66.0" text="Logo ">
+               <font>
+                  <Font name="Bell MT Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="-30.0" layoutY="104.0" text="Secteur">
+               <font>
+                  <Font name="Bell MT Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="-24.0" layoutY="148.0" text="Description">
+               <font>
+                  <Font name="Bell MT Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="TFNom_entreprise_aj" layoutX="126.0" layoutY="16.0" promptText="Nom de votre entreprise" />
+            <TextField fx:id="TFLogo_aj" layoutX="126.0" layoutY="62.0" promptText="lien de photo du logo" />
+            <TextField fx:id="TFSecteur_aj" layoutX="126.0" layoutY="99.0" promptText="ex : sport , cosmitique . . " />
+            <TextField fx:id="TFDesc_aj" layoutX="126.0" layoutY="138.0" prefHeight="80.0" prefWidth="187.0" promptText="description de vos activites" />
+             <Label layoutX="-26.0" layoutY="14.0" text="Nom d'entreprise">
+               <font>
+                  <Font name="Bell MT Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="TFlogo_aj1" layoutX="283.0" layoutY="62.0" mnemonicParsing="false" onAction="#Uploadlogo" text="..." />
+         </children>
+      </Pane>
+      <TextField fx:id="tfadmin_mod" layoutX="410.0" layoutY="-8.0" />
+    </children>
+</AnchorPane>
