@@ -11,33 +11,37 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="632.0" prefWidth="776.0" style="-fx-background-color: #D5F8BC;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forGreenerIndustry.gui.SearchFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #D5F8BC;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forGreenerIndustry.gui.SearchFXMLController">
    <children>
-      <Label layoutX="36.0" layoutY="46.0" text="chercher  post ">
+      <Label layoutX="74.0" layoutY="47.0" text="chercher  post ">
          <font>
             <Font name="Bernard MT Condensed" size="31.0" />
          </font></Label>
-      <TextField fx:id="tfSearch" layoutX="254.0" layoutY="50.0" />
-      <Button fx:id="btnSearch" layoutX="490.0" layoutY="33.0" mnemonicParsing="false" onAction="#btnSearchPost" stylesheets="@Postfxml.css" text="chercher" />
-      <Button fx:id="home" layoutX="36.0" layoutY="543.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="48.0" prefWidth="99.0" stylesheets="@Postfxml.css" text="Home" />
-      <ImageView fitHeight="86.0" fitWidth="89.0" layoutX="654.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="tfSearch" layoutX="323.0" layoutY="51.0" prefHeight="31.0" prefWidth="442.0" />
+      <Button fx:id="btnSearch" layoutX="829.0" layoutY="42.0" mnemonicParsing="false" onAction="#btnSearchPost" stylesheets="@Postfxml.css" text="chercher" />
+      <Button fx:id="home" layoutX="91.0" layoutY="682.0" mnemonicParsing="false" onAction="#btnHome" prefHeight="48.0" prefWidth="99.0" stylesheets="@Postfxml.css" text="Home" />
+      <ImageView fitHeight="86.0" fitWidth="89.0" layoutX="1066.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../resources/searching.png" />
          </image>
       </ImageView>
-      <TableView fx:id="TableView2" layoutX="59.0" layoutY="175.0" prefHeight="207.0" prefWidth="610.0">
+      <TableView fx:id="TableView2" layoutX="173.0" layoutY="145.0" prefHeight="311.0" prefWidth="836.0">
         <columns>
-          <TableColumn fx:id="tfTitle" prefWidth="75.0" text="Titre" />
-          <TableColumn fx:id="tfContenu" prefWidth="314.0" text="Contenu" />
-            <TableColumn fx:id="tfImage" prefWidth="125.0" text="Image" />
-            <TableColumn fx:id="date" prefWidth="95.0" text="Date" />
+          <TableColumn fx:id="tfTitle" prefWidth="146.0" text="Titre" />
+          <TableColumn fx:id="tfContenu" prefWidth="483.0" text="Contenu" />
+            <TableColumn fx:id="tfImage" prefWidth="68.0" text="Image" />
+            <TableColumn fx:id="date" prefWidth="138.0" text="Date" />
         </columns>
       </TableView>
-      <ButtonBar layoutX="140.0" layoutY="443.0" prefHeight="74.0" prefWidth="442.0">
-         <buttons>
-            <Label fx:id="lblResult" prefHeight="70.0" prefWidth="457.0" text="-" />
-         </buttons></ButtonBar>
-      <Button layoutX="323.0" layoutY="552.0" mnemonicParsing="false" onAction="#btnModify" text="modifier" />
-      <Button fx:id="btnShowDetails" layoutX="604.0" layoutY="552.0" mnemonicParsing="false" onAction="#btnShowDetails" text="afficher" />
+      <ButtonBar layoutX="140.0" layoutY="443.0" prefHeight="74.0" prefWidth="442.0" />
+      <Button layoutX="582.0" layoutY="682.0" mnemonicParsing="false" onAction="#btnModify" prefHeight="48.0" prefWidth="99.0" style="-fx-background-color: #00CED1;" text="modifier" textFill="#fcfafa">
+         <font>
+            <Font name="Book Antiqua Bold" size="19.0" />
+         </font></Button>
+      <Button fx:id="btnShowDetails" layoutX="990.0" layoutY="682.0" mnemonicParsing="false" onAction="#btnShowDetails" prefHeight="48.0" prefWidth="99.0" style="-fx-background-color: #00CED1;" text="afficher" textFill="#f2eeee">
+         <font>
+            <Font name="Bodoni MT" size="20.0" />
+         </font></Button>
+      <Label fx:id="lblResult" layoutX="273.0" layoutY="550.0" prefHeight="70.0" prefWidth="673.0" text="-" />
    </children>
 </AnchorPane>

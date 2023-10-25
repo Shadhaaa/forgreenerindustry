@@ -58,3 +58,13 @@
 #Delete:hover {
     -fx-background-color: #6A5ACD; 
 }
+
+#btnStat {
+    -fx-background-color: #FFC0CB; 
+    -fx-text-fill: white; 
+    -fx-font-size: 30px; 
+    -fx-padding: 10px; 
+}
+#btnStat:hover {
+    -fx-background-color: #8B0000; 
+}

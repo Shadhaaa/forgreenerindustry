@@ -43,6 +43,8 @@ public class DashboardFXMLController implements Initializable {
     
     @FXML
     private AnchorPane AnchorPane;
+    @FXML
+    private Button btnStat;
     
     public void setScene(Scene scene) {
         this.scene = scene;
@@ -159,6 +161,23 @@ public class DashboardFXMLController implements Initializable {
         stage.setScene(searchScene);
         stage.setTitle("Search Posts");
         stage.show();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    }
+
+    @FXML
+    private void btnPostStat(ActionEvent event) {
+        try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("StatPostFXML.fxml"));
+        Parent root = loader.load();
+        Scene statisticsScene = new Scene(root);
+
+        // Create a new stage for the statistics interface
+        Stage statisticsStage = new Stage();
+        statisticsStage.setScene(statisticsScene);
+        statisticsStage.setTitle("Statistics");
+        statisticsStage.show();
     } catch (IOException e) {
         e.printStackTrace();
     }

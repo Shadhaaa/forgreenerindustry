@@ -11,33 +11,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPane" prefHeight="614.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forGreenerIndustry.gui.DashboardFXMLController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane" prefHeight="820.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forGreenerIndustry.gui.DashboardFXMLController">
    <children>
-      <SplitPane dividerPositions="0.9866220735785953" layoutX="-14.0" layoutY="-6.0">
+      <SplitPane dividerPositions="0.9866220735785953" layoutX="-14.0" layoutY="-6.0" prefHeight="827.0" prefWidth="361.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="265.0" style="-fx-background-color: #D5F8BC;" stylesheets="@Dashboardfxml.css">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="843.0" prefWidth="365.0" style="-fx-background-color: #D5F8BC;" stylesheets="@Dashboardfxml.css">
                <children>
-                  <Button fx:id="btnShow" layoutX="77.0" layoutY="122.0" mnemonicParsing="false" onAction="#btnShowAll" prefHeight="65.0" prefWidth="174.0" stylesheets="@Dashboardfxml.css" text="posts" textFill="#3f7915">
+                  <Button fx:id="btnShow" layoutX="63.0" layoutY="125.0" mnemonicParsing="false" onAction="#btnShowAll" prefHeight="65.0" prefWidth="203.0" stylesheets="@Dashboardfxml.css" text="posts" textFill="#3f7915">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="Search" layoutX="77.0" layoutY="219.0" mnemonicParsing="false" onAction="#btnSearch" prefHeight="65.0" prefWidth="174.0" text="rechercher" textFill="#438d17">
+                  <Button fx:id="Search" layoutX="63.0" layoutY="236.0" mnemonicParsing="false" onAction="#btnSearch" prefHeight="65.0" prefWidth="203.0" text="   rechercher" textFill="#438d17">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="Delete" layoutX="77.0" layoutY="416.0" mnemonicParsing="false" onAction="#btnDelete" prefHeight="65.0" prefWidth="174.0" text="supprimer" textFill="#2b8014">
+                  <Button fx:id="Delete" layoutX="63.0" layoutY="458.0" mnemonicParsing="false" onAction="#btnDelete" prefHeight="65.0" prefWidth="203.0" text="    supprimer" textFill="#2b8014">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="Update" layoutX="77.0" layoutY="508.0" mnemonicParsing="false" onAction="#btnUpdate" prefHeight="65.0" prefWidth="174.0" text="modifier" textFill="#108316">
+                  <Button fx:id="Update" layoutX="63.0" layoutY="562.0" mnemonicParsing="false" onAction="#btnUpdate" prefHeight="65.0" prefWidth="203.0" text="    modifier" textFill="#108316">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnAdd" layoutX="77.0" layoutY="319.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="65.0" prefWidth="174.0" text="ajouter" textFill="#1e7508">
+                  <Button fx:id="btnAdd" layoutX="63.0" layoutY="348.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="65.0" prefWidth="203.0" text="ajouter" textFill="#1e7508">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -45,6 +45,37 @@
                   <ImageView fitHeight="99.0" fitWidth="88.0" layoutX="113.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../resources/logo.jpg" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="btnStat" layoutX="56.0" layoutY="705.0" mnemonicParsing="false" onAction="#btnPostStat" prefHeight="65.0" prefWidth="203.0" text="  Post stat" />
+                  <ImageView fitHeight="31.0" fitWidth="40.0" layoutX="66.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/search_26px.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="40.0" fitWidth="77.0" layoutX="74.0" layoutY="575.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/edit_property_24px.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="31.0" fitWidth="56.0" layoutX="77.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/add_user_group_woman_man_24px.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="31.0" fitWidth="62.0" layoutX="77.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/google_forms_24px.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="31.0" fitWidth="61.0" layoutX="78.0" layoutY="475.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/effacer.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="31.0" fitWidth="77.0" layoutX="66.0" layoutY="722.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/account_24px.png" />
                      </image>
                   </ImageView>
                </children>
@@ -57,7 +88,7 @@
             </AnchorPane>
         </items>
       </SplitPane>
-      <ImageView fitHeight="419.0" fitWidth="719.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="32.0" AnchorPane.topAnchor="176.0">
+      <ImageView fitHeight="475.0" fitWidth="776.0" layoutX="388.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="56.0" AnchorPane.topAnchor="265.0">
          <image>
             <Image url="@../../../../resources/green.jpeg" />
          </image>
@@ -65,18 +96,18 @@
             <Blend />
          </effect>
       </ImageView>
-      <ImageView fitHeight="152.0" fitWidth="437.0" layoutX="750.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="152.0" fitWidth="437.0" layoutX="840.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../resources/media.png" />
          </image>
       </ImageView>
-      <ToggleButton fx:id="themeToggle" layoutX="632.0" layoutY="14.0" mnemonicParsing="false" text="Ligh/Dark mode">
+      <ToggleButton fx:id="themeToggle" layoutX="712.0" layoutY="14.0" mnemonicParsing="false" text="Ligh/Dark mode">
          <stylesheets>
             <URL value="@light.css" />
             <URL value="@dark.css" />
          </stylesheets>
       </ToggleButton>
-      <Label layoutX="341.0" layoutY="50.0" text="Blog" textFill="#ab1855">
+      <Label layoutX="417.0" layoutY="88.0" text="Blog" textFill="#ab1855">
          <font>
             <Font name="Broadway" size="34.0" />
          </font>

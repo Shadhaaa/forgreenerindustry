@@ -226,6 +226,23 @@ public class CommentsFXMLController implements Initializable {
         alert.showAndWait();
     }
     }
+
+    @FXML
+    private void btnStat(ActionEvent event) {
+        try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("StatPostFXML.fxml"));
+        Parent root = loader.load();
+        Scene statisticsScene = new Scene(root);
+
+        // Create a new stage for the statistics interface
+        Stage statisticsStage = new Stage();
+        statisticsStage.setScene(statisticsScene);
+        statisticsStage.setTitle("Statistics");
+        statisticsStage.show();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    }
     
     
 }

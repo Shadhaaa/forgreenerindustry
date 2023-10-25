@@ -9,33 +9,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="568.0" prefWidth="749.0" style="-fx-background-color: #D5F8BC;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forGreenerIndustry.gui.AllPostsFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="653.0" prefWidth="901.0" style="-fx-background-color: #D5F8BC;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forGreenerIndustry.gui.AllPostsFXMLController">
    <children>
-      <TableView fx:id="tableView" layoutX="80.0" layoutY="188.0" prefHeight="234.0" prefWidth="570.0" style="-fx-background-color: #F0F8FF;">
+      <TableView fx:id="tableView" layoutX="126.0" layoutY="185.0" prefHeight="287.0" prefWidth="598.0" style="-fx-background-color: #F0F8FF;">
         <columns>
             <TableColumn fx:id="tfTitre" prefWidth="100.0" text="titre" />
             <TableColumn fx:id="tfType" minWidth="0.0" prefWidth="0.0" text="type" />
-            <TableColumn fx:id="tfContenu" prefWidth="297.0" text="contenu" />
-            <TableColumn fx:id="tfImage" prefWidth="96.0" text="image" />
-            <TableColumn fx:id="tfDate" prefWidth="76.0" text="date" />
+            <TableColumn fx:id="tfContenu" prefWidth="394.0" text="contenu" />
+            <TableColumn fx:id="tfImage" minWidth="0.0" prefWidth="9.0" text="image" />
+            <TableColumn fx:id="tfDate" prefWidth="94.0" text="date" />
         </columns>
       </TableView>
-      <Label layoutX="139.0" layoutY="66.0" prefHeight="57.0" prefWidth="91.0" text="Posts" textFill="#193a83">
+      <Label layoutX="230.0" layoutY="45.0" prefHeight="57.0" prefWidth="91.0" text="Posts" textFill="#193a83">
          <font>
             <Font name="Bernard MT Condensed" size="36.0" />
          </font></Label>
-      <Button fx:id="home" layoutX="64.0" layoutY="490.0" mnemonicParsing="false" onAction="#btnReturn" stylesheets="@Postfxml.css" text="retour" />
-      <ImageView fitHeight="87.0" fitWidth="71.0" layoutX="574.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="home" layoutX="71.0" layoutY="553.0" mnemonicParsing="false" onAction="#btnReturn" stylesheets="@Postfxml.css" text="retour" />
+      <ImageView fitHeight="87.0" fitWidth="71.0" layoutX="774.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../resources/show.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="85.0" fitWidth="91.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="85.0" fitWidth="91.0" layoutX="22.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../resources/logo.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnCmment" layoutX="508.0" layoutY="493.0" mnemonicParsing="false" onAction="#btnComment" style="-fx-background-color: #00CED1;" text="Commentaire" textFill="WHITE">
+      <Button fx:id="btnCmment" layoutX="704.0" layoutY="569.0" mnemonicParsing="false" onAction="#btnComment" style="-fx-background-color: #00CED1;" text="Commentaire" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>

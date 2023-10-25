@@ -31,8 +31,7 @@ public class DetailsFXMLController implements Initializable {
     private Label tfContenu;
     @FXML
     private Label tfDate;
-    @FXML
-    private Label tfImage;
+    
 
     /**
      * Initializes the controller class.
@@ -45,7 +44,7 @@ public class DetailsFXMLController implements Initializable {
     void setPostData(Post post) {
         tfTitre.setText(post.getTitre());
         tfContenu.setText(post.getContenu());
-        tfImage.setText(post.getImage());
+        
         
         Date date = post.getDate();
         if (date != null) {
