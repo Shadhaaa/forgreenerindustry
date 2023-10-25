@@ -61,7 +61,7 @@ public class QrCode extends javax.swing.JFrame {
 
         qr_text.setText("0");
 
-        jButton1.setText("ajouter ID");
+        jButton1.setText("ajouter QR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -117,7 +117,7 @@ public class QrCode extends javax.swing.JFrame {
         ByteArrayOutputStream out = QRCode.from(input)
                 .to(ImageType.PNG).stream();
         String f_name = input;
-        String Path_name = "C:\\Users\\Mega\\Desktop\\pi";
+        String Path_name = "C:\\Users\\Mega\\Desktop\\pi\\QR codes";
         File outputFile = new File(Path_name, f_name + ".PNG");
         FileOutputStream fout = new FileOutputStream(outputFile);
         fout.write(out.toByteArray());

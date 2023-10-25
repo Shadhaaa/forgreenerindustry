@@ -16,7 +16,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -26,13 +26,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import tn.edu.forGreenerIndustry.entities.Commentaires;
 import tn.edu.forGreenerIndustry.entities.Post;
 import tn.edu.forGreenerIndustry.services.ServiceCommentaires;
 import tn.edu.forGreenerIndustry.services.ServicePost;
 import tn.edu.forGreenerIndustry.tools.QrCode;
+import tn.edu.forGreenerIndustry.gui.mailing;
+
 
 /**
  * FXML Controller class
@@ -71,6 +75,11 @@ public class CommentsFXMLController implements Initializable {
     
     @FXML
     private Button generateQRButton;
+    @FXML
+    private Button reportButton;
+    @FXML
+    private AnchorPane AnchorPane;
+    
     
     
 
@@ -194,5 +203,29 @@ public class CommentsFXMLController implements Initializable {
         alert.showAndWait();
     }
     }
+
+    @FXML
+    private void reportButton(ActionEvent event) {
+        Post selectedPost = TableView.getSelectionModel().getSelectedItem();
+
+    if (selectedPost != null) {
+        // Create a new mailing frame
+        mailing mailingFrame = new mailing();
+
+        // Set the subject textfield to the selected post's title
+        
+
+        // Set the mailing frame visible
+        mailingFrame.setVisible(true);
+    } else {
+        // No post selected, show an alert
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("No Post Selected");
+        alert.setHeaderText(null);
+        alert.setContentText("Please select a post to report.");
+        alert.showAndWait();
+    }
+    }
+    
     
 }
