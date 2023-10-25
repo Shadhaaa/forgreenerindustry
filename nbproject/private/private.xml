@@ -5,13 +5,18 @@
         <group>
             <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/services/Commandecrud.java</file>
             <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/CommandeAdminController.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/PanierController.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/statcommande.css</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Mezed.fxml</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/MezedController.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Mezedwindow.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/PaiementController.java</file>
+            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/mezed.css</file>
             <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/StatCommande.fxml</file>
             <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/StatCommandeController.java</file>
             <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Statcommandewindow.java</file>
             <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Panierwindow.java</file>
-            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/statcommande.css</file>
             <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/Commande1Controller.java</file>
-            <file>file:/C:/Users/ACHREF/Desktop/amal/forgreenerindustry/src/tn/edu/forGreenerIndustry/gui/PaiementController.java</file>
         </group>
     </open-files>
 </project-private>
