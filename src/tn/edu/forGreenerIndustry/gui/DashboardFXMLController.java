@@ -51,20 +51,21 @@ public class DashboardFXMLController implements Initializable {
     }
     
     private void toggleTheme() {
-        System.out.println("Toggling theme..."); // Debugging line
-    if (themeToggle.isSelected()) {
-        // Switch to dark theme
-        AnchorPane.getStyleClass().addAll("mainFxmlClass");
-        scene.getStylesheets().clear(); // Clear existing styles
-        scene.getStylesheets().add(getClass().getResource("/tn/edu/forGreenerIndustry/gui/dark.css").toExternalForm());
-    } else {
-        // Switch to light theme
-        System.out.println("Switching to light theme..."); // Debugging line
-        AnchorPane.getStyleClass().removeAll("mainFxmlClass");
-        scene.getStylesheets().clear(); // Clear existing styles
-        scene.getStylesheets().add(getClass().getResource("/tn/edu/forGreenerIndustry/gui/light.css").toExternalForm());
-    }
-    }
+        System.out.println("Toggling theme..."); 
+        if (themeToggle != null) {
+            if (themeToggle.isSelected()) {
+        // yhez dark theme
+            AnchorPane.getStyleClass().addAll("mainFxmlClass");
+            scene.getStylesheets().clear(); // Clear existing styles
+            scene.getStylesheets().add(getClass().getResource("/tn/edu/forGreenerIndustry/gui/dark.css").toExternalForm());
+        } else {
+        // light theme
+            System.out.println("Switching to light theme..."); // Debugging line
+            AnchorPane.getStyleClass().removeAll("mainFxmlClass");
+            scene.getStylesheets().clear(); // Clear existing styles
+            scene.getStylesheets().add(getClass().getResource("/tn/edu/forGreenerIndustry/gui/light.css").toExternalForm());
+        }
+        }}
 
     /**
      * Initializes the controller class.
@@ -181,6 +182,11 @@ public class DashboardFXMLController implements Initializable {
     } catch (IOException e) {
         e.printStackTrace();
     }
+    }
+
+    @FXML
+    private void themeToggleButton(ActionEvent event) {
+        toggleTheme();
     }
     
 }

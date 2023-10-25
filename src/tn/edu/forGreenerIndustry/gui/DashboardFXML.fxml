@@ -101,7 +101,7 @@
             <Image url="@../../../../resources/media.png" />
          </image>
       </ImageView>
-      <ToggleButton fx:id="themeToggle" layoutX="712.0" layoutY="14.0" mnemonicParsing="false" text="Ligh/Dark mode">
+      <ToggleButton fx:id="themeToggle" layoutX="712.0" layoutY="14.0" mnemonicParsing="false" onAction="#themeToggleButton" text="Ligh/Dark mode">
          <stylesheets>
             <URL value="@light.css" />
             <URL value="@dark.css" />
