@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="BorderPane" prefHeight="755.0" prefWidth="1027.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forgreenerindustry.gui.ClienthomeController">
+    <stylesheets>
+    </stylesheets>
+     <left>
+      <VBox prefHeight="546.0" prefWidth="181.0" style="-fx-background-color: #0D1824;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="663.0" prefWidth="181.0">
+               <children>
+                  <Button fx:id="acceuil" mnemonicParsing="false" onAction="#acceuil" prefHeight="110.0" prefWidth="181.0" text="Acceuil" />
+                  <Button fx:id="btngestionproduit" mnemonicParsing="false" onAction="#homegestionproduit" prefHeight="115.0" prefWidth="181.0" text="les produits" />
+                  <Button fx:id="btngestionevenement" mnemonicParsing="false" onAction="#homegestionevenement" prefHeight="134.0" prefWidth="181.0" text="les evenements" />
+                  <Button fx:id="btngestioncommande" mnemonicParsing="false" onAction="#homegestioncommande" prefHeight="109.0" prefWidth="181.0" text="mes commandes" />
+                  <Button fx:id="btngestionrec" mnemonicParsing="false" onAction="#homegestionreclamation" prefHeight="90.0" prefWidth="181.0" text=" Reclamation" />
+                  <Button fx:id="btngestionpost" mnemonicParsing="false" onAction="#homegestionpost" prefHeight="122.0" prefWidth="181.0" text=" Greener Media" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane fx:id="ANhome_admin" prefHeight="546.0" prefWidth="965.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="role_home" layoutY="-1.0" />
+            <TextField fx:id="TFid_corc" layoutX="187.0" layoutY="-1.0" />
+         </children></AnchorPane>
+   </center>
+   <right>
+      <AnchorPane prefHeight="652.0" prefWidth="162.0" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>

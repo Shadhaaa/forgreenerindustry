@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="512.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forgreenerindustry.gui.AcceuiladminController">
+    <center>
+        <BarChart fx:id="barChart" prefHeight="424.0" prefWidth="751.0" BorderPane.alignment="CENTER">
+            <xAxis>
+                <CategoryAxis side="BOTTOM">
+                    <label>Genres</label>
+                </CategoryAxis>
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT">
+                    <label>Nombre</label>
+                </NumberAxis>
+            </yAxis>
+        </BarChart>
+    </center>
+    <bottom>
+        <VBox alignment="CENTER" prefHeight="39.0" prefWidth="636.0">
+            <Label fx:id="labelHommes" prefHeight="21.0" prefWidth="103.0" text="Hommes : " />
+            <Label fx:id="labelFemmes" prefHeight="21.0" prefWidth="112.0" text="Femmes : " />
+        </VBox>
+    </bottom>
+    <top>
+        <Label text="Statistiques sur les Hommes et les Femmes" BorderPane.alignment="CENTER" />
+    </top>
+   <left>
+      <Button fx:id="stat" mnemonicParsing="false" onAction="#stat" text="afficher stat" BorderPane.alignment="CENTER" />
+   </left>
+</BorderPane>
