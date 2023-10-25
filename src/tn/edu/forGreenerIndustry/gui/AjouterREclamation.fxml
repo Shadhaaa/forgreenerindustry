@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forGreenerIndustry.gui.AjouterREclamationController">
+   <children>
+      <Pane prefHeight="872.0" prefWidth="835.0" style="-fx-background-color: #D7DBDD;">
+         <children>
+            <Pane prefHeight="92.0" prefWidth="835.0" style="-fx-background-color: #7D3C98;">
+               <children>
+                  <Label graphicTextGap="40.0" layoutX="214.0" layoutY="6.0" prefHeight="81.0" prefWidth="459.0" text="Ajouter Reclamation" textAlignment="RIGHT" textFill="#e4c1c1">
+                     <font>
+                        <Font name="Bodoni MT" size="41.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="81.0" fitWidth="92.0" layoutX="38.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logo.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Label layoutX="55.0" layoutY="264.0" text="Nom">
+               <font>
+                  <Font name="Bodoni MT" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="NomRec" layoutX="115.0" layoutY="262.0" prefHeight="31.0" prefWidth="268.0" promptText="entrer votre nom" />
+            <Label layoutX="414.0" layoutY="266.0" text="Prenom">
+               <font>
+                  <Font name="Bodoni MT" size="21.0" />
+               </font>
+            </Label>
+            <TextField fx:id="prenomRec" layoutX="499.0" layoutY="263.0" prefHeight="31.0" prefWidth="268.0" promptText="entrer votre prenom" />
+            <TextField fx:id="EmailRec" layoutX="188.0" layoutY="337.0" prefHeight="31.0" prefWidth="404.0" promptText="Entrez votre e-mail " />
+            <Label layoutX="65.0" layoutY="422.0" text="Tel">
+               <font>
+                  <Font name="Bodoni MT" size="26.0" />
+               </font>
+            </Label>
+            <TextField fx:id="TelRec" layoutX="181.0" layoutY="438.0" prefHeight="31.0" prefWidth="404.0" promptText="+216" />
+            <TextArea fx:id="DescRec" layoutX="166.0" layoutY="513.0" prefHeight="142.0" prefWidth="586.0" promptText=".............................." />
+            <Label layoutX="9.0" layoutY="496.0" prefHeight="30.0" prefWidth="146.0" text="Description">
+               <font>
+                  <Font name="Bodoni MT" size="25.0" />
+               </font>
+            </Label>
+            <Button layoutX="473.0" layoutY="794.0" mnemonicParsing="false" onAction="#retourReclamation" prefHeight="47.0" prefWidth="227.0" style="-fx-background-color: B0E57C;" text="Retour">
+               <font>
+                  <Font name="Bodoni MT" size="22.0" />
+               </font>
+            </Button>
+            <Button layoutX="142.0" layoutY="794.0" mnemonicParsing="false" onAction="#saveREclamation" prefHeight="47.0" prefWidth="227.0" style="-fx-background-color: B0E57C;" text="Enregistrer">
+               <font>
+                  <Font name="Bodoni MT" size="22.0" />
+               </font>
+            </Button>
+            <ComboBox fx:id="ServicereclameSel" layoutX="512.0" layoutY="145.0" prefHeight="31.0" prefWidth="256.0" />
+            <Label layoutX="307.0" layoutY="145.0" text="Service a reclamée">
+               <font>
+                  <Font name="Bodoni MT" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="ErrNom" layoutX="101.0" layoutY="235.0" text="*" textFill="#c60303">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="ErrPrenom" layoutX="488.0" layoutY="235.0" prefHeight="25.0" prefWidth="208.0" text="*" textFill="#c60303">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="ErrEmail" layoutX="161.0" layoutY="317.0" text="*" textFill="#c60303">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="ErrTel" layoutX="160.0" layoutY="410.0" text="*" textFill="#c60303">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="ErrDesc" layoutX="151.0" layoutY="496.0" text="*" textFill="#c60303">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="ErrService" layoutX="495.0" layoutY="120.0" text="*" textFill="#c60303">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <ButtonBar layoutX="-71.0" layoutY="297.0" prefHeight="40.0" prefWidth="200.0" />
+          <Button layoutX="309.0" layoutY="676.0" mnemonicParsing="false" onAction="#file" prefHeight="26.0" prefWidth="146.0" style="-fx-background-color: #BB8FCE;" text="Ajouter Image">
+               <font>
+                  <Font name="Bodoni MT" size="18.0" />
+               </font></Button>
+            <TextField fx:id="imageText" layoutX="43.0" layoutY="727.0" prefHeight="31.0" prefWidth="459.0" />
+            <Label fx:id="ErrImage" layoutX="65.0" layoutY="696.0" prefHeight="21.0" prefWidth="7.0" text="*" textFill="#c60303">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml">
+               <columnConstraints>
+                  <ColumnConstraints />
+               </columnConstraints>
+</GridPane>
+            <Label layoutX="80.0" layoutY="336.0" minWidth="60.0" prefHeight="35.0" prefWidth="85.0" text="Email">
+               <font>
+                  <Font name="Bodoni MT" size="22.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageV" fitHeight="117.0" fitWidth="178.0" layoutX="564.0" layoutY="669.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
