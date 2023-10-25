@@ -198,24 +198,23 @@ public class AjouterREclamationController implements Initializable {
                 Rcl.setDate_creation(d1);
                 Rcl.setDate_traitement(d2);
                 Rcl.setDescription(DescRec.getText());
-                Rcl.setStatus("");
+                Rcl.setStatus("En Attend");
                 Rcl.setNomServcie(ServicereclameSel.getValue());
-                
-                
+
                 int descrlet = DescRec.getText().length();
-                  
-                    if(DescRec.getText()!=null){
-                            
-                            if (DescRec.getText().length() > 20) {
+
+                if (DescRec.getText() != null) {
+
+                    if (DescRec.getText().length() > 20) {
                         Rcl.setPriority("Blocker");
-                         sr.ajouter(Rcl);
+                        sr.ajouter(Rcl);
 
                     } else if (DescRec.getText().length() < 5) {
                         Rcl.setPriority("Cosmetic");
-                         sr.ajouter(Rcl);
+                        sr.ajouter(Rcl);
                     } else {
                         Rcl.setPriority("Major");
-                         sr.ajouter(Rcl);
+                        sr.ajouter(Rcl);
                     }
                 }
                 // Envoi de l'e-mail ici
@@ -304,6 +303,7 @@ public class AjouterREclamationController implements Initializable {
         }
     }
 
+    @FXML
     private boolean isDescriptionClean(String description) {
         List<String> forbiddenWords = Arrays.asList("fuck", "mot2", "expression1", "expression2");
         for (String word : forbiddenWords) {

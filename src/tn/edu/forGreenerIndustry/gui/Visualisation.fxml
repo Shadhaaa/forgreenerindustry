@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="691.0" prefWidth="1042.0" style="-fx-background-color: #D7DBDD;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forGreenerIndustry.gui.VisualisationController">
+   <children>
+      <Pane layoutX="7.0" prefHeight="691.0" prefWidth="233.0" />
+      <PieChart fx:id="ChartP" layoutX="450.0" layoutY="160.0" prefHeight="317.0" prefWidth="376.0" />
+      <Pane prefHeight="691.0" prefWidth="259.0" style="-fx-background-color: #7D3C98;" />
+      <Label layoutX="578.0" layoutY="104.0" text="Visualisations" />
+   </children>
+</Pane>

@@ -45,6 +45,7 @@ import tn.edu.forGreenerIndustry.tools.DataSource;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
 
+
 /**
  * FXML Controller class
  *
@@ -86,6 +87,8 @@ public class GestionReclamationController implements Initializable {
     private TableColumn<String, String> priorityRec1;
     @FXML
     private Button repondrec;
+    @FXML
+    private Button DetailsP;
 
     public GestionReclamationController() {
         Connection cnx = DataSource.getInstance().getConnection();
@@ -128,6 +131,7 @@ public class GestionReclamationController implements Initializable {
         SortedList<Reclamation> sortedData = new SortedList<>(filteredData);
         sortedData.comparatorProperty().bind(tabReclamation.comparatorProperty());
         tabReclamation.setItems(sortedData);
+
     }
 
     @FXML
@@ -209,7 +213,6 @@ public class GestionReclamationController implements Initializable {
         mainStage.show();
     }
 
-    @FXML
     private void goReponse(ActionEvent event) throws IOException {
         searchRec.getScene().getWindow().hide();
         Parent root = FXMLLoader.load(getClass().getResource("GestionReponse.fxml"));
@@ -245,6 +248,15 @@ public class GestionReclamationController implements Initializable {
         }
     }
 
-    // D'autres méthodes et gestionnaires d'événements ici
+    @FXML
+    private void goDetails(ActionEvent event) throws IOException {
+         DetailsP.getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("Visualisation.fxml"));
+        Stage mainStage = new Stage();
+        Scene scene = new Scene(root);
+        mainStage.setScene(scene);
+        mainStage.show();
+    }
+
 
 }
