@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tn.edu.forGreenerIndustry.services;
+package tn.edu.forgreenerindustry.services;
 
 
 import forgreenerindustry.ForGreenerIndustry.Genre;
@@ -17,8 +17,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import tn.edu.forGreenerIndustry.tools.DataSource;
-import tn.edu.forGreenerIndustry.entities.User;
+import tn.edu.forgreenerindustry.tools.DataSource;
+import tn.edu.forgreenerindustry.entities.User;
 
 /**
  *

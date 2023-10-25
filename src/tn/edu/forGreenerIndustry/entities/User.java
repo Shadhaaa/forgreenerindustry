@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tn.edu.forGreenerIndustry.entities;
+package tn.edu.forgreenerindustry.entities;
 
 import forgreenerindustry.ForGreenerIndustry.Comp;
 import forgreenerindustry.ForGreenerIndustry.Genre;
@@ -91,7 +91,7 @@ public class User {
     }
     //constructeur entreprise 
 
-    public User(int id_user, String nom, String prenom, String pdp, int num, String mail, String mdp1, String mdp2, Role role, String adresse) {
+    public User(int id_user, String nom, String prenom, String pdp, int num, String mail, String mdp1,  Role role, String adresse) {
         this.id_user = id_user;
         this.nom = nom;
         this.prenom = prenom;
@@ -99,19 +99,17 @@ public class User {
         this.num = num;
         this.mail = mail;
         this.mdp1 = mdp1;
-        this.mdp2 = mdp2;
         this.role = role;
         this.adresse = adresse;
     }
     //constructeur entreprise sans id
-     public User( String nom, String prenom, String pdp, int num, String mail, String mdp1, String mdp2, Role role, String adresse) {
+     public User( String nom, String prenom, String pdp, int num, String mail, String mdp1,  Role role, String adresse) {
         this.nom = nom;
         this.prenom = prenom;
         this.pdp = pdp;
         this.num = num;
         this.mail = mail;
         this.mdp1 = mdp1;
-        this.mdp2 = mdp2;
         this.role = role;
         this.adresse = adresse;
     }
@@ -121,6 +119,24 @@ public class User {
             int num, String mail, String mdp1, Role role,
             String adresse, Genre genre, String vehicule, Comp compagnie_livraison, int dispo) {
         this.id_user = id_user;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.pdp = pdp;
+        this.num = num;
+        this.mail = mail;
+        this.mdp1 = mdp1;
+        this.role = role;
+        this.adresse = adresse;
+        this.genre = genre;
+        this.vehicule = vehicule;
+        this.compagnie_livraison = compagnie_livraison;
+        this.dispo = dispo;
+    }
+    //user san liste et sans id 
+     public User( String nom, String prenom, String pdp, 
+            int num, String mail, String mdp1, Role role,
+            String adresse, Genre genre, String vehicule, Comp compagnie_livraison, int dispo) {
+     
         this.nom = nom;
         this.prenom = prenom;
         this.pdp = pdp;
