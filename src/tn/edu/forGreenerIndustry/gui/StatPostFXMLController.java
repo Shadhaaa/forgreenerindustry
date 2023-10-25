@@ -70,29 +70,20 @@ public class StatPostFXMLController implements Initializable {
         XYChart.Series<String, Number> dataSeries1 = new XYChart.Series<String, Number>();
         dataSeries1.setName("Popular Post by user interactions");
 
-        dataSeries1.getData().add(new XYChart.Data<String, Number>("Product Launch", 2300));
-        dataSeries1.getData().add(new XYChart.Data<String, Number>("Event", 1000));
-        dataSeries1.getData().add(new XYChart.Data<String, Number>("New Cars", 986));
-        dataSeries1.getData().add(new XYChart.Data<String, Number>("Makeup", 870));
-        dataSeries1.getData().add(new XYChart.Data<String, Number>("Recruiting", 413));
-        dataSeries1.getData().add(new XYChart.Data<String, Number>("Welcome", 326));
+        dataSeries1.getData().add(new XYChart.Data<String, Number>("Product Launch", 25));
+        dataSeries1.getData().add(new XYChart.Data<String, Number>("Event", 7));
+        dataSeries1.getData().add(new XYChart.Data<String, Number>("New Cars", 12));
+        dataSeries1.getData().add(new XYChart.Data<String, Number>("Makeup", 8));
+        dataSeries1.getData().add(new XYChart.Data<String, Number>("Recruiting", 10));
+        dataSeries1.getData().add(new XYChart.Data<String, Number>("Welcome", 3));
         barChart.getData().add(dataSeries1);
 
         return barChart;
     }
      
-     
-
-    
-
     @FXML
     private void handleClose(ActionEvent event) {
         System.exit(0);
     }
-
-    
-
-    
-    
-    
+  
 }

@@ -70,9 +70,9 @@
                   <DatePicker fx:id="datePicker" layoutX="89.0" layoutY="651.0" prefHeight="33.0" prefWidth="303.0" style="-fx-border-color: #008B8B;" />
                   <Button fx:id="btnShow" layoutX="553.0" layoutY="643.0" mnemonicParsing="false" onAction="#btnShow" prefHeight="47.0" prefWidth="114.0" stylesheets="@Postfxml.css" text="Afficher" />
                   <Button fx:id="btnAjouter" layoutX="553.0" layoutY="553.0" mnemonicParsing="false" onAction="#btnAjouter" prefHeight="47.0" prefWidth="114.0" text="Ajouter" />
-                  <Label fx:id="testID" layoutX="353.0" layoutY="119.0" prefHeight="74.0" prefWidth="163.0" stylesheets="@Postfxml.css" text="  " />
+                  <Label fx:id="testID" layoutX="472.0" layoutY="119.0" prefHeight="74.0" prefWidth="163.0" stylesheets="@Postfxml.css" text="  " />
                   <Button layoutX="344.0" layoutY="537.0" mnemonicParsing="false" onAction="#btnAddImage" prefHeight="33.0" prefWidth="76.0" text="+Image" />
-                  <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="353.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="454.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </AnchorPane>
         </items>
