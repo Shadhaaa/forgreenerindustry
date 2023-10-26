@@ -60,7 +60,7 @@ public class VisualisationController implements Initializable {
         Long blockerNon = null;
         if (allrec != null) {
             blockerNon = allrec.stream()
-                    .filter(r ->r.getStatus().equalsIgnoreCase("En Attend"))
+                    .filter(r -> r.getStatus().equalsIgnoreCase("En Attend"))
                     .filter(r -> r.getPriority().equalsIgnoreCase("Blocker"))
                     .count();
         }
@@ -68,7 +68,7 @@ public class VisualisationController implements Initializable {
         Long blockerTrait = null;
         if (allrec != null) {
             blockerTrait = allrec.stream()
-                    .filter(r ->r.getStatus().equalsIgnoreCase("Traiteé"))
+                    .filter(r -> r.getStatus().equalsIgnoreCase("Traiteé"))
                     .filter(r -> r.getPriority().equalsIgnoreCase("Blocker"))
                     .count();
         }
@@ -76,66 +76,65 @@ public class VisualisationController implements Initializable {
         Long majorNon = null;
         if (allrec != null) {
             majorNon = allrec.stream()
-                    .filter(r->r.getStatus().equalsIgnoreCase("En Attend"))
-                    .filter(r ->r.getPriority().equalsIgnoreCase("Major"))
+                    .filter(r -> r.getStatus().equalsIgnoreCase("En Attend"))
+                    .filter(r -> r.getPriority().equalsIgnoreCase("Major"))
                     .count();
         }
-           Long majorTrait = null;
+        Long majorTrait = null;
         if (allrec != null) {
             majorTrait = allrec.stream()
-                    .filter(r ->r.getStatus().equalsIgnoreCase("Traiteé"))
-                    .filter(r ->r.getPriority().equalsIgnoreCase("Major"))
+                    .filter(r -> r.getStatus().equalsIgnoreCase("Traiteé"))
+                    .filter(r -> r.getPriority().equalsIgnoreCase("Major"))
                     .count();
         }
 
         Long CosmeticTrait = null;
         if (allrec != null) {
             CosmeticTrait = allrec.stream()
-                    .filter(r ->r.getStatus().equalsIgnoreCase("Traiteé"))
-                    .filter(r ->r.getPriority().equalsIgnoreCase("Cosmetic"))
+                    .filter(r -> r.getStatus().equalsIgnoreCase("Traiteé"))
+                    .filter(r -> r.getPriority().equalsIgnoreCase("Cosmetic"))
                     .count();
         }
         Long CosmeticNon = null;
         if (allrec != null) {
             CosmeticNon = allrec.stream()
-                    .filter(r -> "Non Traiteé".equalsIgnoreCase(r.getStatus()))
-                    .filter(r -> " Cosmetic".equalsIgnoreCase(r.getPriority()))
+                    .filter(r -> r.getStatus().equalsIgnoreCase("En Attend"))
+                    .filter(r -> r.getPriority().equalsIgnoreCase("Cosmetic"))
                     .count();
         }
-      
+
         // Create PieChart.Data objects for each combination only if counts are not null
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
 
         if (blockerNon != 0) {
             pieChartData.add(new PieChart.Data("Blocker Non-Traitée", blockerNon));
         }
-        
+
         if (blockerTrait != 0) {
             pieChartData.add(new PieChart.Data("Blocker Traiteé", blockerTrait));
         }
-        if(CosmeticTrait!=0) { 
+        if (CosmeticTrait != 0) {
             pieChartData.add(new PieChart.Data("Cosmetic Traitée", blockerNon));
         }
-
 
         if (CosmeticNon != 0) {
             pieChartData.add(new PieChart.Data("Cosmetic Non-Traitée", CosmeticNon));
         }
-      
+
         if (majorNon != 0) {
             pieChartData.add(new PieChart.Data("Major Non-Traitée", majorNon));
         }
         if (majorTrait != 0) {
-            pieChartData.add(new PieChart.Data("Major Traiteé", majorTrait));
+            pieChartData.add(new PieChart.Data("Major Traitée", majorTrait));
         }
 
-            // Set the data for the ChartP PieChart
-            ChartP.setData(pieChartData);
+        // Set the data for the ChartP PieChart
+        ChartP.setData(pieChartData);
 
-            // Adjust the size of the chart based on the number of data points
-            double scaleFactor = Math.max(1.0, pieChartData.size() / 5.0); // Adjust as needed
-            ChartP.setPrefSize(600, 600);
-        }
+        // Adjust the size of the chart based on the number of data points
+        double scaleFactor = Math.max(1.0, pieChartData.size() / 5.0); // Adjust as needed
+        ChartP.setPrefSize(600, 600);
+    }
 
     @FXML
     private void retour(ActionEvent event) throws IOException {
@@ -145,8 +144,7 @@ public class VisualisationController implements Initializable {
         Scene scene = new Scene(root);
         mainStage.setScene(scene);
         mainStage.show();
-    
+
     }
 
-    
 }

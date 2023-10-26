@@ -92,6 +92,7 @@ public class AjouterREclamationController implements Initializable {
     private TextField imageText;
     @FXML
     private Label ErrImage;
+    @FXML
     private TextArea descriptionTextArea;
 
     @Override
@@ -219,7 +220,7 @@ public class AjouterREclamationController implements Initializable {
                 // Envoi de l'e-mail ici
                 String to = EmailRec.getText(); // Adresse e-mail de l'utilisateur
                 String subject = "Votre réclamation a été enregistrée avec succès";
-                String body = "Nous avons bien reçu votre réclamation et nous travaillons à sa prise en charge de prioritée ."+Rcl.getPriority();
+                String body = "Nous avons bien reçu votre réclamation et nous travaillons à sa prise en charge de prioritée ." + Rcl.getPriority();
 
                 MailService mailService = new MailService();
                 mailService.sendEmail(to, subject, body);
@@ -284,14 +285,17 @@ public class AjouterREclamationController implements Initializable {
             // L'utilisateur a annulé la sélection de fichier, vous pouvez gérer ce cas ici.
             System.out.println("Sélection de fichier annulée.");
         }
+
     }
 
+    @FXML
     private void soumettreReclamation(ActionEvent event) {
-        String description = descriptionTextArea.getText();
+        String description = DescRec.getText();
+        Connection cnx = DataSource.getInstance().getConnection();
+        ServiceReclamation service = new ServiceReclamation(cnx);
 
         if (isDescriptionClean(description)) {
             // La description est propre, enregistrez la réclamation
-            ServiceReclamation serviceReclamation = new ServiceReclamation();
 
             // Effectuez d'autres actions ou affichez un message de réussite
             System.out.println("Réclamation enregistrée avec succès.");
@@ -301,6 +305,7 @@ public class AjouterREclamationController implements Initializable {
         }
     }
 
+    @FXML
     private boolean isDescriptionClean(String description) {
         List<String> forbiddenWords = Arrays.asList("fuck", "mot2", "expression1", "expression2");
         for (String word : forbiddenWords) {

@@ -35,11 +35,9 @@ import tn.edu.forGreenerIndustry.entities.Reclamation;
 public class ServiceReclamation {
 
     private Connection cnx;
-    private List<String> forbiddenWords;
+    private List<String> forbiddenWords=Arrays.asList("fuck", "mot2", "expression1", "expression2");;
 
-    public ServiceReclamation() {
-        this.forbiddenWords = Arrays.asList("fuck", "mot2", "expression1", "expression2");
-    }
+  
 
     public ServiceReclamation(Connection cnx) {
         this.cnx = cnx;

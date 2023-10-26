@@ -45,7 +45,6 @@ import tn.edu.forGreenerIndustry.tools.DataSource;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
 
-
 /**
  * FXML Controller class
  *
@@ -58,7 +57,7 @@ public class GestionReclamationController implements Initializable {
 
     @FXML
     private TableView<Reclamation> tabReclamation;
-   
+
     @FXML
     private TableColumn<Reclamation, String> nomRec;
     @FXML
@@ -106,7 +105,7 @@ public class GestionReclamationController implements Initializable {
         servRec.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("nomServcie"));
         descRec.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("description"));
         statusRec.setCellValueFactory(new PropertyValueFactory<Reclamation, String>("status"));
-       priorityRec1.setCellValueFactory(new PropertyValueFactory<String, String>("priority"));
+        priorityRec1.setCellValueFactory(new PropertyValueFactory<String, String>("priority"));
 
         ObservableList<Reclamation> reclamationList = FXCollections.observableArrayList();
         reclamationList.addAll(serviceReclamation.getAll());
@@ -212,7 +211,8 @@ public class GestionReclamationController implements Initializable {
         mainStage.setScene(scene);
         mainStage.show();
     }
-@FXML
+
+    @FXML
     private void goReponse(ActionEvent event) throws IOException {
         searchRec.getScene().getWindow().hide();
         Parent root = FXMLLoader.load(getClass().getResource("GestionReponse.fxml"));
@@ -250,13 +250,12 @@ public class GestionReclamationController implements Initializable {
 
     @FXML
     private void goDetails(ActionEvent event) throws IOException {
-         DetailsP.getScene().getWindow().hide();
+        DetailsP.getScene().getWindow().hide();
         Parent root = FXMLLoader.load(getClass().getResource("Visualisation.fxml"));
         Stage mainStage = new Stage();
         Scene scene = new Scene(root);
         mainStage.setScene(scene);
         mainStage.show();
     }
-
 
 }
