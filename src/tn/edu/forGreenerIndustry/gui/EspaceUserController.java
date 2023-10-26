@@ -26,6 +26,8 @@ public class EspaceUserController implements Initializable {
 
     @FXML
     private Button aa;
+    @FXML
+    private Button log;
 
     /**
      * Initializes the controller class.
@@ -57,5 +59,17 @@ public class EspaceUserController implements Initializable {
                 mainStage.setScene(scene);
                 mainStage.show(); 
     }
+
+  
+        @FXML
+    private void LogOut(ActionEvent event) throws IOException {
+        log.getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Stage mainStage = new Stage();
+        Scene scene = new Scene(root);
+        mainStage.setScene(scene);
+        mainStage.show();
+    }
+    }
     
-}
+

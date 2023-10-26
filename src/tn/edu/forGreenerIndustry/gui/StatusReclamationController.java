@@ -5,7 +5,6 @@
  */
 package tn.edu.forGreenerIndustry.gui;
 
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -22,6 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import tn.edu.forGreenerIndustry.entities.Reponse;
+import tn.edu.forGreenerIndustry.services.MailService;
 import tn.edu.forGreenerIndustry.services.ServiceReclamation;
 import tn.edu.forGreenerIndustry.services.ServiceReponse;
 
@@ -33,7 +33,8 @@ import tn.edu.forGreenerIndustry.tools.DataSource;
  * @author dell
  */
 public class StatusReclamationController implements Initializable {
-   Connection cnx = DataSource.getInstance().getConnection();
+
+    Connection cnx = DataSource.getInstance().getConnection();
     ServiceReclamation sc = new ServiceReclamation(cnx);
     ServiceReponse sr = new ServiceReponse(cnx);
 
@@ -45,60 +46,70 @@ public class StatusReclamationController implements Initializable {
     private Label errstatus;
     @FXML
     private Label errMessage;
-  private String[] a = {"Traiteé", "En attend"};
+    private String[] a = {"Traiteé", "En attend"};
     @FXML
     private Button confirmerRe;
     @FXML
     private TextArea mess;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       selStatus.getItems().setAll(a);
-   
+        selStatus.getItems().setAll(a);
+
         init();
-    }    
+    }
 
     @FXML
     private void confirmerRe(ActionEvent event) throws IOException {
-           init();
-        
+        init();
+
         int x = 0;
-       if (mess.getText().equals("")){
-              errMessage.setVisible(true);
-              errMessage.setText("Champ Obligatoire");
-        x=1;
+        if (mess.getText().equals("")) {
+            errMessage.setVisible(true);
+            errMessage.setText("Champ Obligatoire");
+            x = 1;
         }
-        if (selStatus.getValue() == null){
-              errstatus.setVisible(true);
-              errstatus.setText("Champ Obligatoire");
-        x=1;
+        if (selStatus.getValue() == null) {
+            errstatus.setVisible(true);
+            errstatus.setText("Champ Obligatoire");
+            x = 1;
         }
-        if(x == 0){
-        sc.modifierStatus(Main.rec.getIdReclamation(), selStatus.getValue());
-                   Reponse r = new Reponse(mess.getText(), selStatus.getValue(), Main.rec.getIdReclamation());
+        if (x == 0) {
+            sc.modifierStatus(Main.rec.getIdReclamation(), selStatus.getValue());
+            Reponse r = new Reponse(mess.getText(), selStatus.getValue(), Main.rec.getIdReclamation());
             sr.ajouter(r);
-      
-              Parent root = FXMLLoader.load(getClass().getResource("GestionReclamation.fxml"));
-                Stage mainStage = new Stage();
-                Scene scene = new Scene(root);
-                mainStage.setScene(scene);
-                mainStage.show();
-    }
+            String EmailRec = Main.rec.getEmail();
+            // Envoi de l'e-mail ici
+            String to = EmailRec; // Adresse e-mail de l'utilisateur
+            String subject = "Votre réclamation est en cours de traitement";
+            String body = mess.getText();
+
+            MailService mailService = new MailService();
+            mailService.sendEmail(to, subject, body);
+            Parent root = FXMLLoader.load(getClass().getResource("GestionReclamation.fxml"));
+            Stage mainStage = new Stage();
+            Scene scene = new Scene(root);
+            mainStage.setScene(scene);
+            mainStage.show();
+
+        }
     }
 
     @FXML
     private void annulerrec(ActionEvent event) throws IOException {
-           confirmerRe.getScene().getWindow().hide();
-              Parent root = FXMLLoader.load(getClass().getResource("GestionReclamation.fxml"));
-                Stage mainStage = new Stage();
-                Scene scene = new Scene(root);
-                mainStage.setScene(scene);
-                mainStage.show();
+        confirmerRe.getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("GestionReclamation.fxml"));
+        Stage mainStage = new Stage();
+        Scene scene = new Scene(root);
+        mainStage.setScene(scene);
+        mainStage.show();
     }
-    void init(){
-    errMessage.setVisible(false);
-     errstatus.setVisible(false);
+
+    void init() {
+        errMessage.setVisible(false);
+        errstatus.setVisible(false);
     }
 }

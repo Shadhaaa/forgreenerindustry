@@ -26,7 +26,7 @@
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Button>
-                  <Button layoutX="16.0" layoutY="675.0" mnemonicParsing="false" onAction="#goUser" prefHeight="41.0" prefWidth="240.0" style="-fx-background-color: #B0E57C;" text="Espace User">
+                  <Button fx:id="log" layoutX="16.0" layoutY="675.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="41.0" prefWidth="240.0" style="-fx-background-color: #B0E57C;" text="Log Out">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
@@ -57,8 +57,7 @@
                   <TableColumn fx:id="priorityRec1" prefWidth="60.0" text="priority" />
               </columns>
             </TableView>
-            <Button layoutX="1154.0" layoutY="598.0" mnemonicParsing="false" onAction="#goAjouter" prefHeight="31.0" prefWidth="132.0" style="-fx-background-color: B0E57C;" text="Ajouter" />
-            <Button layoutX="1154.0" layoutY="651.0" mnemonicParsing="false" onAction="#goSupprimer" prefHeight="31.0" prefWidth="132.0" style="-fx-background-color: B0E57C;" text="Supprimer" />
+            <Button layoutX="1154.0" layoutY="547.0" mnemonicParsing="false" onAction="#goSupprimer" prefHeight="31.0" prefWidth="132.0" style="-fx-background-color: B0E57C;" text="Supprimer" />
             <Button fx:id="repondrec" layoutX="1125.0" layoutY="397.0" mnemonicParsing="false" onAction="#ChangerStatus" prefHeight="31.0" prefWidth="191.0" style="-fx-background-color: B0E57C B0E57C;" text="Repondre" />
             <TextField fx:id="searchRec" layoutX="618.0" layoutY="231.0" prefHeight="26.0" prefWidth="432.0" style="-fx-background-color: #F8F8FF;" />
             <Label layoutX="523.0" layoutY="231.0" text="Chercher">

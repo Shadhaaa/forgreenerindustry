@@ -90,6 +90,8 @@ public class GestionReclamationController implements Initializable {
     private Button repondrec;
     @FXML
     private Button DetailsP;
+    @FXML
+    private Button log;
 
     public GestionReclamationController() {
         Connection cnx = DataSource.getInstance().getConnection();
@@ -110,13 +112,11 @@ public class GestionReclamationController implements Initializable {
         priorityRec1.setCellValueFactory(new PropertyValueFactory<String, String>("priority"));
 
         ObservableList<Reclamation> reclamationList = FXCollections.observableArrayList();
-       reclamationList.addAll(serviceReclamation.getAll().stream()
-    .sorted((o1, o2) -> {
-        // Compare o1 and o2 based on your sorting criteria
-        // For example, if you want to sort by priority (assuming priority is a String):
-        return o1.getPriority().compareTo(o2.getPriority());
-    })
-    .collect(Collectors.toList()));
+        reclamationList.addAll(serviceReclamation.getAll().stream()
+                .sorted((o1, o2) -> {
+                    return o1.getPriority().compareTo(o2.getPriority());
+                })
+                .collect(Collectors.toList()));
         tabReclamation.setItems(reclamationList);
 
         FilteredList<Reclamation> filteredData = new FilteredList<>(reclamationList, p -> true);
@@ -142,7 +142,6 @@ public class GestionReclamationController implements Initializable {
 
     }
 
-    @FXML
     private void goAjouter(ActionEvent event) throws IOException {
         Main.role = "admin";
         searchRec.getScene().getWindow().hide();
@@ -227,7 +226,6 @@ public class GestionReclamationController implements Initializable {
         mainStage.show();
     }
 
-    @FXML
     private void goUser(ActionEvent event) throws IOException {
         searchRec.getScene().getWindow().hide();
         Parent root = FXMLLoader.load(getClass().getResource("EspaceUser.fxml"));
@@ -257,6 +255,16 @@ public class GestionReclamationController implements Initializable {
     private void goDetails(ActionEvent event) throws IOException {
         DetailsP.getScene().getWindow().hide();
         Parent root = FXMLLoader.load(getClass().getResource("Visualisation.fxml"));
+        Stage mainStage = new Stage();
+        Scene scene = new Scene(root);
+        mainStage.setScene(scene);
+        mainStage.show();
+    }
+
+    @FXML
+    private void LogOut(ActionEvent event) throws IOException {
+        log.getScene().getWindow().hide();
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Stage mainStage = new Stage();
         Scene scene = new Scene(root);
         mainStage.setScene(scene);

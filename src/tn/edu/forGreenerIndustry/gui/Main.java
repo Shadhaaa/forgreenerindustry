@@ -26,7 +26,7 @@ public class Main extends Application {
     static String role;
     @Override
     public void start(Stage stage) throws IOException {
-   Parent root = FXMLLoader.load(getClass().getResource("GestionReclamation.fxml"));
+   Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         
         Scene scene = new Scene(root);
         

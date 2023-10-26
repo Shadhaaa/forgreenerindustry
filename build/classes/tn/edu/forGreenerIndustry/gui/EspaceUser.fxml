@@ -10,28 +10,33 @@
 
 <AnchorPane id="AnchorPane" prefHeight="342.0" prefWidth="587.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.edu.forGreenerIndustry.gui.EspaceUserController">
    <children>
-      <Pane layoutX="-8.0" layoutY="30.0" prefHeight="417.0" prefWidth="587.0" style="-fx-background-image: #D7DBDD;">
+      <Pane layoutX="-8.0" layoutY="30.0" prefHeight="417.0" prefWidth="738.0" style="-fx-background-color: #BB8FCE;">
          <children>
-            <Pane layoutX="-7.0" layoutY="-30.0" prefHeight="169.0" prefWidth="601.0" style="-fx-background-color: #7D3C98;">
+            <Pane layoutX="-7.0" layoutY="-32.0" prefHeight="171.0" prefWidth="746.0" style="-fx-background-color: #7D3C98;">
                <children>
-                  <Label layoutX="204.0" layoutY="61.0" prefHeight="47.0" prefWidth="193.0" text="Service Avis" textFill="WHITE">
+                  <Label layoutX="178.0" layoutY="71.0" prefHeight="47.0" prefWidth="311.0" text="Espace Utilisateur" textFill="#2c2828">
                      <font>
-                        <Font name="System Bold Italic" size="32.0" />
+                        <Font name="Bodoni MT" size="36.0" />
                      </font>
                   </Label>
+                  <Button fx:id="log" layoutX="588.0" layoutY="21.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="36.0" prefWidth="129.0" style="-fx-background-color: #B0E57C;" text="Log Out">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
-            <Button fx:id="aa" layoutX="68.0" layoutY="202.0" mnemonicParsing="false" onAction="#reclamation" prefHeight="45.0" prefWidth="256.0" style="-fx-background-color: B0E57C;" text="Reclamer un service" textFill="WHITE">
+            <Button fx:id="aa" layoutX="139.0" layoutY="209.0" mnemonicParsing="false" onAction="#reclamation" prefHeight="45.0" prefWidth="256.0" style="-fx-background-color: B0E57C;" text="Reclamer un service" textFill="#4a4545">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Button>
-            <Button layoutX="68.0" layoutY="277.0" mnemonicParsing="false" onAction="#rate" prefHeight="47.0" prefWidth="256.0" style="-fx-background-color: B0E57C;" text="Rate un service" textFill="WHITE">
+            <Button layoutX="139.0" layoutY="302.0" mnemonicParsing="false" onAction="#rate" prefHeight="47.0" prefWidth="256.0" style="-fx-background-color: B0E57C;" text="Rate un service" textFill="#463c3c">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Button>
-            <ImageView fitHeight="169.0" fitWidth="152.0" layoutX="379.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="146.0" fitWidth="147.0" layoutX="505.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@logo.jpg" />
                </image>
