@@ -92,7 +92,6 @@ public class AjouterREclamationController implements Initializable {
     private TextField imageText;
     @FXML
     private Label ErrImage;
-    @FXML
     private TextArea descriptionTextArea;
 
     @Override
@@ -220,7 +219,7 @@ public class AjouterREclamationController implements Initializable {
                 // Envoi de l'e-mail ici
                 String to = EmailRec.getText(); // Adresse e-mail de l'utilisateur
                 String subject = "Votre réclamation a été enregistrée avec succès";
-                String body = "Nous avons bien reçu votre réclamation et nous travaillons à sa prise en charge.";
+                String body = "Nous avons bien reçu votre réclamation et nous travaillons à sa prise en charge de prioritée ."+Rcl.getPriority();
 
                 MailService mailService = new MailService();
                 mailService.sendEmail(to, subject, body);
@@ -287,7 +286,6 @@ public class AjouterREclamationController implements Initializable {
         }
     }
 
-    @FXML
     private void soumettreReclamation(ActionEvent event) {
         String description = descriptionTextArea.getText();
 
@@ -303,7 +301,6 @@ public class AjouterREclamationController implements Initializable {
         }
     }
 
-    @FXML
     private boolean isDescriptionClean(String description) {
         List<String> forbiddenWords = Arrays.asList("fuck", "mot2", "expression1", "expression2");
         for (String word : forbiddenWords) {
