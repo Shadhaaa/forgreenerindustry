@@ -186,9 +186,9 @@ public class ServiceProduit implements IService<Produit>{
             stm2=this.cnx.createStatement();
             stm2.execute(req);
             ResultSet rs=  stm2.executeQuery(req);
-            Produit p = new  Produit();
-            while (rs.next()) {
             
+            while (rs.next()) {
+            Produit p = new  Produit();
             Integer id_cat = rs.getInt("id_categorie");
             ServiceCatégorie sercat = new ServiceCatégorie();
             Catégorie c1 = new Catégorie();
@@ -251,11 +251,6 @@ public class ServiceProduit implements IService<Produit>{
             }
             
             p.setVéhicule(listvéhi);
-            
-            
-            
-            
-            
             Produits.add(p);
             }
         } catch (SQLException ex) {

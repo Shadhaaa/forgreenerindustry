@@ -48,6 +48,6 @@ public class main {
         distv.add(Float.parseFloat("8.3"));
         
         //Produit p = new Produit(1, 1, 55, 55, 77, c, "7777", "58", "kkk", liste, consener, listv, distv);
-        Service.supprimer(8);
+        Service.supprimer(13);
     }
 }

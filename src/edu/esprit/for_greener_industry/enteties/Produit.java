@@ -25,7 +25,7 @@ public class Produit {
     private float prix;
     private int stock_actuelle;
     private int production_mentuelle;
-    private int pollution_par_piéce;
+    private float pollution_par_piéce;
     private Catégorie c;
     private String libellet;
     private String description;
@@ -117,7 +117,7 @@ public class Produit {
         return pstock;
     }
 
-    public int getPollution_par_piéce() {
+    public float getPollution_par_piéce() {
         return pollution_par_piéce;
     }
     
@@ -196,7 +196,7 @@ public class Produit {
         this.production_mentuelle = production_mentuelle;
     }
 
-    public void setPollution_par_piéce(int pollution_par_piéce) {
+    public void setPollution_par_piéce(float pollution_par_piéce) {
         this.pollution_par_piéce = pollution_par_piéce;
     }
 
@@ -234,23 +234,25 @@ public class Produit {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 53 * hash + this.id;
-        hash = 53 * hash + this.id_entreprise;
-        hash = 53 * hash + Float.floatToIntBits(this.prix);
-        hash = 53 * hash + this.stock_actuelle;
-        hash = 53 * hash + this.production_mentuelle;
-        hash = 53 * hash + this.pollution_par_piéce;
-        hash = 53 * hash + Objects.hashCode(this.c);
-        hash = 53 * hash + Objects.hashCode(this.libellet);
-        hash = 53 * hash + Objects.hashCode(this.description);
-        hash = 53 * hash + Objects.hashCode(this.img);
-        hash = 53 * hash + Objects.hashCode(this.ener);
-        hash = 53 * hash + Objects.hashCode(this.qte_ener);
-        hash = 53 * hash + Objects.hashCode(this.véhicule);
-        hash = 53 * hash + Objects.hashCode(this.distance_véhicule);
+        int hash = 7;
+        hash = 67 * hash + this.id;
+        hash = 67 * hash + this.id_entreprise;
+        hash = 67 * hash + Float.floatToIntBits(this.prix);
+        hash = 67 * hash + this.stock_actuelle;
+        hash = 67 * hash + this.production_mentuelle;
+        hash = 67 * hash + Float.floatToIntBits(this.pollution_par_piéce);
+        hash = 67 * hash + Objects.hashCode(this.c);
+        hash = 67 * hash + Objects.hashCode(this.libellet);
+        hash = 67 * hash + Objects.hashCode(this.description);
+        hash = 67 * hash + Objects.hashCode(this.img);
+        hash = 67 * hash + Objects.hashCode(this.ener);
+        hash = 67 * hash + Objects.hashCode(this.qte_ener);
+        hash = 67 * hash + Objects.hashCode(this.véhicule);
+        hash = 67 * hash + Objects.hashCode(this.distance_véhicule);
         return hash;
     }
+
+    
 
     
 

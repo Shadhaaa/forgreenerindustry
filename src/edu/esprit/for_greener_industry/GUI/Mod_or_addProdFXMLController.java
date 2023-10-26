@@ -300,13 +300,19 @@ public class Mod_or_addProdFXMLController implements Initializable {
             });
             
             mod.setOnAction(event -> {
-                p.setLibellet(labelfield.getText());
+                if(labelfield.getText().equals("")||catcombo.getValue().getLibellet().equals("")||Descriptionfield.getText().equals("")||prixfield.getText().equals("")||productionfield.getText().equals("")||stockfield.getText().equals("")||imgfield.getText().equals("")){
+                    alert.setContentText("tout champs sont obligatoires");
+                    alert.show();
+                }
+                else{
+                    p.setLibellet(labelfield.getText());
                 p.setC(catcombo.getValue());
                 p.setDescription(Descriptionfield.getText());
                 p.setPrix(Float.parseFloat(prixfield.getText()));
                 p.setProduction_mentuelle(Integer.parseInt(productionfield.getText()));
                 p.setStock_actuelle(Integer.parseInt(stockfield.getText()));
-                p.setImg(imgfield.getText());
+                
+                p.setImg(imgfield.getText().replace("\\", "*"));
                 
                 for(TextField t : textFieldMap.values() ){
                     for(Energie me : energieMap.keySet()){
@@ -330,20 +336,23 @@ public class Mod_or_addProdFXMLController implements Initializable {
                 p.setVéhicule(arrayListvéhi);
                 ArrayList<Float> arrayListvéhicons = new ArrayList<>(energieMap.values());
                 p.setDistance_véhicule(arrayListvéhicons);
-                /*int poll = 0;
-                for(int i=1;i < arrayListener.size();i++){
+                Float poll = 0f;
+                for(int i=0;i < arrayListener.size();i++){
                     poll+=arrayListener.get(i).getPollution_par_kw()*arrayListenercons.get(i);
                 }
-                for(int i=1;i < arrayListvéhi.size()+1;i++){
+                for(int i=0;i < arrayListvéhi.size();i++){
                     poll+=arrayListvéhi.get(i).getPollution_par_km()*arrayListvéhicons.get(i);
                 }
                 poll=poll/p.getProduction_mentuelle();
-                p.setPollution_par_piéce(poll);*/
+                p.setPollution_par_piéce(poll);
                 serviceprod.ajouter(p);
                 alert.setContentText("produit ajouter avec success");
+                tab.add(p);
                 alert.show();
                 Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 currentStage.close();
+                }
+                
             });
             
                        

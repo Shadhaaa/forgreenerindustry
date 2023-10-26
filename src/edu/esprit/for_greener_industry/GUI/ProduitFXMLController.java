@@ -117,10 +117,10 @@ public class ProduitFXMLController implements Initializable {
         FXProduit_colent.setCellValueFactory(cell -> cell.getValue().getIdProperty().asObject());;
         FXProduit_colid.setCellValueFactory(cell -> cell.getValue().getIdProperty().asObject());
         
-        //FXProduit_colimg.setCellValueFactory(new PropertyValueFactory<>("image"));
+        FXProduit_colimg.setCellValueFactory(new PropertyValueFactory<>("image"));
         
-        //FXProduit_colimg.setCellValueFactory(data -> data.getValue().getImgProperty());
-        //FXProduit_colimg.setCellFactory(column -> new TableCellWithImage());
+        FXProduit_colimg.setCellValueFactory(data -> data.getValue().getImgProperty());
+        FXProduit_colimg.setCellFactory(column -> new TableCellWithImage());
         
         FXProduit_collib.setCellValueFactory(cell -> cell.getValue().getLibelletProperty());
         FXProduit_colprix.setCellValueFactory(cell -> cell.getValue().getPrixProperty().asObject());
@@ -169,7 +169,7 @@ public class ProduitFXMLController implements Initializable {
         } else {
             // Create an Image object from the file path
             System.out.println(imagePath);
-            Image image = new Image("file:" + imagePath); 
+            Image image = new Image("file:" + imagePath.replace("*", "/")); 
             
             imageView.setImage(image);
             imageView.setFitWidth(50); // Set the width of the displayed image
