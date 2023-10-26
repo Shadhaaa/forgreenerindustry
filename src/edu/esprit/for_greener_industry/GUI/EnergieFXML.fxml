@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="761.0" prefWidth="974.0" style="-fx-background-color: #D7DBDD;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.for_greener_industry.GUI.EnergieFXMLController">
+   <children>
+      <Button fx:id="FXEnergie_ajouter" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" text="Ajouter" />
+      <TableView fx:id="FXEnergie_table" layoutX="14.0" layoutY="79.0" prefHeight="604.0" prefWidth="590.0">
+        <columns>
+          <TableColumn fx:id="FXEnergie_colid" prefWidth="75.0" text="id" visible="false" />
+          <TableColumn fx:id="FXEnergie_coltype" prefWidth="191.0" text="Type Energie" />
+            <TableColumn fx:id="FXEnergie_clopol" minWidth="5.0" prefWidth="196.0" text="Pollution par kw" />
+            <TableColumn fx:id="FXEnergie_clomod" minWidth="5.0" prefWidth="84.0" text="Modifier" />
+            <TableColumn fx:id="FXEnergie_clodel" minWidth="5.0" prefWidth="116.0" text="Supprimer" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
