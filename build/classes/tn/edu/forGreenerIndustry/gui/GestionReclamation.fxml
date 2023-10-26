@@ -58,7 +58,7 @@
               </columns>
             </TableView>
             <Button layoutX="1157.0" layoutY="518.0" mnemonicParsing="false" onAction="#goAjouter" prefHeight="31.0" prefWidth="132.0" style="-fx-background-color: B0E57C;" text="Ajouter" />
-            <Button layoutX="1157.0" layoutY="571.0" mnemonicParsing="false" onAction="#goModifeir" prefHeight="31.0" prefWidth="132.0" style="-fx-background-color: B0E57C;" text="Modifier" />
+            <Button layoutX="1157.0" layoutY="571.0" mnemonicParsing="false" onAction="#goModifier" prefHeight="31.0" prefWidth="132.0" style="-fx-background-color: B0E57C;" text="Modifier" />
             <Button layoutX="1157.0" layoutY="624.0" mnemonicParsing="false" onAction="#goSupprimer" prefHeight="31.0" prefWidth="132.0" style="-fx-background-color: B0E57C;" text="Supprimer" />
             <Button fx:id="repondrec" layoutX="1127.0" layoutY="353.0" mnemonicParsing="false" onAction="#ChangerStatus" prefHeight="31.0" prefWidth="191.0" style="-fx-background-color: B0E57C B0E57C;" text="Repondre" />
             <TextField fx:id="searchRec" layoutX="618.0" layoutY="231.0" prefHeight="26.0" prefWidth="432.0" style="-fx-background-color: #F8F8FF;" />

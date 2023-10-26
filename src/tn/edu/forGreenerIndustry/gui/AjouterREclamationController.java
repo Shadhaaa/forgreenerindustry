@@ -127,6 +127,23 @@ public class AjouterREclamationController implements Initializable {
 
     private void saveREclamation(ActionEvent event) throws IOException {
         init();
+        
+            LocalDateTime now = LocalDateTime.now();
+                Date d2 = new Date(2023, 1, 1);
+                Date d1 = new Date(now.getYear() - 1901, now.getMonthValue() + 1, now.getDayOfMonth());
+
+        
+        Rcl.setIdReclamation(rand);
+                Rcl.setNom(NomRec.getText());
+                Rcl.setPrenom(prenomRec.getText());
+                Rcl.setEmail(EmailRec.getText());
+                Rcl.setScreenshot("image");
+                Rcl.setNumero_mobile(TelRec.getText());
+                Rcl.setDate_creation(d1);
+                Rcl.setDate_traitement(d2);
+                Rcl.setDescription(DescRec.getText());
+                Rcl.setStatus("En Attend");
+                Rcl.setNomServcie(ServicereclameSel.getValue());
 
         int x = 0;
         try {
@@ -136,6 +153,13 @@ public class AjouterREclamationController implements Initializable {
             ErrTel.setText(" numero invalide");
             x = 1;
         }
+        
+         boolean isClean = isDescriptionClean(Rcl.getDescription());
+
+                if (!isClean) {
+                    ErrDesc.setVisible(true);
+                    ErrDesc.setText("le champ Contient un discours d'haine");
+                }
 
         if (NomRec.getText().isEmpty()) {
             ErrNom.setVisible(true);
@@ -185,21 +209,9 @@ public class AjouterREclamationController implements Initializable {
         if (x == 0) {
             // Continue with the save logic
             if (x == 0) {
-                LocalDateTime now = LocalDateTime.now();
-                Date d2 = new Date(2023, 1, 1);
-                Date d1 = new Date(now.getYear() - 1901, now.getMonthValue() + 1, now.getDayOfMonth());
-
-                Rcl.setIdReclamation(rand);
-                Rcl.setNom(NomRec.getText());
-                Rcl.setPrenom(prenomRec.getText());
-                Rcl.setEmail(EmailRec.getText());
-                Rcl.setScreenshot("image");
-                Rcl.setNumero_mobile(TelRec.getText());
-                Rcl.setDate_creation(d1);
-                Rcl.setDate_traitement(d2);
-                Rcl.setDescription(DescRec.getText());
-                Rcl.setStatus("En Attend");
-                Rcl.setNomServcie(ServicereclameSel.getValue());
+            
+                
+               
 
                 int descrlet = DescRec.getText().length();
 
@@ -309,7 +321,7 @@ public class AjouterREclamationController implements Initializable {
     private boolean isDescriptionClean(String description) {
         List<String> forbiddenWords = Arrays.asList("fuck", "mot2", "expression1", "expression2");
         for (String word : forbiddenWords) {
-            if (description.toLowerCase().contains(word.toLowerCase())) {
+            if (description.contains(word)) {
                 return false; // La description contient un mot interdit
             }
         }

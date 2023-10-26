@@ -44,6 +44,8 @@ import tn.edu.forGreenerIndustry.services.ServiceReclamation;
 import tn.edu.forGreenerIndustry.tools.DataSource;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
+import java.util.Comparator;
+import java.util.stream.Collectors;
 
 /**
  * FXML Controller class
@@ -108,7 +110,13 @@ public class GestionReclamationController implements Initializable {
         priorityRec1.setCellValueFactory(new PropertyValueFactory<String, String>("priority"));
 
         ObservableList<Reclamation> reclamationList = FXCollections.observableArrayList();
-        reclamationList.addAll(serviceReclamation.getAll());
+        reclamationList.addAll(serviceReclamation.getAll().stream()
+                .sorted((o1, o2) -> {
+                    // Compare o1 and o2 based on your sorting criteria
+                    // For example, if you want to sort by priority (assuming priority is a String):
+                    return o1.getPriority().compareTo(o2.getPriority());
+                })
+                .collect(Collectors.toList()));
         tabReclamation.setItems(reclamationList);
 
         FilteredList<Reclamation> filteredData = new FilteredList<>(reclamationList, p -> true);
@@ -125,6 +133,7 @@ public class GestionReclamationController implements Initializable {
                 }
                 return false;
             });
+
         });
 
         SortedList<Reclamation> sortedData = new SortedList<>(filteredData);
@@ -145,12 +154,10 @@ public class GestionReclamationController implements Initializable {
     }
 
     @FXML
-    private void goModifeir(ActionEvent event) throws IOException {
+    private void goModifier(ActionEvent event) throws IOException {
         try {
             Main.rec = tabReclamation.getSelectionModel().getSelectedItem();
             if (Main.rec != null) {
-                System.out.println("Reclamation sélectionnée : " + Main.rec.getIdReclamation);
-
                 searchRec.getScene().getWindow().hide();
                 Parent root = FXMLLoader.load(getClass().getResource("ModifierReclamation.fxml"));
                 Stage mainStage = new Stage();
@@ -158,11 +165,10 @@ public class GestionReclamationController implements Initializable {
                 mainStage.setScene(scene);
                 mainStage.show();
             } else {
-                System.out.println("Aucune Réclamation sélectionnée");
                 ErrSel.setText("Aucune Réclamation Sélectionnée");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+
         }
     }
 
