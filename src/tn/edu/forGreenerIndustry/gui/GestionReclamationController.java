@@ -110,13 +110,13 @@ public class GestionReclamationController implements Initializable {
         priorityRec1.setCellValueFactory(new PropertyValueFactory<String, String>("priority"));
 
         ObservableList<Reclamation> reclamationList = FXCollections.observableArrayList();
-        reclamationList.addAll(serviceReclamation.getAll().stream()
-                .sorted((o1, o2) -> {
-                    // Compare o1 and o2 based on your sorting criteria
-                    // For example, if you want to sort by priority (assuming priority is a String):
-                    return o1.getPriority().compareTo(o2.getPriority());
-                })
-                .collect(Collectors.toList()));
+       reclamationList.addAll(serviceReclamation.getAll().stream()
+    .sorted((o1, o2) -> {
+        // Compare o1 and o2 based on your sorting criteria
+        // For example, if you want to sort by priority (assuming priority is a String):
+        return o1.getPriority().compareTo(o2.getPriority());
+    })
+    .collect(Collectors.toList()));
         tabReclamation.setItems(reclamationList);
 
         FilteredList<Reclamation> filteredData = new FilteredList<>(reclamationList, p -> true);
@@ -153,7 +153,6 @@ public class GestionReclamationController implements Initializable {
         mainStage.show();
     }
 
-    @FXML
     private void goModifier(ActionEvent event) throws IOException {
         try {
             Main.rec = tabReclamation.getSelectionModel().getSelectedItem();

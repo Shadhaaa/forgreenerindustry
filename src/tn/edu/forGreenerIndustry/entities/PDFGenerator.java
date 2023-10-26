@@ -70,6 +70,7 @@ public class PDFGenerator {
                 document.add(new Paragraph("Nom du Service : " + reclamation.getNomServcie()));
                 document.add(new Paragraph("Description : " + reclamation.getDescription()));
                 document.add(new Paragraph("Status : " + reclamation.getStatus()));
+                document.add(new Paragraph("Priority: " + reclamation.getPriority()));
                 // Vous pouvez ajouter plus d'informations de réclamation ici si nécessaire
                 document.add(new Paragraph("------------------------------------------------------"));
             }

@@ -17,7 +17,7 @@
          <children>
             <Pane layoutX="22.0" prefHeight="751.0" prefWidth="271.0" style="-fx-background-color: #7D3C98;">
                <children>
-                  <Button layoutX="26.0" layoutY="479.0" mnemonicParsing="false" onAction="#goavis" prefHeight="49.0" prefWidth="219.0" style="-fx-background-color: B0E57C;" text="Avis">
+                  <Button layoutX="27.0" layoutY="511.0" mnemonicParsing="false" onAction="#goavis" prefHeight="49.0" prefWidth="219.0" style="-fx-background-color: B0E57C;" text="Avis">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font></Button>
@@ -26,12 +26,12 @@
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Button>
-                  <Button layoutX="19.0" layoutY="648.0" mnemonicParsing="false" onAction="#goUser" prefHeight="41.0" prefWidth="240.0" style="-fx-background-color: #B0E57C;" text="Espace User">
+                  <Button layoutX="16.0" layoutY="675.0" mnemonicParsing="false" onAction="#goUser" prefHeight="41.0" prefWidth="240.0" style="-fx-background-color: #B0E57C;" text="Espace User">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
                   </Button>
-                  <Button layoutX="26.0" layoutY="406.0" mnemonicParsing="false" onAction="#goReponse" prefHeight="49.0" prefWidth="219.0" style="-fx-background-color: B0E57C;" text="Reponse">
+                  <Button layoutX="26.0" layoutY="420.0" mnemonicParsing="false" onAction="#goReponse" prefHeight="49.0" prefWidth="219.0" style="-fx-background-color: B0E57C;" text="Reponse">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
@@ -43,7 +43,7 @@
                   <Font name="Bodoni MT" size="51.0" />
                </font>
             </Label>
-            <TableView fx:id="tabReclamation" layoutX="301.0" layoutY="281.0" prefHeight="456.0" prefWidth="815.0">
+            <TableView fx:id="tabReclamation" layoutX="301.0" layoutY="298.0" prefHeight="439.0" prefWidth="815.0">
               <columns>
                 <TableColumn fx:id="nomRec" prefWidth="51.0" text="nom" />
                   <TableColumn fx:id="prenomRec" prefWidth="60.0" text="prenom" />
@@ -57,17 +57,16 @@
                   <TableColumn fx:id="priorityRec1" prefWidth="60.0" text="priority" />
               </columns>
             </TableView>
-            <Button layoutX="1157.0" layoutY="518.0" mnemonicParsing="false" onAction="#goAjouter" prefHeight="31.0" prefWidth="132.0" style="-fx-background-color: B0E57C;" text="Ajouter" />
-            <Button layoutX="1157.0" layoutY="571.0" mnemonicParsing="false" onAction="#goModifier" prefHeight="31.0" prefWidth="132.0" style="-fx-background-color: B0E57C;" text="Modifier" />
-            <Button layoutX="1157.0" layoutY="624.0" mnemonicParsing="false" onAction="#goSupprimer" prefHeight="31.0" prefWidth="132.0" style="-fx-background-color: B0E57C;" text="Supprimer" />
-            <Button fx:id="repondrec" layoutX="1127.0" layoutY="353.0" mnemonicParsing="false" onAction="#ChangerStatus" prefHeight="31.0" prefWidth="191.0" style="-fx-background-color: B0E57C B0E57C;" text="Repondre" />
+            <Button layoutX="1154.0" layoutY="598.0" mnemonicParsing="false" onAction="#goAjouter" prefHeight="31.0" prefWidth="132.0" style="-fx-background-color: B0E57C;" text="Ajouter" />
+            <Button layoutX="1154.0" layoutY="651.0" mnemonicParsing="false" onAction="#goSupprimer" prefHeight="31.0" prefWidth="132.0" style="-fx-background-color: B0E57C;" text="Supprimer" />
+            <Button fx:id="repondrec" layoutX="1125.0" layoutY="397.0" mnemonicParsing="false" onAction="#ChangerStatus" prefHeight="31.0" prefWidth="191.0" style="-fx-background-color: B0E57C B0E57C;" text="Repondre" />
             <TextField fx:id="searchRec" layoutX="618.0" layoutY="231.0" prefHeight="26.0" prefWidth="432.0" style="-fx-background-color: #F8F8FF;" />
             <Label layoutX="523.0" layoutY="231.0" text="Chercher">
                <font>
                   <Font name="Bodoni MT" size="21.0" />
                </font>
             </Label>
-            <Button layoutX="1143.0" layoutY="420.0" mnemonicParsing="false" onAction="#genererPDF" prefHeight="31.0" prefWidth="159.0" style="-fx-background-color: B0E57C;" text="PDF" />
+            <Button layoutX="1143.0" layoutY="469.0" mnemonicParsing="false" onAction="#genererPDF" prefHeight="31.0" prefWidth="159.0" style="-fx-background-color: B0E57C;" text="PDF" />
 
             <ImageView fitHeight="125.0" fitWidth="132.0" layoutX="1095.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
                <image>

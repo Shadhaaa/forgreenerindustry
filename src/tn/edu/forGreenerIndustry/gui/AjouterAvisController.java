@@ -8,6 +8,7 @@ package tn.edu.forGreenerIndustry.gui;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -44,7 +45,7 @@ public class AjouterAvisController implements Initializable {
 
     @FXML
     private Label ErrText;
-    private Integer[] a = {1, 2, 3, 4};
+    private String[] a = {"Service evenement  ", "Service investissement", "Service Communication", "Service Produit"};
     @FXML
     private RadioButton gr1;
     @FXML
@@ -63,34 +64,31 @@ public class AjouterAvisController implements Initializable {
     @FXML
     private TextArea texttttt;
     @FXML
-    private ComboBox<Integer> Selcser;
-
-   
+    private ComboBox<String> Selcser;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        init();
         Selcser.getItems().addAll(a);
         init();
-        Selcser.getItems().addAll(a);
+
         grating.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
             RadioButton selectedRadioButton = (RadioButton) newValue;
             notte = selectedRadioButton.getText();
             notreat.setText(notte);
         });
         if (gr1.isSelected()) {
-            notte = "Service investissement";
+            notte = "1";
         } else if (gr2.isSelected()) {
-            notte = "Service evenement ";
+            notte = "2 ";
         } else if (gr3.isSelected()) {
-            notte = "service commande";
+            notte = "3";
         } else if (gr4.isSelected()) {
-            notte = "Service Communication";
+            notte = "4";
         } else if (gr5.isSelected()) {
-            notte = "ServiceAvis";
+            notte = "5";
         }
 
         notreat.setText(notte);
@@ -99,24 +97,17 @@ public class AjouterAvisController implements Initializable {
     @FXML
     private void AjouterAvis(ActionEvent event) throws IOException {
         int note = 0;
-        if (gr1.isSelected()) {
-            note = 1;
-        } else if (gr2.isSelected()) {
-            note = 2;
-        } else if (gr3.isSelected()) {
-            note = 3;
-        } else if (gr4.isSelected()) {
-            note = 4;
-        } else if (gr5.isSelected()) {
-            note = 5;
+        RadioButton selectedRadioButton = (RadioButton) grating.getSelectedToggle();
+        if (selectedRadioButton != null) {
+            note = Integer.parseInt(selectedRadioButton.getText());
         }
 
-        if (texttttt.getText().isEmpty() ) {
+        if (texttttt.getText().isEmpty()) {
             ErrText.setVisible(true);
             ErrText.setText("Champ Obligatoire");
         } else {
-            Avis a = new Avis(Main.avis.getIdAvis(),texttttt.getText(),Integer.parseInt(notte), 1);
-            sa.ajouter(avis);
+            Avis a = new Avis(texttttt.getText(), note, Selcser.getValue());
+            sa.ajouter(a);
 
             if ("admin".equals(Main.role)) {
                 navigateToGestionAvis();
@@ -170,5 +161,4 @@ public class AjouterAvisController implements Initializable {
         }
     }
 
-  
 }

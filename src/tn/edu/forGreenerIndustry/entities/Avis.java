@@ -16,33 +16,20 @@ public class Avis {
     private int noteService;
     private String nomService;
 
-    public Avis(String nomService) {
-        this.nomService = nomService;
-    }
-
-    public String getNomService() {
-        return nomService;
-    }
-
-    public void setNomService(String nomService) {
-        this.nomService = nomService;
-    }
-    private int idUser;
-
-    public Avis() {
-    }
-
-    public Avis(int idAvis, String detailAvisService, int noteService, int idUser) {
+    public Avis(int idAvis, String detailAvisService, int noteService, String nomService) {
         this.idAvis = idAvis;
         this.detailAvisService = detailAvisService;
         this.noteService = noteService;
-        this.idUser = idUser;
+        this.nomService = nomService;
     }
 
-    public Avis(String detailAvisService, int noteService, int idUser) {
+    public Avis(String detailAvisService, int noteService, String nomService) {
         this.detailAvisService = detailAvisService;
         this.noteService = noteService;
-        this.idUser = idUser;
+        this.nomService = nomService;
+    }
+
+    public Avis() {
     }
 
     public int getIdAvis() {
@@ -69,17 +56,12 @@ public class Avis {
         this.noteService = noteService;
     }
 
-    public int getIdUser() {
-        return idUser;
+    public String getNomService() {
+        return nomService;
     }
 
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+    public void setNomService(String nomService) {
+        this.nomService = nomService;
     }
-
-    @Override
-    public String toString() {
-        return "Avis{" + "idAvis=" + idAvis + ", detailAvisService=" + detailAvisService + ", noteService=" + noteService + ", , idUser=" + idUser + '}';
-    }
-
+    
 }

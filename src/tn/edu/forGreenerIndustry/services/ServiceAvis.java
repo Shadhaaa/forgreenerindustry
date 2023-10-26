@@ -28,17 +28,38 @@ public class ServiceAvis {
 
     public void ajouter(Avis c) {
         try {
-            String req = "INSERT INTO `avis`(`detailAvisService`, `noteService`, `idUser`,'nomService') VALUES (?,?,?,?)";
+            String req = "INSERT INTO avis(detailAvisService, noteService, nomService) VALUES (?,?,?)";
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setString(1, c.getDetailAvisService());
             ps.setInt(2, c.getNoteService());
-            ps.setInt(3, c.getIdUser());
-            ps.setString(4, c.getNomService());
-            ps.executeUpdate();
+            ps.setString(3, c.getNomService());
 
+            ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+
+    public ObservableList<Avis> getAllAvis() {
+        ObservableList<Avis> avisList = FXCollections.observableArrayList();
+        try {
+            String query = "SELECT * FROM avis";
+            Statement statement = cnx.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                int idAvis = resultSet.getInt("idAvis");
+                String detailAvisService = resultSet.getString("detailAvisService");
+                int noteService = resultSet.getInt("noteService");
+                String nomService = resultSet.getString("nomService");
+
+                Avis avis = new Avis(idAvis, detailAvisService, noteService, nomService);
+                avisList.add(avis);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return avisList;
     }
 
     public void supprimer(int id) {
@@ -51,50 +72,7 @@ public class ServiceAvis {
             System.out.println(ex);
         }
     }
-
-    public ObservableList<Avis> getAll() {
-        String rep = "SELECT * FROM `avis`";
-        ObservableList<Avis> l = FXCollections.observableArrayList();
-        Statement stm;
-        try {
-            stm = this.cnx.createStatement();
-            ResultSet rs = stm.executeQuery(rep);
-
-            while (rs.next()) {
-                Avis m = new Avis();
-                m.setIdAvis(rs.getInt(1));
-                m.setDetailAvisService(rs.getString(2));
-                m.setNoteService(rs.getInt(3));
-                m.setIdUser(rs.getInt(4));
-                m.setNomService(rs.getString(5));
-
-                l.add(m);
-
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        System.out.println(l + "\n");
-        return l;
-    }
-
- 
-
-    public void modifier(Avis m) {
-
-        try {
-            String req = "UPDATE `avis` SET `detailAvisService`=?,`noteService`=?,`id_user`=? WHERE `idAvis` =" + m.getIdAvis();
-            PreparedStatement st = cnx.prepareStatement(req);
-            st.setString(1, m.getDetailAvisService());
-            st.setInt(2, m.getNoteService());
-
-            st.setInt(4, m.getIdUser());
-
-            st.executeUpdate();
-            System.out.println("Avis Modifié avec succés");
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        }
-    }
+    
+    
 
 }

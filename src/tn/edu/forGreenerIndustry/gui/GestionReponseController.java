@@ -88,6 +88,7 @@ public class GestionReponseController implements Initializable {
         textrep.setCellValueFactory(new PropertyValueFactory<Reponse, String>("text"));
         statrep.setCellValueFactory(new PropertyValueFactory<Reponse, String>("status"));
         recrrep.setCellValueFactory(new PropertyValueFactory<Reponse, Integer>("idReclamation"));
+        
 
         tabreponse.setItems(list);
 
