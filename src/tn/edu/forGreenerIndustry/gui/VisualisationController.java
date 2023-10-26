@@ -134,7 +134,7 @@ public class VisualisationController implements Initializable {
 
             // Adjust the size of the chart based on the number of data points
             double scaleFactor = Math.max(1.0, pieChartData.size() / 5.0); // Adjust as needed
-            ChartP.setPrefSize(400, 400);
+            ChartP.setPrefSize(600, 600);
         }
 
     @FXML

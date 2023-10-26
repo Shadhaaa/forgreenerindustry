@@ -212,7 +212,7 @@ public class GestionReclamationController implements Initializable {
         mainStage.setScene(scene);
         mainStage.show();
     }
-
+@FXML
     private void goReponse(ActionEvent event) throws IOException {
         searchRec.getScene().getWindow().hide();
         Parent root = FXMLLoader.load(getClass().getResource("GestionReponse.fxml"));
