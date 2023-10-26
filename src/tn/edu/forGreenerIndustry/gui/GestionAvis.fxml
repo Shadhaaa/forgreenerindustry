@@ -25,7 +25,7 @@
                      </image>
                   </ImageView>
                </children></Pane>
-            <Label layoutX="336.0" layoutY="26.0" prefHeight="54.0" prefWidth="234.0" text="List des Avis">
+            <Label layoutX="302.0" layoutY="31.0" prefHeight="54.0" prefWidth="234.0" text="List des Avis">
                <font>
                   <Font name="Bodoni MT" size="39.0" />
                </font>
@@ -37,14 +37,19 @@
                   <TableColumn fx:id="ServiceAvis" prefWidth="160.0" text="Service" />
               </columns>
             </TableView>
-            <Button layoutX="972.0" layoutY="272.0" mnemonicParsing="false" onAction="#ajouterAvis" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: B0E57C;" text="Ajouter" />
-            <Button layoutX="972.0" layoutY="341.0" mnemonicParsing="false" onAction="#SuppAvis" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: B0E57C;" text="Supprimer" />
+            <Button layoutX="974.0" layoutY="467.0" mnemonicParsing="false" onAction="#SuppAvis" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: B0E57C;" text="Supprimer" />
             <TextField fx:id="searchavis" layoutX="399.0" layoutY="136.0" prefHeight="1.0" prefWidth="506.0" style="-fx-background-color: #F8F8FF;" />
             <Label layoutX="282.0" layoutY="136.0" text="Chercher">
                <font>
                   <Font name="Bodoni MT" size="21.0" />
                </font>
             </Label>
+            <Label fx:id="bestServiceLabel" layoutX="663.0" layoutY="58.0" prefHeight="44.0" prefWidth="358.0" style="-fx-border-color: #7D3C98;" text="Label" />
+            <ImageView fitHeight="70.0" fitWidth="97.0" layoutX="1027.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@btt.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>

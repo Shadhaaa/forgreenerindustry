@@ -207,7 +207,7 @@ public class AjouterREclamationController implements Initializable {
         }
 
         if (x == 0) {
-            // Continue with the save logic
+            
             if (x == 0) {
             
                 
@@ -237,7 +237,7 @@ public class AjouterREclamationController implements Initializable {
                 MailService mailService = new MailService();
                 mailService.sendEmail(to, subject, body);
 
-                if (Main.role.equals("admin")) { // Change to .equals for string comparison
+                if (Main.role.equals("admin")) { 
                     DescRec.getScene().getWindow().hide();
                     Parent root = FXMLLoader.load(getClass().getResource("GestionReclamation.fxml"));
                     Stage mainStage = new Stage();

@@ -4,15 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/SYRINE/OneDrive/Bureau/finale/GestionReclamation/src/tn/edu/forGreenerIndustry/gui/GestionReclamationController.java</file>
-            <file>file:/C:/Users/SYRINE/OneDrive/Bureau/finale/GestionReclamation/src/tn/edu/forGreenerIndustry/services/ServiceAvis.java</file>
-            <file>file:/C:/Users/SYRINE/OneDrive/Bureau/finale/GestionReclamation/src/tn/edu/forGreenerIndustry/gui/GestionReponseController.java</file>
-            <file>file:/C:/Users/SYRINE/OneDrive/Bureau/finale/GestionReclamation/src/tn/edu/forGreenerIndustry/gui/AjouterAvisController.java</file>
-            <file>file:/C:/Users/SYRINE/OneDrive/Bureau/finale/GestionReclamation/src/tn/edu/forGreenerIndustry/gui/ModifeirAvisController.java</file>
-            <file>file:/C:/Users/SYRINE/OneDrive/Bureau/finale/GestionReclamation/src/tn/edu/forGreenerIndustry/entities/Avis.java</file>
-            <file>file:/C:/Users/SYRINE/OneDrive/Bureau/finale/GestionReclamation/src/tn/edu/forGreenerIndustry/entities/PDFGenerator.java</file>
-            <file>file:/C:/Users/SYRINE/OneDrive/Bureau/finale/GestionReclamation/src/tn/edu/forGreenerIndustry/gui/StatusReclamationController.java</file>
             <file>file:/C:/Users/SYRINE/OneDrive/Bureau/finale/GestionReclamation/src/tn/edu/forGreenerIndustry/gui/GestionAvisController.java</file>
-            <file>file:/C:/Users/SYRINE/OneDrive/Bureau/finale/GestionReclamation/src/tn/edu/forGreenerIndustry/entities/Reponse.java</file>
         </group>
     </open-files>
 </project-private>

@@ -7,8 +7,11 @@ package tn.edu.forGreenerIndustry.gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +27,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import tn.edu.forGreenerIndustry.entities.Avis;
 import tn.edu.forGreenerIndustry.services.ServiceAvis;
+import tn.edu.forGreenerIndustry.tools.DataSource;
 import tn.edu.forGreenerIndustry.tools.DataSource;
 
 /**
@@ -45,12 +49,13 @@ public class GestionAvisController implements Initializable {
     private TextField searchavis;
 
     private Label ErrSel;
-
     private ServiceAvis serviceAvis = new ServiceAvis(DataSource.getInstance().getConnection());
 
-    /**
-     * Initializes the controller class.
-     */
+    // Create a FilteredList to store filtered items
+    private FilteredList<Avis> filteredAvisList;
+    @FXML
+    private Label bestServiceLabel;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // Initialize TableView columns
@@ -60,7 +65,47 @@ public class GestionAvisController implements Initializable {
 
         // Retrieve data and set it in the TableView
         ObservableList<Avis> avisList = serviceAvis.getAllAvis();
-        tabAvis.setItems(avisList);
+        filteredAvisList = new FilteredList<>(avisList, p -> true);
+        tabAvis.setItems(filteredAvisList);
+
+        // Bind the TextField to the FilteredList
+        searchavis.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredAvisList.setPredicate(avis -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true; // Show all items when the TextField is empty
+                }
+
+                // Check if "nomService" contains the search query (case-insensitive)
+                return avis.getNomService().toLowerCase().contains(newValue.toLowerCase());
+            });
+        });
+
+        // Calculate the best service and set it in the label
+        String bestService = calculateBestService(avisList);
+        bestServiceLabel.setText("Meilleur Service: " + bestService);
+    }
+
+// Add this method to calculate the best service
+    private String calculateBestService(ObservableList<Avis> avisList) {
+        Map<String, Integer> serviceTotalNotes = new HashMap<>();
+
+        for (Avis avis : avisList) {
+            String nomService = avis.getNomService();
+            int noteService = avis.getNoteService();
+
+            serviceTotalNotes.put(nomService, serviceTotalNotes.getOrDefault(nomService, 0) + noteService);
+        }
+
+        String bestService = "";
+        int highestNote = Integer.MIN_VALUE;
+        for (Map.Entry<String, Integer> entry : serviceTotalNotes.entrySet()) {
+            if (entry.getValue() > highestNote) {
+                highestNote = entry.getValue();
+                bestService = entry.getKey();
+            }
+        }
+
+        return bestService;
     }
 
     @FXML
@@ -77,7 +122,6 @@ public class GestionAvisController implements Initializable {
     private void acualiser(ActionEvent event) {
     }
 
-    @FXML
     private void ajouterAvis(ActionEvent event) throws IOException {
         Main.role = "admin";
         searchavis.getScene().getWindow().hide();
@@ -87,7 +131,6 @@ public class GestionAvisController implements Initializable {
         mainStage.setScene(scene);
         mainStage.show();
     }
-
 
     @FXML
     private void SuppAvis(ActionEvent event) {
@@ -107,6 +150,5 @@ public class GestionAvisController implements Initializable {
         } catch (Exception e) {
         }
     }
-
 
 }
